@@ -1,0 +1,1149 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OTP Verification for Gravity Forms\n"
+"POT-Creation-Date: 2025-03-19 20:57+0330\n"
+"PO-Revision-Date: 2025-03-19 21:03+0330\n"
+"Last-Translator: Amirhossein Hosseinpour <its@amirhp.com>\n"
+"Language-Team: Amirhossein Hosseinpour <its@amirhp.com>\n"
+"Language: fa_IR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n==0 || n==1);\n"
+"X-Generator: Poedit 3.4.2\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-Flags-xgettext: --add-comments=translators:\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-WPHeader: gravity-otp-verification.php\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+
+#: gravity-otp-verification.php:80
+msgid "Please wait ..."
+msgstr "لطفاً منتظر بمانید ..."
+
+#: gravity-otp-verification.php:81 include/admin-gf-otp.php:57
+msgid "Send Code"
+msgstr "ارسال کد"
+
+#: gravity-otp-verification.php:82
+msgid "Resend Code"
+msgstr "ارسال مجدد"
+
+#: gravity-otp-verification.php:83
+#, php-format
+msgid "Wait %d Sec."
+msgstr "ارسال تا %d ثانیه."
+
+#: gravity-otp-verification.php:84
+msgid "Mobile field not found. Please check the Mobile Field ID setting."
+msgstr "فیلد موبایل یافت نشد. از تنظیمات گراویتی فرم بررسی کنید."
+
+#: gravity-otp-verification.php:85
+msgid "Please enter a mobile number."
+msgstr "لطفا شماره موبایل معتبر وارد کنید."
+
+#: gravity-otp-verification.php:95 gravity-otp-verification.php:98
+#: gravity-otp-verification.php:100 gravity-otp-verification.php:781
+msgid "Please enter a valid mobile number."
+msgstr "لطفا شماره موبایل معتبر وارد کنید."
+
+#: gravity-otp-verification.php:109 gravity-otp-verification.php:111
+msgid "Unknown error occured."
+msgstr "خطای ناشناخته رخ داد."
+
+#: gravity-otp-verification.php:120 gravity-otp-verification.php:830
+#, php-format
+msgid "Too many failed attempts. Locked for %s minutes."
+msgstr "تلاش های ناموفق زیاد. شماره موبایل برای %s دقیقه قفل شد."
+
+#: gravity-otp-verification.php:368
+msgctxt "sms-error"
+msgid "SMS Provider credentials is not filled completely."
+msgstr "اطلاعات سامانه پیامک به درستی وارد نشده است."
+
+#: gravity-otp-verification.php:581
+msgid "Gravity OTP"
+msgstr "تایید گراویتی"
+
+#: gravity-otp-verification.php:582
+#, php-format
+msgid "OTP Code sent to mobile <strong>%s</strong> successfully."
+msgstr "کد یکبارمصرف به <strong>%s</strong> ارسال شد."
+
+#: gravity-otp-verification.php:583
+#, php-format
+msgid "Could not send OTP Code to <strong>%s</strong>, Try again."
+msgstr "متاسفانه خطا در ارسال کد به <strong>%s</strong> رخ داد."
+
+#: gravity-otp-verification.php:745
+msgid "No mobile field attached to OTP field."
+msgstr ""
+"فیلد موبایلی به فیلد کد یکبارمصرف متصل نشده. از بخش تنظیمات ادمین تغییر دهید."
+
+#: gravity-otp-verification.php:757
+msgid "Mobile number is required."
+msgstr "پر کردن فیلد موبایل ضروری است."
+
+#: gravity-otp-verification.php:770
+msgid "Mobile number can only contain numbers, + or -."
+msgstr "فیلد موبایل فقط میتواند شامل اعداد و + شود."
+
+#: gravity-otp-verification.php:800
+msgid "Please fill in the OTP."
+msgstr "لطفا کد یکبارمصرف را وارد کنید."
+
+#: gravity-otp-verification.php:815
+msgid "OTP has been sent to your mobile. Please enter it."
+msgstr "کد یکبارمصرف ارسال شد. لطفا آن را وارد کنید."
+
+#: gravity-otp-verification.php:832
+msgid "Invalid OTP. Please try again."
+msgstr "کد یکبارمصرف اشتباه است. مجدد تلاش کنید."
+
+#: gravity-otp-verification.php:849
+msgid "Settings"
+msgstr "تنظیمات"
+
+#: gravity-otp-verification.php:868
+#, php-format
+msgid "ID #%s [deleted-user]"
+msgstr "کاربر حذف شده شناسه #%s"
+
+#: gravity-otp-verification.php:876
+#, php-format
+msgid ""
+"<strong>Gravity Forms</strong> is required for the <strong>Mobile OTP "
+"Verification for Gravity Forms</strong> plugin to work. Please install and "
+"activate %s."
+msgstr ""
+"برای استفاده از <strong>افزونه تایید کد گرویتی</strong> نیاز دارید افزونه "
+"گرویتی فرم نصب و فعال باشد. لطفا %s را نصب کنید."
+
+#: gravity-otp-verification.php:877
+msgid "Gravity Forms"
+msgstr "گراویتی فرم"
+
+#: gravity-otp-verification.php:930
+msgid "SMS Log"
+msgstr "پیامک های ارسالی"
+
+#: gravity-otp-verification.php:947 include/admin-page-log.php:39
+#: include/admin-page-log.php:53
+msgid "ID"
+msgstr "شناسه"
+
+#: gravity-otp-verification.php:955
+msgid "Previous"
+msgstr "قبلی"
+
+#: gravity-otp-verification.php:956
+msgid "Next"
+msgstr "بعدی"
+
+#: gravity-otp-verification.php:958
+msgid "Database is empty!"
+msgstr "دیتابیس خالی است!"
+
+#: gravity-otp-verification.php:958
+msgid ""
+"It seems there's nothing to show. please check your log setting and use the "
+"app to generate some logs."
+msgstr "به نظر میرسد چیزی برای نمایش یافت نشد."
+
+#: gravity-otp-verification.php:984
+msgid "Active Filters:"
+msgstr "فیلتر های فعال:"
+
+#: gravity-otp-verification.php:1029
+msgid "Items per page"
+msgstr "تعداد در صفحه"
+
+#: gravity-otp-verification.php:1030 gravity-otp-verification.php:1031
+#: gravity-otp-verification.php:1032 gravity-otp-verification.php:1033
+#: gravity-otp-verification.php:1034 gravity-otp-verification.php:1035
+#: gravity-otp-verification.php:1036 gravity-otp-verification.php:1037
+#: gravity-otp-verification.php:1038 gravity-otp-verification.php:1039
+#: gravity-otp-verification.php:1040
+#, php-format
+msgctxt "items_per_page"
+msgid "Show %s items per page"
+msgstr "نمایش %s مورد در صفحه"
+
+#: gravity-otp-verification.php:1042
+#, php-format
+msgid "Show all %s items at once"
+msgstr "نمایش تمامی %s مورد"
+
+#: gravity-otp-verification.php:1042
+msgid "Show the only found data"
+msgstr "نمایش تنها مورد یافت شده"
+
+#: gravity-otp-verification.php:1047
+#, php-format
+msgid ", Search result: %d"
+msgid_plural ", Search results: %d"
+msgstr[0] "، نتایج جستجو: %d"
+msgstr[1] "، نتایج جستجو: %d"
+
+#: gravity-otp-verification.php:1055
+msgid "Advanced Search in Database"
+msgstr "جستجوی پیشرفته"
+
+#: gravity-otp-verification.php:1069
+msgid "Exact Match: "
+msgstr "تطابق کامل: "
+
+#: gravity-otp-verification.php:1070
+msgid "Query Relation: "
+msgstr "نوع ارتباط: "
+
+#: gravity-otp-verification.php:1071
+msgid "Search now"
+msgstr "جستجو کن"
+
+#: gravity-otp-verification.php:1075
+msgid "Close search"
+msgstr "بستن جستجو"
+
+#: gravity-otp-verification.php:1076
+msgid "Clear search"
+msgstr "پاک کردن جستجو"
+
+#: gravity-otp-verification.php:1087
+#, php-format
+msgid "Only %s Record indexed"
+msgid_plural "%s Records indexed"
+msgstr[0] "تعداد %s رکورد در دیتابیس یافت شد"
+msgstr[1] "تنها %s رکورد در دیتابیس یافت شد"
+
+#: gravity-otp-verification.php:1258
+msgctxt "translate-js"
+msgid "Select image file"
+msgstr "انتخاب فایل تصویر"
+
+#: gravity-otp-verification.php:1259
+msgctxt "translate-js"
+msgid "Use this image"
+msgstr "استفاده از این عکس"
+
+#: gravity-otp-verification.php:1260
+msgctxt "translate-js"
+msgid "Clear"
+msgstr "پاک کردن"
+
+#: gravity-otp-verification.php:1261
+msgctxt "translate-js"
+msgid "Current preview"
+msgstr "پیش نمایش فعلی"
+
+#: gravity-otp-verification.php:1262
+msgctxt "translate-js"
+msgid "Select image"
+msgstr "انتخاب عکس"
+
+#: gravity-otp-verification.php:1263
+msgctxt "js-string"
+msgid "Submit"
+msgstr "ثبت"
+
+#: gravity-otp-verification.php:1264
+msgctxt "js-string"
+msgid "Today"
+msgstr "امروز"
+
+#: gravity-otp-verification.php:1265
+msgctxt "translate-js"
+msgid "Error"
+msgstr "خطا"
+
+#: gravity-otp-verification.php:1266
+msgctxt "translate-js"
+msgid "Canceled"
+msgstr "لغو شد"
+
+#: gravity-otp-verification.php:1267
+msgctxt "translate-js"
+msgid "Confirm"
+msgstr "تایید"
+
+#: gravity-otp-verification.php:1268
+msgctxt "translate-js"
+msgid "Please wait ..."
+msgstr "لطفاً منتظر بمانید ..."
+
+#: gravity-otp-verification.php:1269
+msgctxt "translate-js"
+msgid "Set to Pending"
+msgstr "درحال انجام"
+
+#: gravity-otp-verification.php:1270
+msgctxt "translate-js"
+msgid "Set to Approved"
+msgstr "تایید شده"
+
+#: gravity-otp-verification.php:1271
+msgctxt "translate-js"
+msgid "Set to Rejected"
+msgstr "رد شده"
+
+#: gravity-otp-verification.php:1272
+msgctxt "translate-js"
+msgid "Success"
+msgstr "عملیات موفق بود"
+
+#: gravity-otp-verification.php:1273
+msgctxt "translate-js"
+msgid "Submit"
+msgstr "ثبت"
+
+#: gravity-otp-verification.php:1274
+msgctxt "translate-js"
+msgid "Okay"
+msgstr "باشه"
+
+#: gravity-otp-verification.php:1275
+msgctxt "translate-js"
+msgid "Yes"
+msgstr "بله"
+
+#: gravity-otp-verification.php:1276
+msgctxt "translate-js"
+msgid "No"
+msgstr "خیر"
+
+#: gravity-otp-verification.php:1277 gravity-otp-verification.php:1280
+msgctxt "translate-js"
+msgid "Cancel"
+msgstr "انصراف"
+
+#: gravity-otp-verification.php:1278
+msgctxt "translate-js"
+msgid "Successfully copied to clipboard!"
+msgstr "با موفقیت به کلیپبرد کپی شد!"
+
+#: gravity-otp-verification.php:1279
+msgctxt "translate-js"
+msgid "No Selection!"
+msgstr "چیزی انتخاب نشده!"
+
+#: gravity-otp-verification.php:1281
+msgctxt "translate-js"
+msgid "Edit Entry"
+msgstr "ویرایش"
+
+#: gravity-otp-verification.php:1282
+msgctxt "translate-js"
+msgid "Add New Entry"
+msgstr "اضافه کردن جدید"
+
+#: gravity-otp-verification.php:1283
+msgctxt "translate-js"
+msgid "Send to all"
+msgstr "ارسال به لیست"
+
+#: gravity-otp-verification.php:1284
+msgctxt "translate-js"
+msgid "Close"
+msgstr "بستن"
+
+#: gravity-otp-verification.php:1285
+msgctxt "translate-js"
+msgid "Reload page"
+msgstr "نوسازی صفحه"
+
+#: gravity-otp-verification.php:1286
+msgctxt "translate-js"
+msgid "Delete Confirmation"
+msgstr "تایید حذف"
+
+#: gravity-otp-verification.php:1287
+msgctxt "translate-js"
+msgid ""
+"Unfortunately we encountered a technical problem, for more information check "
+"console"
+msgstr ""
+"متاسفانه با یک مشکل فنی مواجه شدیم، برای اطلاعات بیشتر کنسول را بررسی کنید"
+
+#: gravity-otp-verification.php:1288
+#, php-format
+msgctxt "translate-js"
+msgid ""
+"Are you sure you want to delete items <u><strong>ID #%s</strong></u> ? "
+"<red>THIS CANNOT BE UNDONE."
+msgstr ""
+"آیا مطمئن هستید میخواهید مورد <u><strong>ID #%s</strong></u> را حذف کنید؟‫"
+"<red>این عملیات قابل بازگشت نیست."
+
+#: gravity-otp-verification.php:1289
+msgctxt "translate-js"
+msgid ""
+"Are you sure you want to clear all data from database? <red>THIS CANNOT BE "
+"UNDONE."
+msgstr ""
+"آیا مطمئن هستید میخواهید تمامی رکوردها و داده های دیتابیس را حذف کنید؟"
+"<red>این عملیات قابل بازگشت نیست."
+
+#: gravity-otp-verification.php:1290
+msgctxt "translate-js"
+msgid ""
+"Are you sure you want to clear all saved settings and revert to default? "
+"<red>THIS CANNOT BE UNDONE."
+msgstr ""
+"آیا مطمئن هستید میخواهید تمامی تنظیمات را پاک کرده و به پیشفرض تغییر دهید؟"
+"<red>این عملیات قابل بازگشت نیست."
+
+#: gravity-otp-verification.php:1291
+msgctxt "translate-js"
+msgid "Clear Database"
+msgstr "پاکسازی دیتابیس"
+
+#: gravity-otp-verification.php:1292
+msgctxt "translate-js"
+msgid "Reset Settings"
+msgstr "بازنشانی تنظیمات"
+
+#: gravity-otp-verification.php:1293
+msgctxt "translate-js"
+msgid "Fix & Re-Create Database"
+msgstr "تعمیر دیتابیس"
+
+#: gravity-otp-verification.php:1294
+msgctxt "translate-js"
+msgid "Are you sure you want to re-create and fix database?"
+msgstr "آیا مطمئن هستید میخواهید دیتابیس را تعمیر و بازسازی کنید؟"
+
+#: gravity-otp-verification.php:1295
+msgctxt "translate-js"
+msgid "Select / Upload image"
+msgstr "انتخاب یا آپلود عکس"
+
+#: gravity-otp-verification.php:1296
+#, php-format
+msgctxt "wc-setting-js"
+msgid "Exported via %s"
+msgstr "استخراج شده توسط %s"
+
+#: gravity-otp-verification.php:1298
+#, php-format
+msgctxt "wc-setting-js"
+msgid "Exported at %s @ %s"
+msgstr "استخراج در %s %s"
+
+#: gravity-otp-verification.php:1300
+#, php-format
+msgctxt "wc-setting-js"
+msgid "Exported via %s — Export Date: %s @ %s — Developed by Amirhp.com"
+msgstr "استخراج توسط %s — تاریخ: %s @ %s — توسعه یافته توسط amirhp.com"
+
+#: gravity-otp-verification.php:1302
+msgctxt "data-table"
+msgid "No data available in table"
+msgstr "هیچ داده ای در جدول وجود ندارد"
+
+#: gravity-otp-verification.php:1303
+msgctxt "data-table"
+msgid "Showing _START_ to _END_ of _TOTAL_ entries"
+msgstr "نمایش _START_ تا _END_ از _TOTAL_ رکورد"
+
+#: gravity-otp-verification.php:1304
+msgctxt "data-table"
+msgid "Showing 0 to 0 of 0 entries"
+msgstr "نمایش 0 تا 0 از 0 رکورد"
+
+#: gravity-otp-verification.php:1305
+msgctxt "data-table"
+msgid "(filtered from _MAX_ total entries)"
+msgstr "(فیلتر شده از _MAX_ رکورد)"
+
+#: gravity-otp-verification.php:1306
+msgctxt "data-table"
+msgid "Show _MENU_ entries"
+msgstr "نمایش _MENU_ رکورد"
+
+#: gravity-otp-verification.php:1307
+msgctxt "data-table"
+msgid "Loading..."
+msgstr "در حال بارگزاری ..."
+
+#: gravity-otp-verification.php:1308
+msgctxt "data-table"
+msgid "Processing..."
+msgstr "در حال پردازش ..."
+
+#: gravity-otp-verification.php:1309
+msgctxt "data-table"
+msgid "Search:"
+msgstr "جستجو:"
+
+#: gravity-otp-verification.php:1310
+msgctxt "data-table"
+msgid "No matching records found"
+msgstr "رکوردی با این مشخصات پیدا نشد"
+
+#: gravity-otp-verification.php:1311
+msgctxt "data-table"
+msgid "First"
+msgstr "ابتدا"
+
+#: gravity-otp-verification.php:1312
+msgctxt "data-table"
+msgid "Last"
+msgstr "انتها"
+
+#: gravity-otp-verification.php:1313
+msgctxt "data-table"
+msgid "Next"
+msgstr "بعدی"
+
+#: gravity-otp-verification.php:1314
+msgctxt "data-table"
+msgid "Previous"
+msgstr "قبلی"
+
+#: gravity-otp-verification.php:1315
+msgctxt "data-table"
+msgid ": activate to sort column ascending"
+msgstr ": فعال سازی نمایش به صورت صعودی"
+
+#: gravity-otp-verification.php:1316
+msgctxt "data-table"
+msgid ": activate to sort column descending"
+msgstr ": فعال سازی نمایش به صورت نزولی"
+
+#: gravity-otp-verification.php:1317
+msgctxt "data-table"
+msgid "Copy to clipboard"
+msgstr "کپی به کلیپ‌بورد"
+
+#: gravity-otp-verification.php:1318
+msgctxt "data-table"
+msgid "Print"
+msgstr "چاپ"
+
+#: gravity-otp-verification.php:1319
+msgctxt "data-table"
+msgid "Column visibility"
+msgstr "نمایش ستون"
+
+#: gravity-otp-verification.php:1320
+msgctxt "data-table"
+msgid "Export CSV"
+msgstr "برون بری CSV"
+
+#: gravity-otp-verification.php:1321
+msgctxt "data-table"
+msgid "Export Excel"
+msgstr "استخراج اکسل"
+
+#: gravity-otp-verification.php:1322
+msgctxt "data-table"
+msgid "Export PDF"
+msgstr "استخراج PDF"
+
+#: gravity-otp-verification.php:1323
+msgctxt "data-table"
+msgid "No State Found"
+msgstr "استان یافت نشد"
+
+#: gravity-otp-verification.php:1324
+msgctxt "data-table"
+msgid "Add New Entry"
+msgstr "اضافه کردن جدید"
+
+#: gravity-otp-verification.php:1398
+msgid "Support"
+msgstr "پشتیبانی"
+
+#: gravity-otp-verification.php:1417 gravity-otp-verification.php:1419
+#: gravity-otp-verification.php:1440 gravity-otp-verification.php:1443
+#: gravity-otp-verification.php:1445 gravity-otp-verification.php:1457
+#: gravity-otp-verification.php:1459 gravity-otp-verification.php:1479
+#: gravity-otp-verification.php:1481
+msgid "An unknown error occured."
+msgstr "خطای ناشناخته رخ داد."
+
+#: gravity-otp-verification.php:1431
+msgid "Entry updated successfully. Please reload the page to view the changes."
+msgstr "ویرایش با موفقیت انجام شد برای مشاهده صفحه را رفرش کنید."
+
+#: gravity-otp-verification.php:1432
+msgid "An unknown error occurred during editing item."
+msgstr "یک خطای ناشناخته حین ویرایش رخ داد."
+
+#: gravity-otp-verification.php:1435
+msgid "An unknown error occurred."
+msgstr "یک خطای ناشناخته رخ داد."
+
+#: gravity-otp-verification.php:1449
+msgid "Item successfully deleted"
+msgstr "مورد با موفقیت حذف شد"
+
+#: gravity-otp-verification.php:1451
+msgid "Could not remove item from database."
+msgstr "متاسفانه نمیتوان مورد را از پایگاه داده حذف کرد."
+
+#: gravity-otp-verification.php:1465
+msgid "Items removed successfully."
+msgstr "موارد با موفقیت حذف شدند."
+
+#: gravity-otp-verification.php:1467
+msgid "There was a problem with your request."
+msgstr "مشکلی در پردازش درخواست شما پیش آمد."
+
+#: gravity-otp-verification.php:1473
+msgid "Database successfully re-created and got fixed."
+msgstr "پایگاه داده با موفقیت ساخته/تعمیر شد."
+
+#: gravity-otp-verification.php:1485
+msgid "Database cleared successfully."
+msgstr "پایگاه داده با موفقیت پاک شد."
+
+#: gravity-otp-verification.php:1487
+msgid "Error clearing database!"
+msgstr "خطایی در پاکسازی پایگاه داده رخ داد!"
+
+#: gravity-otp-verification.php:1491 gravity-otp-verification.php:1495
+msgid "Incorrect Data Supplied."
+msgstr "داده‌های نادرست وارد شده‌اند."
+
+#: gravity-otp-verification.php:1508
+msgid "Error Occured"
+msgstr "خطا"
+
+#: gravity-otp-verification.php:1512
+msgid "Successful"
+msgstr "موفق"
+
+#: gravity-otp-verification.php:1515 include/admin-page-log.php:139
+msgid "Unknown"
+msgstr "نامشخص"
+
+#: gravity-otp-verification.php:1518 include/admin-page-log.php:136
+msgid "Pending"
+msgstr "درانتظاربررسی"
+
+#: gravity-otp-verification.php:1521
+msgid "Sending"
+msgstr "در حال ارسال"
+
+#: gravity-otp-verification.php:1524
+msgid "Banned"
+msgstr "بن شده"
+
+#: gravity-otp-verification.php:1527
+msgid "Reached Limit"
+msgstr "سقف محدودیت"
+
+#: gravity-otp-verification.php:1545
+#, php-format
+msgctxt "footer-copyright"
+msgid "%s — Version %s"
+msgstr "%s — نسخه %s"
+
+#. Plugin Name of the plugin/theme
+#: gravity-otp-verification.php:1545
+msgid "OTP Verification for Gravity Forms"
+msgstr "OTP Verification for Gravity Forms"
+
+#: include/admin-gf-otp.php:18
+msgid "Mobile OTP"
+msgstr "وریفای موبایل"
+
+#: include/admin-gf-otp.php:22
+msgid "Allows users to verify their identity with a mobile OTP."
+msgstr "به کاربران اجازه دهید موبایل خود را با پیامک یکبارمصرف تایید کنند."
+
+#: include/admin-gf-otp.php:76
+msgid "Please enter a valid OTP."
+msgstr "لطفا کد یکبامصرف درست را وارد کنید."
+
+#: include/admin-gf-otp.php:160
+msgid "Select a field"
+msgstr "انتخاب فیلد"
+
+#: include/admin-gf-otp.php:185
+msgid "OTP Digits"
+msgstr "تعداد اعداد یکبارمصرف"
+
+#: include/admin-gf-otp.php:196
+msgid "Mobile Field ID"
+msgstr "آیدی فیلد موبایل"
+
+#: include/admin-gf-otp.php:200
+msgid "Loading..."
+msgstr "در حال بارگزاری ..."
+
+#: include/admin-gf-otp.php:203
+msgid "Enter the ID of the field containing the mobile number."
+msgstr "آيدی فیلدی شماره موبایل را وارد کنید."
+
+#: include/admin-gf-otp.php:212
+msgid "Select the number of digits for the OTP code."
+msgstr "انتخاب کنید کد یکبارمصرف چند رقمی باشد."
+
+#: include/admin-gf-otp.php:213
+msgid "Enter the ID of the field that contains the mobile number."
+msgstr "آيدی فیلدی شماره موبایل را وارد کنید."
+
+#: include/admin-page-log.php:17
+msgid "SMS Logs"
+msgstr "لاگ پیامک"
+
+#: include/admin-page-log.php:21
+#, php-format
+msgid "YourIP: %s"
+msgstr "آی‌پی شما: %s"
+
+#: include/admin-page-log.php:24
+msgctxt "setting-general"
+msgid "Add New"
+msgstr "افزودن جدید"
+
+#: include/admin-page-log.php:25
+msgctxt "setting-general"
+msgid "Select All"
+msgstr "انتخاب همه"
+
+#: include/admin-page-log.php:26
+msgctxt "setting-general"
+msgid "Advanced Search"
+msgstr "جستجوی پیشرفته"
+
+#: include/admin-page-log.php:27
+msgctxt "setting-general"
+msgid "Delete Selected"
+msgstr "حذف انتخاب شده‌ها"
+
+#: include/admin-page-log.php:28
+msgctxt "setting-general"
+msgid "Empty Database"
+msgstr "پاک کردن پایگاه داده"
+
+#: include/admin-page-log.php:29
+msgctxt "setting-general"
+msgid "Fix Database Structure"
+msgstr "بازسازی و تعمیر دیتابیس"
+
+#: include/admin-page-log.php:40 include/admin-page-log.php:54
+#: include/admin-page-log.php:55
+msgid "Date created"
+msgstr "تاریخ ثبت"
+
+#: include/admin-page-log.php:41 include/admin-page-log.php:56
+msgid "User"
+msgstr "کاربر"
+
+#: include/admin-page-log.php:42 include/admin-page-log.php:57
+msgid "Mobile"
+msgstr "موبایل"
+
+#: include/admin-page-log.php:43 include/admin-page-log.php:58
+msgid "OTP Code"
+msgstr "کد یکبارمصرف"
+
+#: include/admin-page-log.php:44 include/admin-page-log.php:59
+#: include/admin-page-log.php:135
+msgid "Status"
+msgstr "وضعیت"
+
+#: include/admin-page-log.php:45 include/admin-page-log.php:60
+msgid "Gravity Form"
+msgstr "فرم گرویتی فرم"
+
+#: include/admin-page-log.php:46 include/admin-page-log.php:61
+msgid "Ref. Page"
+msgstr "صفحه"
+
+#: include/admin-page-log.php:47 include/admin-page-log.php:62
+msgid "User Agent"
+msgstr "دستگاه مشتری"
+
+#: include/admin-page-log.php:48 include/admin-page-log.php:63
+msgid "User IP"
+msgstr "آی پی مشتری"
+
+#: include/admin-page-log.php:49 include/admin-page-log.php:64
+msgid "Technical Info"
+msgstr "اطلاعات فنی"
+
+#: include/admin-page-log.php:50 include/admin-page-setting.php:327
+#: include/admin-page-setting.php:371
+msgid "Action"
+msgstr "عملیات"
+
+#: include/admin-page-log.php:70
+msgid "View more"
+msgstr "نمایش بیشتر"
+
+#: include/admin-page-log.php:70
+msgid "more .."
+msgstr "بیشتر ..."
+
+#: include/admin-page-log.php:77
+msgid "Edit User"
+msgstr "ویرایش کاربر"
+
+#: include/admin-page-log.php:78
+msgid "Edit entry"
+msgstr "ویرایش مورد"
+
+#: include/admin-page-log.php:79
+msgid "Delete entry"
+msgstr "حذف مورد"
+
+#: include/admin-page-log.php:86
+msgid "- Guest -"
+msgstr "- مهمان -"
+
+#: include/admin-page-log.php:108
+msgid "View"
+msgstr "مشاهده"
+
+#: include/admin-page-log.php:137
+msgid "Approved"
+msgstr "تایید شده"
+
+#: include/admin-page-log.php:138
+msgid "Rejected"
+msgstr "رد شده"
+
+#: include/admin-page-setting.php:17
+msgid "Setting"
+msgstr "تنظیمات"
+
+#: include/admin-page-setting.php:36
+msgctxt "setting-general"
+msgid "Settings saved successfully."
+msgstr "تنظیمات با موفقیت ذخیره شد."
+
+#: include/admin-page-setting.php:41
+msgid "General"
+msgstr "عمومی"
+
+#: include/admin-page-setting.php:42 include/admin-page-setting.php:324
+msgid "Translate"
+msgstr "ترجمه"
+
+#: include/admin-page-setting.php:43
+msgid "String Replace"
+msgstr "استرینگ ریپلیس"
+
+#: include/admin-page-setting.php:44
+msgid "Documentation"
+msgstr "مستندات"
+
+#: include/admin-page-setting.php:226
+msgid "SMS.ir"
+msgstr "‫SMS.ir"
+
+#: include/admin-page-setting.php:227
+msgid "SMS.ir v2"
+msgstr "SMS.ir v2"
+
+#: include/admin-page-setting.php:228
+msgid "FarazSMS (IPPanel)"
+msgstr "FarazSMS (IPPanel)"
+
+#: include/admin-page-setting.php:234
+msgid "General Configuration"
+msgstr "تنظیمات کلی"
+
+#: include/admin-page-setting.php:237
+msgid "Active Debug Mode"
+msgstr "فعالسازی حالت دیباگ"
+
+#: include/admin-page-setting.php:238
+msgid "Max Failed Attempt"
+msgstr "حداکثر دفعات مجاز خطا"
+
+#: include/admin-page-setting.php:239
+msgid "Mobile Regex"
+msgstr "ریجکس موبایل"
+
+#: include/admin-page-setting.php:239
+#, php-format
+msgid ""
+"Set regex to validate mobile field, leave empty to disable it.<br>For "
+"Iranian Mobile use: %s"
+msgstr ""
+"از این ریجکس برای تایید پترن موبایل استفاده میشود، برای غیرفعالسازی خالی رها "
+"کنید.<br>برای شماره موبایل ایران از این کد استفاده کنید: %s"
+
+#: include/admin-page-setting.php:240
+msgid "Cookie Expiration (Day)"
+msgstr "انقضای کوکی (روز)"
+
+#: include/admin-page-setting.php:241
+msgid "Lockdown Delay (Min.)"
+msgstr "زمان قفل حساب (دقیق)"
+
+#: include/admin-page-setting.php:242
+msgid "Resend Delay (Sec.)"
+msgstr "زمان ارسال مجدد (ثانیه)"
+
+#: include/admin-page-setting.php:243
+msgid "Button: Send Code"
+msgstr "دکمه: ارسال کد"
+
+#: include/admin-page-setting.php:244
+msgid "Button: Resend Code"
+msgstr "دکمه: ارسال مجدد کد"
+
+#: include/admin-page-setting.php:245
+msgid "Button: Wait to Resend"
+msgstr "دکمه: تا ارسال مجدد %d ثانیه"
+
+#: include/admin-page-setting.php:245
+#, php-format
+msgid "Use %d for Second indictor, e.g. Wait %d Seconds."
+msgstr "برای نمایش ثانیه از %d استفاده کنید مثلا تا ارسال مجدد %d ثانیه."
+
+#: include/admin-page-setting.php:246
+msgid "SMS Provider Setting"
+msgstr "تنظیمات درگاه پیامکی"
+
+#: include/admin-page-setting.php:249
+msgid "SMS Gateway"
+msgstr "انتخاب درگاه پیامکی"
+
+#: include/admin-page-setting.php:251
+msgid "Select SMS Provider and fill below fields as guid provided"
+msgstr "درگاه را انتخاب کنید و طبق آموزش زیر فیلد ها را پر کنید"
+
+#. translators: 1: opening anchor tag, 2: close anchor tag
+#: include/admin-page-setting.php:259
+#, php-format
+msgid ""
+"Fill \"Username\" and \"Password\" with <strong>API Key</strong> and "
+"<strong>Security Code</strong> from %1$sSMS.ir Profile%2$s"
+msgstr ""
+"فیلدهای «نام کاربری» و «رمز عبور» را با <strong>کلید API</strong> و "
+"<strong>کد امنیتی</strong> از پروفایل %1$sSMS.ir%2$s پر کنید"
+
+#. translators: 1: opening anchor tag, 2: close anchor tag
+#: include/admin-page-setting.php:262 include/admin-page-setting.php:275
+#, php-format
+msgid ""
+"Set Sender Number to your %1$sPurchased Sender number%2$s e.g."
+"<code>30002101000338</code>"
+msgstr ""
+"سرشماره ارسال را روی %1$sسرشماره خریداری‌شده%2$s خود تنظیم کنید، مانند: "
+"<code>30002101000338</code>"
+
+#: include/admin-page-setting.php:263 include/admin-page-setting.php:277
+#, php-format
+msgid "Set API Server URL as %1$s or get Web-service URL from SMS.ir."
+msgstr ""
+"آدرس سرور API را روی %1$s تنظیم کنید یا آدرس وب‌سرویس را از SMS.ir دریافت "
+"کنید."
+
+#: include/admin-page-setting.php:264 include/admin-page-setting.php:278
+#: include/admin-page-setting.php:290
+msgid ""
+"Write your Message on OTP SMS field using <code>[otp]</code> or <code>{otp}</"
+"code> or <code>%otp%</code> to replace with Actual OTP Code."
+msgstr ""
+"پیام خود را در ‫فیلد متن پیامک‬ با استفاده از <code>[otp]</code> یا <code>{otp}"
+"</code> یا <code>%otp%</code> بنویسید تا با کد OTP واقعی جایگزین شود."
+
+#. translators: 1: opening anchor tag, 2: close anchor tag
+#: include/admin-page-setting.php:267 include/admin-page-setting.php:281
+#, php-format
+msgid ""
+"If you want to send UltraFastSend SMS, %1$sCreate a Template%2$s on SMS.ir "
+"and put <code>#OTP#</code> on it, then enter <code>Template ID</code> on "
+"<strong>OTP SMS</strong> field"
+msgstr ""
+"اگر می‌خواهید پیامک UltraFastSend ارسال کنید، %1$sیک قالب ایجاد کنید%2$s در "
+"SMS.ir و در آن <code>#OTP#</code> قرار دهید، سپس <code>Template ID</code> را "
+"در ‫<strong>فیلد متن پیامک</strong>‬ وارد کنید"
+
+#: include/admin-page-setting.php:272
+#, php-format
+msgid "Fill \"Username\" with <strong>API Key</strong> from %sSMS.ir Profile%s"
+msgstr ""
+"فیلد «نام کاربری» را با <strong>کلید API</strong> از %sپروفایل SMS.ir%s پر "
+"کنید"
+
+#: include/admin-page-setting.php:287
+msgid ""
+"Set API Server URL to <code>ippanel.com</code> or your given panel address, "
+"e.g. <code>sms.farazsms.com</code>"
+msgstr ""
+"آدرس سرور API را روی <code>ippanel.com</code> یا آدرس پنل اختصاصی خود تنظیم "
+"کنید، مانند <code>sms.farazsms.com</code>"
+
+#: include/admin-page-setting.php:288
+msgid ""
+"Set Sender Number to your purchased SMS Sending number or If you are using "
+"<strong>Pattern SMS</strong> use <code>3000505</code>"
+msgstr ""
+"سرشماره ارسال را روی شماره خریداری‌شده خود تنظیم کنید یا اگر از <strong>پیامک "
+"الگوی</strong> استفاده می‌کنید، مقدار <code>3000505</code> را وارد کنید"
+
+#: include/admin-page-setting.php:289
+msgid "Username and Password are your SMS Panel Credentials."
+msgstr "نام کاربری و رمز عبور، همان اطلاعات ورود پنل پیامکی شما هستند."
+
+#: include/admin-page-setting.php:291
+msgid ""
+"If you want to use <strong>Pattern SMS</strong> method , Create a template "
+"on your panel and put <code>%otp%</code> on it, then use following example: "
+msgstr ""
+"اگر می‌خواهید از روش <strong>پیامک پترن</strong> استفاده کنید، یک قالب در پنل "
+"خود ایجاد کرده و <code>%otp%</code> را در آن قرار دهید، سپس از مثال زیر برای "
+"متن پیامک استفاده کنید: "
+
+#: include/admin-page-setting.php:297
+msgid "API Server URL"
+msgstr "آدرس سرور"
+
+#: include/admin-page-setting.php:298
+msgid "Username"
+msgstr "نام کاربری"
+
+#: include/admin-page-setting.php:299
+msgid "Password"
+msgstr "رمز عبور"
+
+#: include/admin-page-setting.php:300
+msgid "Sender number"
+msgstr "سر شماره ارسال"
+
+#: include/admin-page-setting.php:301
+msgid "OTP SMS"
+msgstr "متن پیامک"
+
+#: include/admin-page-setting.php:302
+msgid "Gateway ExtraOtp1"
+msgstr "تنظیمات اضافی۱"
+
+#: include/admin-page-setting.php:303
+msgid "Gateway ExtraOtp2"
+msgstr "تنظیمات اضافی۲"
+
+#: include/admin-page-setting.php:304
+msgid "Gateway ExtraOtp3"
+msgstr "تنظیمات اضافی۳"
+
+#: include/admin-page-setting.php:308
+msgid "Send TEST SMS"
+msgstr "ارسال پیامک تست"
+
+#: include/admin-page-setting.php:310
+msgid "Send Test OTP SMS"
+msgstr "ارسال پیامک تست کد تایید به موبایل دلخواه"
+
+#: include/admin-page-setting.php:318
+msgid "Current plugin textdomain: "
+msgstr "تکست دامین پلاگین فعلی: "
+
+#: include/admin-page-setting.php:323 include/admin-page-setting.php:368
+msgid "Original"
+msgstr "اورجینال"
+
+#: include/admin-page-setting.php:325
+msgid "TextDomain"
+msgstr "تکست دامین"
+
+#: include/admin-page-setting.php:326 include/admin-page-setting.php:370
+msgid "Options"
+msgstr "فیلدهای رادیویی"
+
+#: include/admin-page-setting.php:332 include/admin-page-setting.php:376
+msgid "Original text ..."
+msgstr "متن اصلی …"
+
+#: include/admin-page-setting.php:333 include/admin-page-setting.php:377
+msgid "Translate to ..."
+msgstr "ترجمه به …"
+
+#: include/admin-page-setting.php:334
+msgid "Text Domain (Optional)"
+msgstr "تکست دامین (اختیاری)"
+
+#: include/admin-page-setting.php:336
+msgid "Partial Replace?"
+msgstr "بخشی از متن؟"
+
+#: include/admin-page-setting.php:337
+msgid "Translated Origin?"
+msgstr "قبلا ترجمه شده؟"
+
+#: include/admin-page-setting.php:340 include/admin-page-setting.php:383
+msgid "Delete Row"
+msgstr "حذف ردیف"
+
+#: include/admin-page-setting.php:346 include/admin-page-setting.php:389
+msgid "Add New Row"
+msgstr "افزودن ردیف جدید"
+
+#: include/admin-page-setting.php:352
+msgid "Migrate Translation"
+msgstr "انتقال دیتای ترجمه"
+
+#: include/admin-page-setting.php:357
+msgid "Translation Data"
+msgstr "دیتای ترجمه"
+
+#: include/admin-page-setting.php:369
+msgid "Replace"
+msgstr "ریپلیس"
+
+#: include/admin-page-setting.php:379
+msgid "Green: Replace in Output Buffer | Red: Replace in Content Only"
+msgstr "قرمز: ریپلیس در محتوا / سبز: ریپلیس در تمامی قسمت ها"
+
+#: include/admin-page-setting.php:380
+msgid "Active"
+msgstr "فعال"
+
+#: include/admin-page-setting.php:395
+msgid "Migrate String Replace"
+msgstr "انتقال دیتای ریپلیس استرینگ"
+
+#: include/admin-page-setting.php:400
+msgid "String Replace Data"
+msgstr "دیتای ریپلیس متن"
+
+#: include/admin-page-setting.php:492
+msgid "Save setting"
+msgstr "ذخیره تنظیمات"
+
+#: include/admin-page-setting.php:517 include/admin-page-setting.php:544
+#: include/admin-page-setting.php:593
+#, php-format
+msgctxt "setting-page"
+msgid "Enter %s"
+msgstr "%s را وارد کنید"
+
+#: include/admin-page-setting.php:564
+#, php-format
+msgctxt "setting-page"
+msgid "Choose %s"
+msgstr "%s را انتخاب کنید"
+
+#. Plugin URI of the plugin/theme
+msgid "https://amirhp.com/works/"
+msgstr "https://amirhp.com/works/"
+
+#. Description of the plugin/theme
+msgid ""
+"This plugin ensures secure form submissions by verifying users’ mobile "
+"numbers via OTP before saving"
+msgstr ""
+"This plugin ensures secure form submissions by verifying users’ mobile "
+"numbers via OTP before saving"
+
+#. Author of the plugin/theme
+msgid "BlackSwanDev"
+msgstr "BlackSwanDev"
+
+#. Author URI of the plugin/theme
+msgid "https://blackswandev.com/"
+msgstr "https://blackswandev.com/"

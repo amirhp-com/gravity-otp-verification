@@ -1,0 +1,579 @@
+/*
+ * @Author: Amirhossein Hosseinpour <https://amirhp.com>
+ * @Date Created: 2023/05/13 09:37:05
+ * @Last modified by: amirhp-com <its@amirhp.com>
+ * @Last modified time: 2025/03/31 20:44:03
+ */
+
+@font-face {
+  font-family: bodyfont;
+  font-style: normal;
+  font-weight: 400;
+  src: url("Font-400.woff") format("woff");
+}
+
+@font-face {
+  font-family: bodyfont;
+  font-style: normal;
+  font-weight: normal;
+  src: url("Font-400.woff") format("woff");
+}
+
+@font-face {
+  font-family: bodyfont;
+  font-style: normal;
+  font-weight: 600;
+  src: url("Font-800.woff") format("woff");
+}
+
+@font-face {
+  font-family: bodyfont;
+  font-style: normal;
+  font-weight: bold;
+  src: url("Font-800.woff") format("woff");
+}
+
+.rtl h1,
+.rtl h2,
+.rtl h3,
+.rtl h4,
+.rtl h5,
+.rtl h6,
+.rtl .dataTable,
+[dir="rtl"] .data-table-wrap h3,
+[dir="rtl"] .data-table-wrap h4 {
+  font-family: bodyfont !important;
+}
+
+toast {
+  display: block;
+  background: var(--toast-bg, rgba(0, 0, 0, 0.8));
+  color: #fff;
+  text-align: center;
+  bottom: 0;
+  top: auto;
+  width: 100vw;
+  left: 0;
+  padding: 1rem;
+  box-shadow: 0 2px 11px 0 rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  -moz-backdrop-filter: blur(10px);
+  transform: translateY(110%);
+  position: fixed;
+  z-index: 9999999999999999 !important;
+}
+
+toast:empty {
+  display: none;
+}
+
+toast.active {
+  transform: translateY(0);
+}
+
+[dir="rtl"] .jconfirm-box {
+  font-family: bodyfont !important;
+}
+
+[dir="rtl"] h1.had {
+  font-family: bodyfont !important;
+}
+
+.jconfirm.jconfirm-modern .jconfirm-box .jconfirm-buttons button {
+  min-width: 150px;
+}
+
+.icon-action-square {
+  width: 3rem;
+}
+
+.description:empty {
+  display: none;
+}
+
+.description {
+  font-size: 0.85rem;
+  padding: 4px;
+  color: #6d6c6c;
+  width: 100%;
+}
+
+.item_td__sharp_id label {
+  display: inline-block;
+  width: 100%;
+  font-weight: bold;
+  text-align: start;
+}
+
+.item_td__sharp_id {
+  text-align: left !important;
+}
+
+label {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.param-copy {
+  text-decoration: none;
+  font-size: small;
+  border: 1px solid #ccc;
+  padding: 0.3rem;
+  border-radius: 2px;
+  line-height: 2.5;
+  background: #fafafa;
+}
+
+h1.had .dashicons {
+  margin: -0.5rem;
+  font-size: 2.5rem;
+  -webkit-margin-end: 1.5rem;
+  margin-inline-end: 1.5rem;
+}
+
+red {
+  display: block;
+  background: #db343430;
+  color: black;
+  border-left: 4px solid #db3434;
+  margin-top: 1rem;
+  padding: 5px;
+}
+
+[dir="rtl"] red {
+  border-left: none;
+  border-right: 4px solid #db3434;
+}
+
+.highlight {
+  background-color: yellow;
+  color: #5a5a5a;
+}
+
+tr.highlight,
+tr.highlight+tr.child {
+  background: #ffff0070 !important;
+}
+
+blue {
+  display: block;
+  background: #3498db30;
+  color: black;
+  border-left: 4px solid #3498db;
+  margin-top: 1rem;
+  padding: 5px;
+}
+
+[dir="rtl"] blue {
+  border-left: none;
+  border-right: 4px solid #3498db;
+}
+
+.jconfirm-content {
+  line-height: 2;
+}
+
+.hide {
+  display: none;
+}
+
+.search_form.closed {
+  display: none;
+}
+
+[type="search"] {
+  outline-offset: 0 !important;
+  -webkit-appearance: auto !important;
+}
+
+.dataTables_wrapper .dataTables_filter input {
+  min-width: 320px;
+}
+
+.form-table small {
+  display: block;
+  color: #646464;
+  font-style: italic;
+  line-height: 2;
+  margin: 0.5rem 0 0;
+}
+
+.form-row {
+  position: relative;
+}
+
+.form-input input,
+.form-input select {
+  min-width: 100%;
+}
+
+.disabled {
+  pointer-events: none;
+  cursor: pointer !important;
+}
+
+.jconfirm.jconfirm-modern .jconfirm-box div.jconfirm-content {
+  word-break: break-word;
+}
+
+.form-row.action-row {
+  margin: 1rem 0 -0.4rem;
+}
+
+.data-table-wrap:empty {
+  display: none;
+}
+
+#advanced_search.has-result::after {
+  content: "";
+  display: block;
+  width: 5px;
+  height: 5px;
+  background: #0070ff;
+  position: absolute;
+  right: 3px;
+  top: 3px;
+  border-radius: 100%;
+  box-shadow: 0 0 2px 3px aliceblue;
+}
+
+.pagination:empty {
+  display: none !important;
+}
+
+#search_form form>div.form-filters {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 1rem;
+}
+
+#exported_data td copy {
+  white-space: nowrap;
+  cursor: pointer;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1;
+  margin-top: 0.5rem;
+  background: transparent;
+  border-bottom: 1.5px dashed #000;
+  padding: 5px !important;
+  display: inline-block;
+}
+
+copy.wrap {
+  white-space: pre-wrap;
+  white-space: -moz-pre-wrap;
+  white-space: -pre-wrap;
+  white-space: -o-pre-wrap;
+  word-wrap: break-word;
+}
+
+copy:empty {
+  display: none !important;
+}
+
+hidden {
+  display: none;
+}
+
+td.item_td_log_description {
+  cursor: pointer;
+  overflow: hidden;
+  white-space: nowrap;
+  text-align: center;
+  text-overflow: ellipsis;
+  max-width: 50ch;
+}
+
+.wp-editor-wrap {
+  position: relative;
+  width: 100%;
+}
+
+.item_td__sharp_action>a.button {
+  margin: 2px;
+}
+
+.search_form input[type=checkbox] {
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+  appearance: none !important;
+  -webkit-tap-highlight-color: transparent !important;
+  cursor: pointer !important;
+}
+
+.search_form input[type=checkbox]:focus {
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+.search_form input[type=checkbox] {
+  height: 1.25rem !important;
+  width: 3rem !important;
+  min-width: 1.25rem !important;
+  max-width: 3rem !important;
+  border-radius: 16px !important;
+  display: inline-block !important;
+  position: relative !important;
+  margin: 0 !important;
+  border: none !important;
+  background: #ec4f4f !important;
+}
+
+.search_form input[type=checkbox]:after {
+  content: "" !important;
+  position: absolute !important;
+  top: 4px !important;
+  left: 4px !important;
+  width: 0.8rem !important;
+  height: 0.8rem !important;
+  border-radius: 50% !important;
+  background: white !important;
+  box-shadow: 0 1px 2px rgba(44, 44, 44, 0.2) !important;
+  transition: all 0.2s cubic-bezier(0.5, 0.1, 0.75, 1.35) !important;
+}
+
+.search_form input[type=checkbox]:checked {
+  background: #22be15 !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+.search_form input[type=checkbox]:checked:before {
+  content: "" !important;
+}
+
+.search_form input[type=checkbox]:checked:after {
+  transform: translateX(calc(3rem - 0.8rem - 8px)) !important;
+}
+
+
+.form-input input[type="text"]:focus {
+  box-shadow: none !important;
+  outline: none !important;
+  border-color: #7d8085 !important;
+  background: #e6edff;
+}
+
+#search_form input[type="text"]:valid {
+  background: #e6edff;
+}
+
+.form-row.finalrow {
+  margin: 1rem 0;
+  border-bottom: 1px solid #bababa;
+  padding-bottom: 0.5rem;
+}
+
+table.dataTable span.highlight {
+  background-color: #ffff88;
+  border-radius: 0.28571429rem;
+}
+
+table.dataTable span.column_highlight {
+  background-color: #ffcc99;
+  border-radius: 0.28571429rem;
+}
+
+table.dataTable thead th,
+table.dataTable thead td,
+table.dataTable tfoot th,
+table.dataTable tfoot td {
+  text-align: start;
+}
+
+[dir="rtl"] table.dataTable thead>tr>th::after,
+[dir="rtl"] table.dataTable thead>tr>th::before {
+  left: 10px;
+  right: auto;
+}
+
+.dataTables_wrapper .dataTables_filter input {
+  padding: 0 5px;
+  background-color: white;
+}
+
+.jconfirm-type-dark .jconfirm-content pre[id][style] {
+  line-height: 1 !important;
+  font-family: Consolas, Calibri !important;
+}
+
+.jconfirm-box.jconfirm-type-dark .jconfirm-buttons {
+  padding-bottom: 0 !important;
+}
+
+.jconfirm.jconfirm-modern .jconfirm-box.jconfirm-type-dark {
+  padding: 0 0.5rem 0.5rem 0.5rem;
+}
+
+.jconfirm-box.jconfirm-type-dark div.jconfirm-content-pane,
+.jconfirm-box.jconfirm-type-dark div.jconfirm-content {
+  margin-bottom: 0 !important;
+}
+
+.jconfirm.jconfirm-modern .jconfirm-box {
+  max-width: 90vw;
+}
+
+[dir="rtl"] .woocommerce_page_wc-settings input[type="email"],
+[dir="rtl"] .woocommerce_page_wc-settings input[type="url"] {
+  direction: ltr !important;
+}
+
+
+.item_td__res {
+  cursor: pointer;
+}
+
+.dataTable tr.child td.child,
+.dataTable tr.child td.child ul {
+  text-align: start;
+}
+
+.dataTable tr.child td.child ul {
+  margin: 0 !important;
+  width: calc(100% - 2rem);
+  display: block;
+}
+
+.dataTable tr.child span.dtr-title {
+  min-width: 100px !important;
+  -webkit-margin-end: 1rem;
+  margin-inline-end: 1rem;
+}
+
+.dataTable tr.child td.child ul li {
+  border-bottom: 1px solid #ccc !important;
+  padding: 0.5rem 1rem !important;
+  margin: 0;
+  width: 100%;
+}
+
+.dataTable tr.child td.child {
+  position: relative;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.dt-filter-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+  background: #fff;
+  padding: 0.5rem;
+  border-radius: 5px;
+  flex-wrap: nowrap;
+  gap: 1rem;
+}
+
+.dt-filter-container input.dt-input {
+  line-height: 1;
+  vertical-align: middle;
+}
+
+.dt-filter-container button.dt-button {
+  margin-bottom: 0 !important;
+}
+
+.dt-filter-container div.dt-search {
+  flex: 1 0 auto;
+}
+
+.addnewshelf .row-item {
+  display: flex;
+  flex-direction: column;
+  text-align: start;
+  margin-bottom: 1rem;
+}
+
+tr.modified>* {
+  background: #ccf7f5;
+}
+
+.dt-button .fa-fw {
+  font-size: 15px;
+}
+
+.jconfirm-title-c {
+  display: flex !important;
+  align-content: center;
+  justify-content: flex-start;
+  gap: 0.5rem;
+}
+
+.jconfirm.jconfirm-bootstrap .jconfirm-box .jconfirm-buttons button {
+  min-width: 100px;
+}
+
+.jconfirm-title-c i,
+.jconfirm-title-c span {
+  font-size: 20px !important;
+  margin: 0 !important;
+  line-height: 1;
+}
+
+.jconfirm-title-c .jconfirm-icon-c {
+  display: flex !important;
+  font-size: 18px !important;
+  align-items: center !important;
+}
+
+.jconfirm-title-c[style] {
+  display: none !important;
+}
+
+.dataTable div.dt-buttons {
+  display: inline-block;
+  vertical-align: middle;
+  line-height: 1;
+}
+
+.dataTable div.dt-buttons>a.dt-button {
+  margin: 0 !important;
+  padding: 4px 12px;
+}
+
+tr.status-failed,
+tr.status-rejected {
+  background: #ffb6c178 !important;
+}
+
+tr.status-sent,
+tr.status-approved {
+  background: #a1db9d78 !important;
+}
+
+tr.status-pending {
+  background: #eede5f78 !important;
+}
+
+tr.status-closed {
+  background: #ca9eff78 !important;
+}
+
+.jconfirm-content table.portfo-details {
+  width: 100%;
+}
+
+.log5 {
+  text-align: left;
+  direction: ltr;
+  padding: 1rem;
+  display: block;
+  max-height: 500px;
+  overflow: auto;
+  z-index: 77777777777 !important;
+  position: relative;
+  background: white;
+}
+
+.log5 code {
+  background: transparent !important;
+}

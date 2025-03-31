@@ -1,0 +1,91 @@
+/*
+ * @Author: Amirhossein Hosseinpour <https://amirhp.com>
+ * @Last modified by: amirhp-com <its@amirhp.com>
+ * @Last modified time: 2025/03/15 20:32:05
+ */
+toast {
+  display: block;
+  background: var(--toast-bg, rgba(0, 0, 0, .8));
+  color: #fff;
+  text-align: center;
+  bottom: 0;
+  top: auto;
+  width: 100vw;
+  left: 0;
+  padding: 1rem;
+  box-shadow: 0 2px 11px 0 rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  -moz-backdrop-filter: blur(10px);
+  transform: translateY(110%);
+  position: fixed;
+  z-index: 9999999999999999 !important;
+}
+
+toast:empty {
+  display: none;
+}
+
+toast.active {
+  transform: translateY(0);
+}
+
+.ginput_container_otp {
+  display: flex !important;
+  flex-wrap: nowrap !important;
+  gap: 10px !important;
+  align-items: center !important;
+  direction: ltr;
+  justify-content: flex-start;
+}
+
+[dir="rtl"] .ginput_container_otp {
+  justify-content: flex-end;
+}
+
+.otp-input {
+  min-width: 50px !important;
+  height: 40px !important;
+  text-align: center !important;
+  font-size: 18px !important;
+  border: 1px solid #ddd !important;
+  border-radius: 4px !important;
+}
+
+.ginput_container.has-otp-btn-wrapper {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.ginput_container.has-otp-btn-wrapper button.send-otp-btn {
+  flex: 1 0 fit-content;
+}
+
+.gf-otp-popup {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 999999999999999 !important;
+  width: 100vw;
+  padding: 1rem;
+  background: #0000003b;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  -webkit-backdrop-filter: blur(4px);
+          backdrop-filter: blur(4px);
+}
+
+.gf-otp-popup>.form {
+  background: #fff;
+  padding: 1rem;
+  width: var(--gt-otp-width, 450px);
+  max-width: calc(100% - 1rem);
+  border-radius: 8px;
+  max-height: calc(100% - 180px);
+  overflow-y: auto;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}

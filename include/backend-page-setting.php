@@ -2,7 +2,7 @@
 /*
  * @Author: Amirhossein Hosseinpour <https://amirhp.com>
  * @Last modified by: amirhp-com <its@amirhp.com>
- * @Last modified time: 2025/04/02 11:36:03
+ * @Last modified time: 2025/04/02 11:50:02
  */
 
 namespace BlackSwan\GravityOTPVerification;
@@ -90,75 +90,75 @@ class setting_page extends gravity_otp {
                 <td colspan='2' class="sms_gateways_helper">
                   <div class="hide help-sms_ir">
                     <ul class="pretty">
-                      <li><?php echo  sprintf(
+                      <li><?php echo wp_kses_post(sprintf(
                             /* translators: 1: opening anchor tag, 2: close anchor tag */
-                            esc_attr__('Fill "Username" and "Password" with <strong>API Key</strong> and <strong>Security Code</strong> from %1$sSMS.ir Profile%2$s', "gravity-otp-verification"),
+                            __('Fill "Username" and "Password" with <strong>API Key</strong> and <strong>Security Code</strong> from %1$sSMS.ir Profile%2$s', "gravity-otp-verification"),
                             '<a href="https://ip.sms.ir/#/UserApiKey" target="_blank">',
                             '</a>'
-                          ); ?></li>
-                      <li><?php echo  sprintf(
+                          )); ?></li>
+                      <li><?php echo wp_kses_post(sprintf(
                             /* translators: 1: opening anchor tag, 2: close anchor tag */
-                            esc_attr__('Set Sender Number to your %1$sPurchased Sender number%2$s e.g.<code>30002101000338</code>', "gravity-otp-verification"),
+                            __('Set Sender Number to your %1$sPurchased Sender number%2$s e.g.<code>30002101000338</code>', "gravity-otp-verification"),
                             '<a href="https://app.sms.ir/numbers/my-number" target="_blank">',
                             '</a>'
-                          ); ?></li>
-                      <li><?php echo  sprintf(
+                          )); ?></li>
+                      <li><?php echo wp_kses_post(sprintf(
                             /* translators: 1: url */
-                            esc_attr__('Set API Server URL as %1$s or get Web-service URL from SMS.ir.', "gravity-otp-verification"),
+                            __('Set API Server URL as %1$s or get Web-service URL from SMS.ir.', "gravity-otp-verification"),
                             '<code>https://ws.sms.ir/</code>'
-                          ); ?></li>
+                          )); ?></li>
                       <li><?php echo
                           // phpcs:ignore WordPress.WP.I18n.MissingTranslatorsComment
-                          esc_attr__('Write your Message on OTP SMS field using <code>[otp]</code> or <code>{otp}</code> or <code>%otp%</code> to replace with Actual OTP Code.', "gravity-otp-verification"); ?></li>
-                      <li><?php echo  sprintf(
+                          wp_kses_post(__('Write your Message on OTP SMS field using <code>[otp]</code> or <code>{otp}</code> or <code>%otp%</code> to replace with Actual OTP Code.', "gravity-otp-verification")); ?></li>
+                      <li><?php echo wp_kses_post(sprintf(
                             /* translators: 1: opening anchor tag, 2: close anchor tag */
-                            esc_attr__('If you want to send UltraFastSend SMS, %1$sCreate a Template%2$s on SMS.ir and put <code>#OTP#</code> on it, then enter <code>Template ID</code> on <strong>OTP SMS</strong> field', "gravity-otp-verification"),
+                            __('If you want to send UltraFastSend SMS, %1$sCreate a Template%2$s on SMS.ir and put <code>#OTP#</code> on it, then enter <code>Template ID</code> on <strong>OTP SMS</strong> field', "gravity-otp-verification"),
                             '<a href="https://app.sms.ir/developer/list" target="_blank">',
                             '</a>'
-                          ); ?></li>
+                          )); ?></li>
                     </ul>
                   </div>
                   <div class="hide help-sms_ir_v2">
                     <ul class="pretty">
-                      <li><?php echo  sprintf(
+                      <li><?php echo wp_kses_post( sprintf(
                             /* translators: 1: href link */
-                            esc_attr__('Fill "Username" with <strong>API Key</strong> from %1$sSMS.ir Profile%2$s', "gravity-otp-verification"),
+                            __('Fill "Username" with <strong>API Key</strong> from %1$sSMS.ir Profile%2$s', "gravity-otp-verification"),
                             '<a href="https://ip.sms.ir/#/UserApiKey" target="_blank">',
                             '</a>'
-                          ); ?></li>
-                      <li><?php echo  sprintf(
+                          )); ?></li>
+                      <li><?php echo wp_kses_post( sprintf(
                             /* translators: 1: opening anchor tag, 2: close anchor tag */
-                            esc_attr__('Set Sender Number to your %1$sPurchased Sender number%2$s e.g.<code>30002101000338</code>', "gravity-otp-verification"),
+                            __('Set Sender Number to your %1$sPurchased Sender number%2$s e.g.<code>30002101000338</code>', "gravity-otp-verification"),
                             '<a href="https://app.sms.ir/numbers/my-number" target="_blank">',
                             '</a>'
-                          ); ?></li>
-                      <li><?php echo  sprintf(
+                          )); ?></li>
+                      <li><?php echo wp_kses_post( sprintf(
                             /* translators: 1: url */
-                            esc_attr__('Set API Server URL as %1$s or get Web-service URL from SMS.ir.', "gravity-otp-verification"),
+                            __('Set API Server URL as %1$s or get Web-service URL from SMS.ir.', "gravity-otp-verification"),
                             '<code>https://api.sms.ir/v1/send/</code>'
-                          ); ?></li>
+                          )); ?></li>
                       <li><?php echo
                           // phpcs:ignore WordPress.WP.I18n.MissingTranslatorsComment
-                          esc_attr__('Write your Message on OTP SMS field using <code>[otp]</code> or <code>{otp}</code> or <code>%otp%</code> to replace with Actual OTP Code.', "gravity-otp-verification"); ?></li>
-                      <li><?php echo  sprintf(
+                          __('Write your Message on OTP SMS field using <code>[otp]</code> or <code>{otp}</code> or <code>%otp%</code> to replace with Actual OTP Code.', "gravity-otp-verification"); ?></li>
+                      <li><?php echo wp_kses_post( sprintf(
                             /* translators: 1: opening anchor tag, 2: close anchor tag */
-                            esc_attr__('If you want to send UltraFastSend SMS, %1$sCreate a Template%2$s on SMS.ir and put <code>#OTP#</code> on it, then enter <code>Template ID</code> on <strong>OTP SMS</strong> field', "gravity-otp-verification"),
+                            __('If you want to send UltraFastSend SMS, %1$sCreate a Template%2$s on SMS.ir and put <code>#OTP#</code> on it, then enter <code>Template ID</code> on <strong>OTP SMS</strong> field', "gravity-otp-verification"),
                             '<a href="https://app.sms.ir/developer/fast-send" target="_blank">',
                             '</a>'
-                          ); ?></li>
+                          )); ?></li>
                     </ul>
                   </div>
                   <div class="hide help-sms_faraz">
                     <ul class="pretty">
-                      <li><?php echo  esc_attr__('Set API Server URL to <code>ippanel.com</code> or your given panel address, e.g. <code>sms.farazsms.com</code>', "gravity-otp-verification"); ?></li>
-                      <li><?php echo  esc_attr__('Set Sender Number to your purchased SMS Sending number or If you are using <strong>Pattern SMS</strong> use <code>3000505</code>', "gravity-otp-verification"); ?></li>
-                      <li><?php echo  esc_attr__('Username and Password are your SMS Panel Credentials.', "gravity-otp-verification"); ?></li>
+                      <li><?php echo wp_kses_post(__('Set API Server URL to <code>ippanel.com</code> or your given panel address, e.g. <code>sms.farazsms.com</code>', "gravity-otp-verification")); ?></li>
+                      <li><?php echo wp_kses_post(__('Set Sender Number to your purchased SMS Sending number or If you are using <strong>Pattern SMS</strong> use <code>3000505</code>', "gravity-otp-verification")); ?></li>
+                      <li><?php echo wp_kses_post(__('Username and Password are your SMS Panel Credentials.', "gravity-otp-verification")); ?></li>
                       <li><?php echo
                           // phpcs:ignore WordPress.WP.I18n.MissingTranslatorsComment
-                          esc_attr__('Write your Message on OTP SMS field using <code>[otp]</code> or <code>{otp}</code> or <code>%otp%</code> to replace with Actual OTP Code.', "gravity-otp-verification"); ?></li>
+                          wp_kses_post(__('Write your Message on OTP SMS field using <code>[otp]</code> or <code>{otp}</code> or <code>%otp%</code> to replace with Actual OTP Code.', "gravity-otp-verification")); ?></li>
                       <li><?php echo
                           // phpcs:ignore WordPress.WP.I18n.MissingTranslatorsComment
-                          esc_attr__('If you want to use <strong>Pattern SMS</strong> method , Create a template on your panel and put <code>%otp%</code> on it, then use following example: ', "gravity-otp-verification") . "<pre style='text-align: left;direction: ltr;unicode-bidi: plaintext;'>pcode:6dvqf351dl06p34" . PHP_EOL . "otp:{otp}</pre>"; ?></li>
+                          wp_kses_post(__('If you want to use <strong>Pattern SMS</strong> method , Create a template on your panel and put <code>%otp%</code> on it, then use following example: ', "gravity-otp-verification") . "<pre style='text-align: left;direction: ltr;unicode-bidi: plaintext;'>pcode:6dvqf351dl06p34" . PHP_EOL . "otp:{otp}</pre>"); ?></li>
                     </ul>
                   </div>
                   <?php do_action("gravity-otp-verification/sms-gateways-help"); ?>

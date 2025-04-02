@@ -83,6 +83,9 @@ This plugin is licensed under **GPLv2 or later**. See [LICENSE](https://www.gnu.
 
 ## 🔥 Changelog
 
+#### v2.5.0 | 2025-04-02 | 1404-01-13
+- General fixes and Enhancement
+
 #### v2.4.0 | 2025-03-31 | 1404-01-11
 - General fixes and Enhancement
 

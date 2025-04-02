@@ -2,11 +2,13 @@
 /*
  * @Author: Amirhossein Hosseinpour <https://amirhp.com>
  * @Last modified by: amirhp-com <its@amirhp.com>
- * @Last modified time: 2025/03/31 21:54:29
+ * @Last modified time: 2025/04/02 11:36:03
  */
+
 namespace BlackSwan\GravityOTPVerification;
+
 defined("ABSPATH") or die("<h2>Unauthorized Access!</h2><hr><small>OTP Verification for Gravity Forms :: Developed by <a href='https://blackswandev.com/'>BlackSwanDev</a></small>");
-class setting_page extends mainClass {
+class setting_page extends gravity_otp {
   public function __construct() {
     parent::__construct();
     $this->render_page();
@@ -64,8 +66,9 @@ class setting_page extends mainClass {
               $this->print_setting_input(["slug" => "max_failed", "type" => "number", "caption" => esc_attr__("Max Failed Attempt", "gravity-otp-verification")]);
               $this->print_setting_input(["slug" => "mobile_regex", "type" => "text", "extra_html" => "dir=ltr lang=en_US", "caption" => esc_attr__("Mobile Regex", "gravity-otp-verification"), "desc" => sprintf(
                 /* translators: 1: regex */
-                esc_attr__('Set regex to validate mobile field, leave empty to disable it.<br>For Iranian Mobile use: %1$s', "gravity-otp-verification"),
-                "<code>/^(\+98|0098|98|0)?9\d{9}$/</code>"
+                esc_attr__('Set regex to validate mobile field, leave empty to disable it.%2$sFor Iranian Mobile use: %1$s', "gravity-otp-verification"),
+                "<code>/^(\+98|0098|98|0)?9\d{9}$/</code>",
+                "<br>"
               ),]);
               $this->print_setting_input(["slug" => "cookie_expiration", "type" => "number", "caption" => esc_attr__("Cookie Expiration (Day)", "gravity-otp-verification")]);
               $this->print_setting_input(["slug" => "lockdown_delay", "type" => "number", "caption" => esc_attr__("Lockdown Delay (Min.)", "gravity-otp-verification")]);
@@ -281,11 +284,11 @@ class setting_page extends mainClass {
                 </tr>
               </thead>
               <tr>
-                <td style="direction: ltr;"><code>[user_ip]</code></td>
+                <td style="direction: ltr;"><code>[gravity_otp_user_ip]</code></td>
                 <td>Show current user's detected IP Address</td>
               </tr>
               <tr>
-                <td style="direction: ltr;"><code>[gf_otp
+                <td style="direction: ltr;"><code>[gravity_otp_popup
                     id="FORM ID"
                     title="false"
                     ajax="yes"
@@ -294,18 +297,18 @@ class setting_page extends mainClass {
                     hide_for_logged_in="false"
                     hide_for_logged_out="false"]
                     <br><br><i>some content/shortcode on top of form</i>
-                    <br><br>[/gf_otp]</code></td>
+                    <br><br>[/gravity_otp_popup]</code></td>
                 <td>Show a Popup with Gravity Form If User has Not Submitted that form before</td>
               </tr>
               <tr>
-                <td style="direction: ltr;"><code>[popup_forced
+                <td style="direction: ltr;"><code>[gravity_otp_popup_forced
                     id="FORM ID"
                     width="450px"
                     class="extra_class html_class"
                     hide_for_logged_in="false"
                     hide_for_logged_out="false"]
                     <br><br><i>some content/shortcode to be shown inside popup</i>
-                    <br><br>[/popup_forced]</code></td>
+                    <br><br>[/gravity_otp_popup_forced]</code></td>
                 <td>Show a Popup with Given Content in it If User has Not Submitted Gravity Form before</td>
               </tr>
               <tr>
@@ -361,10 +364,11 @@ class setting_page extends mainClass {
         </div>
       </form>
     </div>
-    <?php
+  <?php
     // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
     $html_content = ob_get_contents();
     ob_end_clean();
+    // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
     echo $html_content;
   }
   public function print_setting_input($data) {
@@ -387,12 +391,9 @@ class setting_page extends mainClass {
       /* translators: 1: field name */
       _x("Enter %s", "setting-page", "gravity-otp-verification"),
       $caption
-    )) . "'
-                    value='" . esc_attr((get_option("{$this->db_slug}__{$slug}", "") ?: "")) . "'
+    )) . "' value='" . esc_attr($this->read($slug)) . "'
                     class='regular-text " . esc_attr($extra_class) . "' " . esc_attr($extra_html) . " />
-            <p class='description'>" .
-      // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-      ($desc) . "</p></td></tr>";
+            <p class='description'>" . wp_kses_post($desc) . "</p></td></tr>";
   }
   public function print_setting_tr($title = "") { ?>
     <tr style="color: #2c3338;vertical-align: middle !important;font-weight: 400;line-height: 1.4em;border: 1px solid #c3c4c7;background: #fff;">
@@ -400,7 +401,7 @@ class setting_page extends mainClass {
         <h2><?php echo  esc_attr($title); ?></h2>
       </th>
     </tr>
-    <?php
+<?php
   }
   public function print_setting_checkbox($data) {
     extract(wp_parse_args($data, array(
@@ -413,21 +414,12 @@ class setting_page extends mainClass {
     )));
     echo "<tr class='type-checkbox " . esc_attr($extra_class) . " " . esc_attr(sanitize_title($slug)) . "'>
             <th scope='row'><label for='" . esc_attr($slug) . "'>" . esc_attr($caption) . "</label></th>
-            <td><input
-                    name='" . esc_attr("{$this->db_slug}__{$slug}") . "'
-                    id='" . esc_attr($slug) . "'
-                    type='checkbox'
-                    title='" . esc_attr(sprintf(
+            <td><input name='" . esc_attr("{$this->db_slug}__{$slug}") . "' id='" . esc_attr($slug) . "' type='checkbox' title='" . esc_attr(sprintf(
       /* translators: 1: field name */
       _x("Enter %s", "setting-page", "gravity-otp-verification"),
       $caption
-    )) . "'
-                    value='" . esc_attr($value) . "'
-                    " . checked($value, get_option("{$this->db_slug}__{$slug}", ""), false) . "
-                    class='regular-text " . esc_attr($extra_class) . "' " . esc_attr($extra_html) . " />
-            <p class='description'>" .
-            // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-            ($desc) . "</p></td></tr>";
+    )) . "' value='" . esc_attr($value) . "' " . checked(esc_attr($value), esc_attr($this->read($slug)), false) . " class='regular-text " . esc_attr($extra_class) . "' " . esc_attr($extra_html) . " />
+    <p class='description'>" . wp_kses_post($desc) . "</p></td></tr>";
   }
   public function print_setting_select($data) {
     extract(wp_parse_args($data, array(
@@ -440,24 +432,19 @@ class setting_page extends mainClass {
     )));
     echo "<tr class='type-select " . esc_attr($extra_class) . " " . esc_attr(sanitize_title($slug)) . "'>
             <th scope='row'><label for='" . esc_attr($slug) . "'>" . esc_attr($caption) . "</label></th>
-            <td><select
-                    name='" . esc_attr("{$this->db_slug}__{$slug}") . "'
-                    id='" . esc_attr($slug) . "'
-                    title='" . esc_attr(sprintf(
-      /* translators: 1: field name */
-      _x("Choose %s", "setting-page", "gravity-otp-verification"),
-      $caption
-    )) . "'
-                    class='regular-text " . esc_attr($extra_class) . "' " . esc_attr($extra_html) . ">";
+            <td><select name='" . esc_attr("{$this->db_slug}__{$slug}") . "' id='" . esc_attr($slug) . "' title='" . esc_attr(
+      sprintf(
+        /* translators: 1: field name */
+        _x("Choose %s", "setting-page", "gravity-otp-verification"),
+        esc_attr($caption)
+      )
+    ) .
+      "' class='regular-text " . esc_attr($extra_class) . "' " . esc_attr($extra_html) . ">";
     foreach ($options as $key => $value) {
-      if ($key == "EMPTY") {
-        $key = "";
-      }
-      echo "<option value='" . esc_attr($key) . "' " . selected(get_option("{$this->db_slug}__{$slug}", ""), $key, false) . ">" . esc_html($value) . "</option>";
+      if ($key == "EMPTY") $key = "";
+      echo "<option value='" . esc_attr($key) . "' " . selected(esc_attr($this->read($slug)), esc_attr($key), false) . ">" . esc_html($value) . "</option>";
     }
-    echo "</select><p class='description'>" .
-    // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-    ($desc) . "</p></td></tr>";
+    echo "</select><p class='description'>" . wp_kses_post($desc) . "</p></td></tr>";
   }
   public function print_setting_textarea($data) {
     extract(wp_parse_args($data, array(
@@ -471,28 +458,16 @@ class setting_page extends mainClass {
       "extra_class" => "",
     )));
     $full_width = "yes" == $full_width;
-    echo "<tr class='type-textarea ".esc_attr($extra_class)." " . esc_attr(sanitize_title($slug)) . "'>" .
+    echo "<tr class='type-textarea " . esc_attr($extra_class) . " " . esc_attr(sanitize_title($slug)) . "'>" .
       ($full_width ? "" : "<th scope='row'><label for='" . esc_attr($slug) . "'>" . esc_attr($caption) . "</label></th>") .
       "<td colspan=" . ($full_width ? "2" : "1") . ">" .
-      ($full_width ? "<p><label for='".esc_attr($slug)."'>".esc_attr($caption)."</label></p>" : "") .
-      "<textarea name='" . esc_attr("{$this->db_slug}__{$slug}") . "'
-                    id='" . esc_attr($slug) . "'
-                    placeholder='" . esc_attr($caption) . "'
-                    title='" . esc_attr(sprintf(
+      ($full_width ? "<p><label for='" . esc_attr($slug) . "'>" . esc_attr($caption) . "</label></p>" : "") .
+      "<textarea name='" . esc_attr("{$this->db_slug}__{$slug}") . "' id='" . esc_attr($slug) . "' placeholder='" . esc_attr($caption) . "' title='" . esc_attr(sprintf(
         /* translators: 1: field name */
-        _x("Enter %s", "setting-page", "gravity-otp-verification"),
-        $caption
-      )) . "'
-                    rows='" . esc_attr($rows) . "'
-                    style='" . esc_attr($style) . "'
-                    class='regular-text " . esc_attr($extra_class) . "' " . esc_attr($extra_html) . " >" .
-                    (
-                      // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-                      get_option("{$this->db_slug}__{$slug}", "") ?: ""
-                    ) . "</textarea>
-            <p class='description'>" .
-            // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-            ($desc) . "</p></td></tr>";
+        _x("Enter %s", "setting-page", "gravity-otp-verification"), $caption
+      )) . "' rows='" . esc_attr($rows) . "' style='" . esc_attr($style) . "' class='regular-text " . esc_attr($extra_class) . "' " . esc_attr($extra_html) . " >" .
+      ( esc_textarea($this->read($slug)) ) . "</textarea>
+      <p class='description'>" . wp_kses_post($desc) . "</p></td></tr>";
   }
   public function print_setting_editor($data) {
     extract(wp_parse_args($data, array(
@@ -515,10 +490,8 @@ class setting_page extends mainClass {
     $editor_id = strtolower(str_replace(array('-', '_', ' ', '*'), '', $slug));
     echo "<tr class='type-editor " . esc_attr($extra_class) . " " . esc_attr(sanitize_title($slug)) . "'>
     <th scope='row'><label for='" . esc_attr($slug) . "'>" . esc_attr($caption) . "</label></th><td>";
-    wp_editor((get_option("{$this->db_slug}__{$slug}", "") ?: ""), $editor_id, $editor_settings);
-    echo "<p class='description'>" .
-    // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-    ($desc) . "</p></td></tr>";
+    wp_editor(wp_kses_post($this->read($slug)), $editor_id, $editor_settings);
+    echo "<p class='description'>" . wp_kses_post($desc) . "</p></td></tr>";
   }
 }
 return new setting_page;

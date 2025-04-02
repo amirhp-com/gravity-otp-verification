@@ -2,11 +2,11 @@
 /*
  * @Author: Amirhossein Hosseinpour <https://amirhp.com>
  * @Last modified by: amirhp-com <its@amirhp.com>
- * @Last modified time: 2025/03/31 21:50:58
+ * @Last modified time: 2025/04/02 11:36:52
  */
 namespace BlackSwan\GravityOTPVerification;
 defined("ABSPATH") or die("<h2>Unauthorized Access!</h2><hr><small>OTP Verification for Gravity Forms :: Developed by <a href='https://blackswandev.com/'>BlackSwanDev</a></small>");
-class log_page extends mainClass {
+class log_page extends gravity_otp {
   public function __construct() {
     parent::__construct(false);
     $this->render_page();

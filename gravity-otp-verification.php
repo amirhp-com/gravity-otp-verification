@@ -1,12 +1,12 @@
 <?php
 /*
  * Plugin Name: OTP Verification for Gravity Forms
- * Description: This plugin ensures secure form submissions by verifying users’ mobile numbers via OTP before saving
+ * Description: This plugin ensures secure form submissions by verifying users' mobile numbers via OTP before saving
  * Author: BlackSwanDev
  * Author URI: https://blackswandev.com/
  * Plugin URI: https://wordpress.org/plugins/gravity-otp-verification/
  * Contributors: amirhpcom, pigmentdev, blackswanlab
- * Version: 2.4.0
+ * Version: 2.5.0
  * Tested up to: 6.7
  * Requires PHP: 7.1
  * Text Domain: gravity-otp-verification
@@ -15,17 +15,17 @@
  * License: GPLv2 or later
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
  * @Last modified by: amirhp-com <its@amirhp.com>
- * @Last modified time: 2025/03/31 22:04:00
+ * @Last modified time: 2025/04/02 11:37:46
 */
 namespace BlackSwan\GravityOTPVerification;
 defined("ABSPATH") or die("<h2>Unauthorized Access!</h2><hr><small>OTP Verification for Gravity Forms :: Developed by <a href='https://blackswandev.com/'>BlackSwanDev</a></small>");
-if (!class_exists("mainClass")) {
-  class mainClass {
+if (!class_exists("gravity_otp")) {
+  class gravity_otp {
     public $td = "gravity-otp-verification";
     public $db_slug = "gravity_otp_verification";
-    public $version = "2.4.0";
+    public $version = "2.5.0";
     public $script_version;
-    public $db_version = "2.2.0";
+    public $db_version = "2.5.0";
     public $title = "Gravity OTP";
     public $sent_ok = "Send Success";
     public $sent_nok = "Send Failed";
@@ -91,13 +91,13 @@ if (!class_exists("mainClass")) {
     public function send_otp_callback() {
       check_ajax_referer('gravity_otp_verification_nonce', 'nonce');
       global $wpdb;
-      $db_id          = 0;
-      $otp_digits     = 5;
+      $db_id      = 0;
+      $otp_digits = 5;
       if (!isset($_POST['phone']) || empty($_POST['phone'])) {
         wp_send_json_error(["message" => esc_attr__("Please enter a valid mobile number.", "gravity-otp-verification")]);
       }
-      $user_id        = get_current_user_id();
-      $phone          = $this->sanitize_number_field(sanitize_text_field(wp_unslash($_POST['phone'])));
+      $user_id = get_current_user_id();
+      $phone   = $this->sanitize_number_field(sanitize_text_field(wp_unslash($_POST['phone'])));
       if (!ctype_digit($phone)) wp_send_json_error(["message" => esc_attr__("Please enter a valid mobile number.", "gravity-otp-verification")]);
       if (!empty($this->read("mobile_regex"))) {
         $regex = preg_match($this->read("mobile_regex"), $phone);
@@ -611,6 +611,13 @@ if (!class_exists("mainClass")) {
         return $content;
       });
     }
+    /**
+     * Flushes all output buffers until none remain.
+     *
+     * This method ensures that any buffered output is sent to the browser
+     * by repeatedly calling ob_end_flush() until all output buffers are cleared.
+     * The @ operator suppresses warnings if no buffer exists.
+     */
     public function buffer_finish_replace_translate() {
       while (@ob_end_flush());
     }
@@ -625,9 +632,9 @@ if (!class_exists("mainClass")) {
       add_filter("plugin_action_links", array($this, "plugin_action_links"), 10, 2);
       add_action("admin_menu", array($this, "admin_menu"), 1000);
       add_action("admin_init", array($this, "admin_init"));
-      add_shortcode("gf_otp", array($this, "shortcode_wrapper_gf_otp"), 10, 2);
-      add_shortcode("popup_forced", array($this, "shortcode_wrapper_popup_forced"), 10, 2);
-      add_shortcode("user_ip", array($this, "get_real_IP_address"));
+      add_shortcode("gravity_otp_popup", array($this, "gravity_otp_popup"), 10, 2);
+      add_shortcode("gravity_otp_popup_forced", array($this, "gravity_otp_popup_forced"), 10, 2);
+      add_shortcode("gravity_otp_user_ip", array($this, "get_real_IP_address"));
       add_filter("gform_validation", array($this, "validate_otp_before_submit_gform"));
       add_action("gform_pre_submission", array($this, "set_cookie_after_submission"));
       add_action("wp_ajax_gravity-otp-verification", array($this, "handel_ajax_req"));
@@ -687,7 +694,7 @@ if (!class_exists("mainClass")) {
       // Return the modified confirmation
       return $confirmation;
     }
-    public function shortcode_wrapper_gf_otp($atts = array(), $content = "") {
+    public function gravity_otp_popup($atts = array(), $content = "") {
       $atts = extract(shortcode_atts(array(
         "id" => "",
         "width" => "450px",
@@ -716,7 +723,7 @@ if (!class_exists("mainClass")) {
       ob_end_clean();
       return $htmloutput;
     }
-    public function shortcode_wrapper_popup_forced($atts = array(), $content = "") {
+    public function gravity_otp_popup_forced($atts = array(), $content = "") {
       $atts = extract(shortcode_atts(array(
         "id" => "",
         "width" => "450px",
@@ -1440,7 +1447,7 @@ if (!class_exists("mainClass")) {
       return str_replace($persian, $newNumbers, $string);
     }
     public static function activation_hook() {
-      (new mainClass)->create_database(1);
+      (new Gravity_OTP)->create_database(1);
     }
     public function create_database($force = false) {
       global $wpdb;
@@ -1661,10 +1668,10 @@ if (!class_exists("mainClass")) {
     #endregion
   }
   add_action("plugins_loaded", function () {
-    global $mainClass;
-    $mainClass = new mainClass;
+    global $gravity_otp;
+    $gravity_otp = new gravity_otp;
     load_plugin_textdomain("gravity-otp-verification", false, dirname(plugin_basename(__FILE__)) . "/languages/");
-    register_activation_hook(__FILE__, array($mainClass, "activation_hook"));
+    register_activation_hook(__FILE__, array($gravity_otp, "activation_hook"));
   });
 }
 

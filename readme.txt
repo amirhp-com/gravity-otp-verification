@@ -1,6 +1,6 @@
 === OTP Verification for Gravity Forms ===
-Version: 2.4.0
-Stable tag: 2.4.0
+Version: 2.5.0
+Stable tag: 2.5.0
 Author: BlackSwan
 Donate link: https://amirhp.com/contact/
 Author URI: https://blackswandev.com/
@@ -106,6 +106,9 @@ Lead Developer: **[AmirhpCom](https://amirhp.com/)**
 == Upgrade Notice ==
 Upgrade to enjoy the latest features and security improvements.
 
+= v2.5.0 | 2025-04-02 | 1404-01-13 =
+* General fixes and Enhancement
+
 = v2.4.0 | 2025-03-31 | 1404-01-11 =
 * General fixes and Enhancement
 
@@ -115,6 +118,9 @@ Upgrade to enjoy the latest features and security improvements.
 == Changelog ==
 
 For full changelog please view **[Github Repository](https://github.com/pigment-dev/gravity-otp-verification)**.
+
+= v2.5.0 | 2025-04-02 | 1404-01-13 =
+* General fixes and Enhancement
 
 = v2.4.0 | 2025-03-31 | 1404-01-11 =
 * General fixes and Enhancement

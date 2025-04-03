@@ -56,10 +56,6 @@ Additionally, you can add **any other SMS gateway** via **WordPress hooks and fi
 == Disclaimer and Warranty ==
 This plugin is provided **"as is"** without any warranties, express or implied. While every effort has been made to ensure reliability and security, the developers are not responsible for any issues arising from its use. Always test in a **staging environment** before deploying to production.
 
-== About the Developer ==
-**OTP Verification for Gravity Forms** is developed and maintained by [BlackSwanDev](https://blackswandev.com/), in collaboration with [Pigment.Dev](https://pigment.dev/). Together, we focus on **creating powerful WordPress tools** for security and automation.
-Lead Developer: **[AmirhpCom](https://amirhp.com/)**.
-
 == Third-Party & External Resources Used ==
 This plugin utilizes the following third-party libraries to enhance functionality:
 
@@ -100,7 +96,11 @@ Yes! It is tested and compatible with **all recent Gravity Forms versions**.
 You can help us improve our works by committing your changes to [pigment-dev/gravity-otp-verification](https://github.com/pigment-dev/gravity-otp-verification)
 
 == Credits ==
+
+**OTP Verification for Gravity Forms** is developed and maintained by BlackSwanDev, in collaboration with Pigment Development. Together, we focus on **creating powerful WordPress tools** for security and automation.
+
 Developed at: **[BlackSwanDev](https://blackswandev.com/)** & **[Pigment.Dev](https://pigment.dev/)**
+
 Lead Developer: **[AmirhpCom](https://amirhp.com/)**
 
 == Upgrade Notice ==

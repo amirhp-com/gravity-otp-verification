@@ -7,7 +7,7 @@
  * Plugin URI: https://wordpress.org/plugins/gravity-otp-verification/
  * Contributors: amirhpcom, pigmentdev, blackswanlab
  * Version: 2.6.0
- * Tested up to: 6.7
+ * Tested up to: 6.8
  * Requires PHP: 7.1
  * Text Domain: gravity-otp-verification
  * Domain Path: /languages
@@ -15,7 +15,7 @@
  * License: GPLv2 or later
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
  * @Last modified by: amirhp-com <its@amirhp.com>
- * @Last modified time: 2025/04/30 16:31:46
+ * @Last modified time: 2025/04/30 16:45:03
 */
 namespace BlackSwan\GravityOTPVerification;
 defined("ABSPATH") or die("<h2>Unauthorized Access!</h2><hr><small>OTP Verification for Gravity Forms :: Developed by <a href='https://blackswandev.com/'>BlackSwanDev</a></small>");

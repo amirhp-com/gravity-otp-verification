@@ -1,13 +1,13 @@
 === OTP Verification for Gravity Forms ===
-Version: 2.5.0
-Stable tag: 2.5.0
+Version: 2.6.0
+Stable tag: 2.6.0
 Author: BlackSwan
 Donate link: https://amirhp.com/contact/
 Author URI: https://blackswandev.com/
 Plugin URI: https://wordpress.org/plugins/gravity-otp-verification/
 Contributors: amirhpcom, pigmentdev, blackswanlab
 Tags: gravity-forms, sms authentication, phone verification
-Tested up to: 6.7
+Tested up to: 6.8
 WC requires at least: 5.0
 WC tested up to: 9.7
 Text Domain: gravity-otp-verification
@@ -106,6 +106,10 @@ Lead Developer: **[AmirhpCom](https://amirhp.com/)**
 == Upgrade Notice ==
 Upgrade to enjoy the latest features and security improvements.
 
+= v2.6.0 | 2025-04-30 | 1404-02-10 =
+* Update WordPress version
+* Fix GF-Panel not Loaded
+
 = v2.5.0 | 2025-04-02 | 1404-01-13 =
 * General fixes and Enhancement
 
@@ -118,6 +122,10 @@ Upgrade to enjoy the latest features and security improvements.
 == Changelog ==
 
 For full changelog please view **[Github Repository](https://github.com/pigment-dev/gravity-otp-verification)**.
+
+= v2.6.0 | 2025-04-30 | 1404-02-10 =
+* Update WordPress version
+* Fix GF-Panel not Loaded
 
 = v2.5.0 | 2025-04-02 | 1404-01-13 =
 * General fixes and Enhancement

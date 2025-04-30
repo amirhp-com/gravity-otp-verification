@@ -2,7 +2,7 @@
 /*
  * @Author: Amirhossein Hosseinpour <https://amirhp.com>
  * @Last modified by: amirhp-com <its@amirhp.com>
- * @Last modified time: 2025/04/02 11:31:17
+ * @Last modified time: 2025/04/30 16:39:33
  */
 
 namespace BlackSwan\GravityOTPVerification;
@@ -143,9 +143,7 @@ class GF_Field_OTP extends \GF_Field {
   }
 }
 
-// Register custom settings
-add_action("gform_field_standard_settings", "gravity_otp_verification_register_custom_settings", 50, 2);
-function gravity_otp_verification_register_custom_settings($position, $form_id) {
+add_action("gform_field_standard_settings",   function ($position, $form_id) {
   if ($position == 50) {
     wp_enqueue_style('gf-otp-style', plugins_url("/assets/", dirname(__FILE__)) . "css/otp-style.css", [], "2.1.0", true);
     // Get the current form and its fields
@@ -177,15 +175,13 @@ function gravity_otp_verification_register_custom_settings($position, $form_id) 
     </li>
     <?php
   }
-}
+}, 50, 2);
 
-// Add tooltips
-add_filter("gform_tooltips", "gravity_otp_verification_add_tooltips");
-function gravity_otp_verification_add_tooltips($tooltips) {
+add_filter("gform_tooltips", function ($tooltips) {
   $tooltips['form_field_otp_digits'] = esc_html__('Select the number of digits for the OTP code.', 'gravity-otp-verification');
   $tooltips['form_field_mobile_field_id'] = esc_html__('Enter the ID of the field that contains the mobile number.', 'gravity-otp-verification');
   return $tooltips;
-}
+});
 
 // Register the field
 \GF_Fields::register(new GF_Field_OTP());

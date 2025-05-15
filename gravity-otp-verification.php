@@ -6,7 +6,7 @@
  * Author URI: https://blackswandev.com/
  * Plugin URI: https://wordpress.org/plugins/gravity-otp-verification/
  * Contributors: amirhpcom, pigmentdev, blackswanlab
- * Version: 2.6.0
+ * Version: 2.7.0
  * Tested up to: 6.8
  * Requires PHP: 7.1
  * Text Domain: gravity-otp-verification
@@ -15,7 +15,7 @@
  * License: GPLv2 or later
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
  * @Last modified by: amirhp-com <its@amirhp.com>
- * @Last modified time: 2025/04/30 16:45:03
+ * @Last modified time: 2025/05/15 13:55:15
 */
 namespace BlackSwan\GravityOTPVerification;
 defined("ABSPATH") or die("<h2>Unauthorized Access!</h2><hr><small>OTP Verification for Gravity Forms :: Developed by <a href='https://blackswandev.com/'>BlackSwanDev</a></small>");
@@ -23,7 +23,7 @@ if (!class_exists("gravity_otp")) {
   class gravity_otp {
     public $td = "gravity-otp-verification";
     public $db_slug = "gravity_otp_verification";
-    public $version = "2.6.0";
+    public $version = "2.7.0";
     public $script_version;
     public $db_version = "2.6.0";
     public $title = "Gravity OTP";
@@ -201,6 +201,16 @@ if (!class_exists("gravity_otp")) {
           break;
         case 'sms_faraz':
           $res = $this->send_faraz_sms($mobile, $otp, $echo);
+          if (is_wp_error($res)) $this->last_ajax_err = $res->get_error_messages();
+          break;
+        case 'woo_sms':
+          $message  = str_replace(["[otp]", "{otp}", "%otp%", "[OTP]", "{OTP}", "%OTP%",], [$otp, $otp, $otp, $otp, $otp, $otp], trim($this->read("api_otp_sms")));
+          if (function_exists("PWSMS")) {
+            $res = PWSMS()->send_sms(array("post_id" => 0, "message" => $message, "mobile" => $mobile));
+          }
+          elseif (function_exists("PWooSMS")) {
+            $res = PWooSMS()->SendSMS(array("post_id" => 0, "message" => $message, "mobile" => $mobile));
+          }
           if (is_wp_error($res)) $this->last_ajax_err = $res->get_error_messages();
           break;
 
@@ -447,7 +457,7 @@ if (!class_exists("gravity_otp")) {
     }
     private function cUrl($url, $params = array(), $method = 'POST') {
       $domain = untrailingslashit($this->read("api_server"));
-      $full_url = $domain . $url;
+      $full_url = ($this->str_starts_with($domain, "http") ? $domain : "https://" . $domain ) . $url;
 
       $args = array(
         'timeout' => 30,
@@ -1255,7 +1265,7 @@ if (!class_exists("gravity_otp")) {
               $headings_row .= "<th class='item_th_{$key} $extraClass'>{$value}</th>";
             }
             $headings_row .= "</tr>";
-            echo "<thead class='" . esc_attr($thead_class) . "'>" . esc_attr($headings_row) . "</thead><tbody>";
+            echo "<thead class='" . esc_attr($thead_class) . "'>" . ($headings_row) . "</thead><tbody>";
             foreach ($res_obj as $obj) {
               $item_tr_classes = call_user_func($item_tr_class, $obj);
               $item_tr_fns = call_user_func($item_tr_fn, $obj);
@@ -1263,7 +1273,7 @@ if (!class_exists("gravity_otp")) {
               foreach ($header as $header_id => $header_name) {
                 $val = call_user_func($item_val_parsing, $obj, $header_id, $header_name);
                 $item_td_classes = call_user_func($item_td_class, $obj, $header_id, $header_name);
-                echo "<td class='" . esc_attr("item_td_{$header_id} $item_td_classes") . "'>" . esc_attr($val) . "</td>";
+                echo "<td class='" . esc_attr("item_td_{$header_id} $item_td_classes") . "'>" . ($val) . "</td>";
               }
               echo "<template id='" . esc_attr("item_tr_{$obj->id}") . "'>
                           <div class='log5'>" . highlight_string("<?php" . PHP_EOL .
@@ -1271,7 +1281,7 @@ if (!class_exists("gravity_otp")) {
                 print_r($obj, true), 1) . "</div></template>";
               echo "</tr>";
             }
-            echo "</tbody><tfoot class='" . esc_attr($thead_class) . "'>" . esc_attr($headings_row) . "</tfoot></table>";
+            echo "</tbody><tfoot class='" . esc_attr($thead_class) . "'>" . ($headings_row) . "</tfoot></table>";
             do_action("gravity-otp-verification/datatables_after_table", $arguments);
             do_action("gravity-otp-verification/datatables_before_paginate", $arguments);
             echo '<div class="' . esc_attr($paginate_class) . '" style="margin-top: 1.5rem;display: block;">';
@@ -1653,7 +1663,7 @@ if (!class_exists("gravity_otp")) {
       add_filter("update_footer", function () {
         return sprintf(
           /* translators: 1: title, 2: version */
-          esc_attr_x('%1$s — Version %1$s', "footer-copyright", "gravity-otp-verification"),
+          esc_attr_x('%1$s — Version %2$s', "footer-copyright", "gravity-otp-verification"),
           esc_attr__("OTP Verification for Gravity Forms", "gravity-otp-verification"),
           $this->version
         );

@@ -21,6 +21,7 @@ The plugin supports direct integration with the following SMS providers:
 - **SMS.ir**
 - **FarazSMS**
 - **IPPanel**
+- **Persian WooCommerce SMS**
 
 Additionally, you can add **any other SMS gateway** via **WordPress hooks and filters**.
 
@@ -82,6 +83,14 @@ This plugin is provided **"as is"** without any warranties, express or implied. 
 This plugin is licensed under **GPLv2 or later**. See [LICENSE](https://www.gnu.org/licenses/gpl-2.0.html) for details.
 
 ## 🔥 Changelog
+
+#### v2.7.0 | 2025-05-15 | 1404-02-25
+- Added Persian WooCommerce SMS as Gateway
+- Fix Log panel not loaded
+
+#### v2.6.0 | 2025-04-30 | 1404-02-10
+- Update WordPress version
+- Fix GF-Panel not Loaded
 
 #### v2.5.0 | 2025-04-02 | 1404-01-13
 - General fixes and Enhancement

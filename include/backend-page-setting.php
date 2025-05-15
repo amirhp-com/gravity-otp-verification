@@ -2,7 +2,7 @@
 /*
  * @Author: Amirhossein Hosseinpour <https://amirhp.com>
  * @Last modified by: amirhp-com <its@amirhp.com>
- * @Last modified time: 2025/04/02 11:50:02
+ * @Last modified time: 2025/05/15 13:44:05
  */
 
 namespace BlackSwan\GravityOTPVerification;
@@ -44,6 +44,7 @@ class setting_page extends gravity_otp {
         "sms_ir"    => esc_attr__("SMS.ir", "gravity-otp-verification"),
         "sms_ir_v2" => esc_attr__("SMS.ir v2", "gravity-otp-verification"),
         "sms_faraz" => esc_attr__("FarazSMS (IPPanel)", "gravity-otp-verification"),
+        "woo_sms" => esc_attr__("Persian WooCommerce SMS", "gravity-otp-verification"),
       ]);
       ?>
       <form method="post" action="options.php">
@@ -156,6 +157,15 @@ class setting_page extends gravity_otp {
                       <li><?php echo
                           // phpcs:ignore WordPress.WP.I18n.MissingTranslatorsComment
                           wp_kses_post(__('Write your Message on OTP SMS field using <code>[otp]</code> or <code>{otp}</code> or <code>%otp%</code> to replace with Actual OTP Code.', "gravity-otp-verification")); ?></li>
+                      <li><?php echo
+                          // phpcs:ignore WordPress.WP.I18n.MissingTranslatorsComment
+                          wp_kses_post(__('If you want to use <strong>Pattern SMS</strong> method , Create a template on your panel and put <code>%otp%</code> on it, then use following example: ', "gravity-otp-verification") . "<pre style='text-align: left;direction: ltr;unicode-bidi: plaintext;'>pcode:6dvqf351dl06p34" . PHP_EOL . "otp:{otp}</pre>"); ?></li>
+                    </ul>
+                  </div>
+                  <div class="hide help-woo_sms">
+                    <ul class="pretty">
+                      <li><?php echo wp_kses_post(__('Install Persian WooCommerce SMS and Cofing it, this plugin would use it as SMS Gateway.', "gravity-otp-verification")); ?></li>
+                      <li><a href="<?=admin_url("plugin-install.php?s=Persian%2520WooCommerce%2520SMS&tab=search&type=term");?>" class="exteranl">Persian WooCommerce SMS افزونه پیامک ووکامرس</a></li>
                       <li><?php echo
                           // phpcs:ignore WordPress.WP.I18n.MissingTranslatorsComment
                           wp_kses_post(__('If you want to use <strong>Pattern SMS</strong> method , Create a template on your panel and put <code>%otp%</code> on it, then use following example: ', "gravity-otp-verification") . "<pre style='text-align: left;direction: ltr;unicode-bidi: plaintext;'>pcode:6dvqf351dl06p34" . PHP_EOL . "otp:{otp}</pre>"); ?></li>

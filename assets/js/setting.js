@@ -1,7 +1,7 @@
 /*
  * @Author: Amirhossein Hosseinpour <https://amirhp.com>
  * @Last modified by: amirhp-com <its@amirhp.com>
- * @Last modified time: 2025/03/31 21:02:49
+ * @Last modified time: 2025/05/15 13:46:46
  */
 
 (function ($) {
@@ -156,6 +156,10 @@
         case "sms_faraz":
           $("tr.gateway_option_field").addClass("hide");
           $("tr.api_server, tr.api_username, tr.api_password, tr.api_sender_number, tr.api_otp_sms").removeClass("hide");
+          break;
+        case "woo_sms":
+          $("tr.gateway_option_field").addClass("hide");
+          $("tr.api_otp_sms").removeClass("hide");
           break;
         case "sms_ir":
           $("tr.gateway_option_field").addClass("hide");

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OTP Verification for Gravity Forms\n"
 "POT-Creation-Date: 2025-05-15 14:00+0330\n"
-"PO-Revision-Date: 2025-05-15 14:02+0330\n"
+"PO-Revision-Date: 2025-05-15 14:05+0330\n"
 "Last-Translator: Amirhossein Hosseinpour <its@amirhp.com>\n"
 "Language-Team: Amirhossein Hosseinpour <its@amirhp.com>\n"
 "Language: fa_IR\n"
@@ -87,8 +87,7 @@ msgstr "متاسفانه خطا در ارسال کد به <strong>%s</strong> ر
 
 #: gravity-otp-verification.php:806
 msgid "No mobile field attached to OTP field."
-msgstr ""
-"فیلد موبایلی به فیلد کد یکبارمصرف متصل نشده. از بخش تنظیمات ادمین تغییر دهید."
+msgstr "فیلد موبایلی به فیلد کد یکبارمصرف متصل نشده. از بخش تنظیمات ادمین تغییر دهید."
 
 #: gravity-otp-verification.php:818
 msgid "Mobile number is required."
@@ -124,12 +123,11 @@ msgstr "کاربر حذف شده شناسه #%s"
 #: gravity-otp-verification.php:946
 #, php-format
 msgid ""
-"<strong>Gravity Forms</strong> is required for the <strong>Mobile OTP "
-"Verification for Gravity Forms</strong> plugin to work. Please install and "
-"activate %s."
+"<strong>Gravity Forms</strong> is required for the <strong>Mobile OTP Verification "
+"for Gravity Forms</strong> plugin to work. Please install and activate %s."
 msgstr ""
-"برای استفاده از <strong>افزونه تایید کد گرویتی</strong> نیاز دارید افزونه "
-"گرویتی فرم نصب و فعال باشد. لطفا %s را نصب کنید."
+"برای استفاده از <strong>افزونه تایید کد گرویتی</strong> نیاز دارید افزونه گرویتی فرم "
+"نصب و فعال باشد. لطفا %s را نصب کنید."
 
 #: gravity-otp-verification.php:947
 msgid "Gravity Forms"
@@ -158,8 +156,8 @@ msgstr "دیتابیس خالی است!"
 
 #: gravity-otp-verification.php:1042
 msgid ""
-"It seems there's nothing to show. please check your log setting and use the "
-"app to generate some logs."
+"It seems there's nothing to show. please check your log setting and use the app to "
+"generate some logs."
 msgstr "به نظر میرسد چیزی برای نمایش یافت نشد."
 
 #: gravity-otp-verification.php:1071
@@ -375,27 +373,24 @@ msgstr "تایید حذف"
 #: gravity-otp-verification.php:1359
 msgctxt "translate-js"
 msgid ""
-"Unfortunately we encountered a technical problem, for more information check "
-"console"
-msgstr ""
-"متاسفانه با یک مشکل فنی مواجه شدیم، برای اطلاعات بیشتر کنسول را بررسی کنید"
+"Unfortunately we encountered a technical problem, for more information check console"
+msgstr "متاسفانه با یک مشکل فنی مواجه شدیم، برای اطلاعات بیشتر کنسول را بررسی کنید"
 
 #. translators: 1: item id
 #: gravity-otp-verification.php:1362
 #, php-format
 msgctxt "translate-js"
 msgid ""
-"Are you sure you want to delete items <u><strong>ID #%s</strong></u> ? "
-"<red>THIS CANNOT BE UNDONE."
+"Are you sure you want to delete items <u><strong>ID #%s</strong></u> ? <red>THIS "
+"CANNOT BE UNDONE."
 msgstr ""
-"آیا مطمئن هستید میخواهید مورد <u><strong>ID #%s</strong></u> را حذف کنید؟‫"
-"<red>این عملیات قابل بازگشت نیست."
+"آیا مطمئن هستید میخواهید مورد <u><strong>ID #%s</strong></u> را حذف کنید؟‫<red>این "
+"عملیات قابل بازگشت نیست."
 
 #: gravity-otp-verification.php:1363
 msgctxt "translate-js"
 msgid ""
-"Are you sure you want to clear all data from database? <red>THIS CANNOT BE "
-"UNDONE."
+"Are you sure you want to clear all data from database? <red>THIS CANNOT BE UNDONE."
 msgstr ""
 "آیا مطمئن هستید میخواهید تمامی رکوردها و داده های دیتابیس را حذف کنید؟<red>این "
 "عملیات قابل بازگشت نیست."
@@ -403,11 +398,11 @@ msgstr ""
 #: gravity-otp-verification.php:1364
 msgctxt "translate-js"
 msgid ""
-"Are you sure you want to clear all saved settings and revert to default? "
-"<red>THIS CANNOT BE UNDONE."
+"Are you sure you want to clear all saved settings and revert to default? <red>THIS "
+"CANNOT BE UNDONE."
 msgstr ""
-"آیا مطمئن هستید میخواهید تمامی تنظیمات را پاک کرده و به پیشفرض تغییر دهید؟"
-"<red>این عملیات قابل بازگشت نیست."
+"آیا مطمئن هستید میخواهید تمامی تنظیمات را پاک کرده و به پیشفرض تغییر دهید؟<red>این "
+"عملیات قابل بازگشت نیست."
 
 #: gravity-otp-verification.php:1365
 msgctxt "translate-js"
@@ -893,11 +888,11 @@ msgstr "ریجکس موبایل"
 #: include/backend-page-setting.php:70
 #, php-format
 msgid ""
-"Set regex to validate mobile field, leave empty to disable it.%2$sFor Iranian "
-"Mobile use: %1$s"
+"Set regex to validate mobile field, leave empty to disable it.%2$sFor Iranian Mobile "
+"use: %1$s"
 msgstr ""
-"از این ریجکس برای تایید پترن موبایل استفاده میشود، برای غیرفعالسازی خالی رها "
-"کنید.%2$sبرای شماره موبایل ایران از این کد استفاده کنید: %1$s"
+"از این ریجکس برای تایید پترن موبایل استفاده میشود، برای غیرفعالسازی خالی رها کنید."
+"%2$sبرای شماره موبایل ایران از این کد استفاده کنید: %1$s"
 
 #: include/backend-page-setting.php:74
 msgid "Cookie Expiration (Day)"
@@ -955,8 +950,8 @@ msgstr ""
 #: include/backend-page-setting.php:102 include/backend-page-setting.php:132
 #, php-format
 msgid ""
-"Set Sender Number to your %1$sPurchased Sender number%2$s e.g."
-"<code>30002101000338</code>"
+"Set Sender Number to your %1$sPurchased Sender number%2$s e.g.<code>30002101000338</"
+"code>"
 msgstr ""
 "سرشماره ارسال را روی %1$sسرشماره خریداری‌شده%2$s خود تنظیم کنید، مانند: "
 "<code>30002101000338</code>"
@@ -965,54 +960,51 @@ msgstr ""
 #: include/backend-page-setting.php:108 include/backend-page-setting.php:138
 #, php-format
 msgid "Set API Server URL as %1$s or get Web-service URL from SMS.ir."
-msgstr ""
-"آدرس سرور API را روی %1$s تنظیم کنید یا آدرس وب‌سرویس را از SMS.ir دریافت کنید."
+msgstr "آدرس سرور API را روی %1$s تنظیم کنید یا آدرس وب‌سرویس را از SMS.ir دریافت کنید."
 
 #: include/backend-page-setting.php:113 include/backend-page-setting.php:143
 #: include/backend-page-setting.php:159
 msgid ""
-"Write your Message on OTP SMS field using <code>[otp]</code> or <code>{otp}</"
-"code> or <code>%otp%</code> to replace with Actual OTP Code."
+"Write your Message on OTP SMS field using <code>[otp]</code> or <code>{otp}</code> "
+"or <code>%otp%</code> to replace with Actual OTP Code."
 msgstr ""
-"پیام خود را در ‫فیلد متن پیامک‬ با استفاده از <code>[otp]</code> یا <code>{otp}</"
-"code> یا <code>%otp%</code> بنویسید تا با کد OTP واقعی جایگزین شود."
+"پیام خود را در ‫فیلد متن پیامک‬ با استفاده از <code>[otp]</code> یا <code>{otp}</code> "
+"یا <code>%otp%</code> بنویسید تا با کد OTP واقعی جایگزین شود."
 
 #. translators: 1: opening anchor tag, 2: close anchor tag
 #: include/backend-page-setting.php:116 include/backend-page-setting.php:146
 #, php-format
 msgid ""
-"If you want to send UltraFastSend SMS, %1$sCreate a Template%2$s on SMS.ir and "
-"put <code>#OTP#</code> on it, then enter <code>Template ID</code> on "
-"<strong>OTP SMS</strong> field"
+"If you want to send UltraFastSend SMS, %1$sCreate a Template%2$s on SMS.ir and put "
+"<code>#OTP#</code> on it, then enter <code>Template ID</code> on <strong>OTP SMS</"
+"strong> field"
 msgstr ""
-"اگر می‌خواهید پیامک UltraFastSend ارسال کنید، %1$sیک قالب ایجاد کنید%2$s در SMS."
-"ir و در آن <code>#OTP#</code> قرار دهید، سپس <code>Template ID</code> را در "
-"‫<strong>فیلد متن پیامک</strong>‬ وارد کنید"
+"اگر می‌خواهید پیامک UltraFastSend ارسال کنید، %1$sیک قالب ایجاد کنید%2$s در SMS.ir و "
+"در آن <code>#OTP#</code> قرار دهید، سپس <code>Template ID</code> را در ‫<strong>فیلد "
+"متن پیامک</strong>‬ وارد کنید"
 
 #. translators: 1: href link
 #: include/backend-page-setting.php:126
 #, php-format
-msgid ""
-"Fill \"Username\" with <strong>API Key</strong> from %1$sSMS.ir Profile%2$s"
+msgid "Fill \"Username\" with <strong>API Key</strong> from %1$sSMS.ir Profile%2$s"
 msgstr ""
-"‎‫فیلد «نام کاربری» را با <strong>کلید ‬‪API‬‫</strong> از %1$sپروفایل SMS.ir%2$s پر "
-"کنید"
+"‎‫فیلد «نام کاربری» را با <strong>کلید ‬‪API‬‫</strong> از %1$sپروفایل SMS.ir%2$s پر کنید"
 
 #: include/backend-page-setting.php:154
 msgid ""
-"Set API Server URL to <code>ippanel.com</code> or your given panel address, e."
-"g. <code>sms.farazsms.com</code>"
+"Set API Server URL to <code>ippanel.com</code> or your given panel address, e.g. "
+"<code>sms.farazsms.com</code>"
 msgstr ""
-"آدرس سرور API را روی <code>ippanel.com</code> یا آدرس پنل اختصاصی خود تنظیم "
-"کنید، مانند <code>sms.farazsms.com</code>"
+"آدرس سرور API را روی <code>ippanel.com</code> یا آدرس پنل اختصاصی خود تنظیم کنید، "
+"مانند <code>sms.farazsms.com</code>"
 
 #: include/backend-page-setting.php:155
 msgid ""
 "Set Sender Number to your purchased SMS Sending number or If you are using "
 "<strong>Pattern SMS</strong> use <code>3000505</code>"
 msgstr ""
-"سرشماره ارسال را روی شماره خریداری‌شده خود تنظیم کنید یا اگر از <strong>پیامک "
-"الگوی</strong> استفاده می‌کنید، مقدار <code>3000505</code> را وارد کنید"
+"سرشماره ارسال را روی شماره خریداری‌شده خود تنظیم کنید یا اگر از <strong>پیامک الگوی</"
+"strong> استفاده می‌کنید، مقدار <code>3000505</code> را وارد کنید"
 
 #: include/backend-page-setting.php:156
 msgid "Username and Password are your SMS Panel Credentials."
@@ -1020,20 +1012,19 @@ msgstr "نام کاربری و رمز عبور، همان اطلاعات ورو�
 
 #: include/backend-page-setting.php:162 include/backend-page-setting.php:171
 msgid ""
-"If you want to use <strong>Pattern SMS</strong> method , Create a template on "
-"your panel and put <code>%otp%</code> on it, then use following example: "
+"If you want to use <strong>Pattern SMS</strong> method , Create a template on your "
+"panel and put <code>%otp%</code> on it, then use following example: "
 msgstr ""
-"اگر می‌خواهید از روش <strong>پیامک پترن</strong> استفاده کنید، یک قالب در پنل "
-"خود ایجاد کرده و <code>%otp%</code> را در آن قرار دهید، سپس از مثال زیر برای "
-"متن پیامک استفاده کنید: "
+"اگر می‌خواهید از روش <strong>پیامک پترن</strong> استفاده کنید، یک قالب در پنل خود "
+"ایجاد کرده و <code>%otp%</code> را در آن قرار دهید، سپس از مثال زیر برای متن پیامک "
+"استفاده کنید: "
 
 #: include/backend-page-setting.php:167
 msgid ""
 "Install Persian WooCommerce SMS and Cofing it, this plugin would use it as SMS "
 "Gateway."
 msgstr ""
-"‎‪افزونه پیامک ووکامرس فارسی را نصب و پیکربندی کنید و از ان بعنوان درگاه استفاده "
-"میشود."
+"‫‎‪افزونه پیامک ووکامرس فارسی را نصب و پیکربندی کنید و از ان بعنوان درگاه استفاده میشود"
 
 #: include/backend-page-setting.php:178
 msgid "API Server URL"
@@ -1172,11 +1163,11 @@ msgstr "‪https://wordpress.org/plugins/gravity-otp-verification/"
 
 #. Description of the plugin/theme
 msgid ""
-"This plugin ensures secure form submissions by verifying users' mobile numbers "
-"via OTP before saving"
+"This plugin ensures secure form submissions by verifying users' mobile numbers via "
+"OTP before saving"
 msgstr ""
-"این افزونه با تأیید شماره موبایل کاربران از طریق ارسال پیامک قبل از ذخیره فرم، "
-"اصالت شماره موبایل وارد شده در فرم را تایید میکند"
+"این افزونه با تأیید شماره موبایل کاربران از طریق ارسال پیامک قبل از ذخیره فرم، اصالت "
+"شماره موبایل وارد شده در فرم را تایید میکند"
 
 #. Author of the plugin/theme
 msgid "BlackSwanDev"

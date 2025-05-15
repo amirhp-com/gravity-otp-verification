@@ -2,7 +2,7 @@
 /*
  * @Author: Amirhossein Hosseinpour <https://amirhp.com>
  * @Last modified by: amirhp-com <its@amirhp.com>
- * @Last modified time: 2025/05/15 14:00:11
+ * @Last modified time: 2025/05/15 14:05:13
  */
 
 namespace BlackSwan\GravityOTPVerification;
@@ -164,7 +164,7 @@ class setting_page extends gravity_otp {
                   </div>
                   <div class="hide help-woo_sms">
                     <ul class="pretty">
-                      <li><?php echo wp_kses_post(__('Install Persian WooCommerce SMS and Cofing it, this plugin would use it as SMS Gateway.', "gravity-otp-verification")); ?></li>
+                      <li><?php echo wp_kses_post(__('Install Persian WooCommerce SMS and Cofing it, this plugin would use it as SMS Gateway', "gravity-otp-verification")); ?></li>
                       <li><a href="<?=admin_url("plugin-install.php?s=Persian%2520WooCommerce%2520SMS&tab=search&type=term");?>" class="exteranl">Persian WooCommerce SMS افزونه پیامک ووکامرس</a></li>
                       <li><?php echo
                           // phpcs:ignore WordPress.WP.I18n.MissingTranslatorsComment

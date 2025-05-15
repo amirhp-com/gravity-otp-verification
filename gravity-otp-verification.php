@@ -15,7 +15,7 @@
  * License: GPLv2 or later
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
  * @Last modified by: amirhp-com <its@amirhp.com>
- * @Last modified time: 2025/05/15 13:55:15
+ * @Last modified time: 2025/05/15 14:03:41
 */
 namespace BlackSwan\GravityOTPVerification;
 defined("ABSPATH") or die("<h2>Unauthorized Access!</h2><hr><small>OTP Verification for Gravity Forms :: Developed by <a href='https://blackswandev.com/'>BlackSwanDev</a></small>");
@@ -633,11 +633,11 @@ if (!class_exists("gravity_otp")) {
     }
     #endregion
     public function init_plugin() {
-      $this->title = esc_attr__("Gravity OTP", "gravity-otp-verification");
+      $this->title = __("Gravity OTP", "gravity-otp-verification");
       /* translators: 1: given mobile number */
-      $this->sent_ok = esc_attr__("OTP Code sent to mobile <strong>%s</strong> successfully.", "gravity-otp-verification");
+      $this->sent_ok = __("OTP Code sent to mobile <strong>%s</strong> successfully.", "gravity-otp-verification");
       /* translators: 1: given mobile number */
-      $this->sent_nok = esc_attr__("Could not send OTP Code to <strong>%s</strong>, Try again.", "gravity-otp-verification");
+      $this->sent_nok = __("Could not send OTP Code to <strong>%s</strong>, Try again.", "gravity-otp-verification");
       add_action("plugin_row_meta", array($this, "plugin_row_meta"), 10, 4);
       add_filter("plugin_action_links", array($this, "plugin_action_links"), 10, 2);
       add_action("admin_menu", array($this, "admin_menu"), 1000);
@@ -943,8 +943,8 @@ if (!class_exists("gravity_otp")) {
         add_action('admin_notices', function () {
           echo '<div class="error"><p>' . sprintf(
             /* translators: 1: plugin name */
-            esc_attr__('<strong>Gravity Forms</strong> is required for the <strong>Mobile OTP Verification for Gravity Forms</strong> plugin to work. Please install and activate %s.', 'gravity-otp-verification'),
-            "<a href='https://www.gravityforms.com/' target='_blank'>" . esc_attr__("Gravity Forms", "gravity-otp-verification") . "</a>"
+            __('<strong>Gravity Forms</strong> is required for the <strong>Mobile OTP Verification for Gravity Forms</strong> plugin to work. Please install and activate %s.', 'gravity-otp-verification'),
+            "<a href='https://www.gravityforms.com/' target='_blank'>" . __("Gravity Forms", "gravity-otp-verification") . "</a>"
           ) . '</p></div>';
         });
       }

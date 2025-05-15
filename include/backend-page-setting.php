@@ -2,7 +2,7 @@
 /*
  * @Author: Amirhossein Hosseinpour <https://amirhp.com>
  * @Last modified by: amirhp-com <its@amirhp.com>
- * @Last modified time: 2025/05/15 13:44:05
+ * @Last modified time: 2025/05/15 14:00:11
  */
 
 namespace BlackSwan\GravityOTPVerification;
@@ -78,7 +78,7 @@ class setting_page extends gravity_otp {
               $this->print_setting_input(["slug" => "resend_btn", "caption" => esc_attr__("Button: Resend Code", "gravity-otp-verification")]);
               $this->print_setting_input(["slug" => "wait_btn", "caption" => esc_attr__("Button: Wait to Resend", "gravity-otp-verification"), "desc" =>
               /* translators: 1: dummy */
-              esc_attr__('Use %1$d for Second indictor, e.g. Wait %1$d Seconds.', "gravity-otp-verification"),]);
+              esc_attr__('Use "%d" for Second indictor, e.g. Wait %d Seconds.', "gravity-otp-verification"),]);
               $this->print_setting_tr(esc_attr__("SMS Provider Setting", "gravity-otp-verification"));
               $this->print_setting_select([
                 "slug"    => "sms_gateway",

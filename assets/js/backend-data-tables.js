@@ -1,7 +1,7 @@
 /*
  * @Author: Amirhossein Hosseinpour <https://amirhp.com>
  * @Last modified by: amirhp-com <its@amirhp.com>
- * @Last modified time: 2025/03/31 21:00:45
+ * @Last modified time: 2025/08/04 15:42:29
  */
 
 (function ($) {
@@ -241,9 +241,9 @@
       $("tr.item_tr_" + id).addClass("highlight");
       var jc = $.confirm({
         title: _i18n.edit,
-        content: $("#addnewshelfform").html(),
+        content: $("#add_new_db_entry").html(),
         onContentReady: function () {
-          var form = this.$content.find(".addnewshelf");
+          var form = this.$content.find(".add_db_entry_form");
           $.each(json, function (id, val) {
             id = String(id);
             if ($(form).find(`.${id}`).length) {
@@ -272,7 +272,7 @@
             btnClass: "btn-purple",
             keys: ["enter"],
             action: function () {
-              var form = this.$content.find(".addnewshelf");
+              var form = this.$content.find(".add_db_entry_form");
               var formData = $(form).serializeArray();
               $(".jconfirm-closeIcon").hide();
               jc.showLoading(true);
@@ -630,7 +630,7 @@
       var me = $(this);
       var jc = $.confirm({
         title: _i18n.addnew,
-        content: $("#addnewshelfform").html(),
+        content: $("#add_new_db_entry").html(),
         onContentReady: function () {},
         boxWidth: "400px",
         type: "purple",
@@ -652,7 +652,7 @@
             btnClass: "btn-purple",
             keys: ["enter"],
             action: function () {
-              var form = this.$content.find(".addnewshelf");
+              var form = this.$content.find(".add_db_entry_form");
               var formData = $(form).serializeArray();
               $(".jconfirm-closeIcon").hide();
               jc.showLoading(true);

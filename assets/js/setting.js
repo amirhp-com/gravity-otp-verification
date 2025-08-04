@@ -1,7 +1,7 @@
 /*
  * @Author: Amirhossein Hosseinpour <https://amirhp.com>
  * @Last modified by: amirhp-com <its@amirhp.com>
- * @Last modified time: 2025/05/15 13:46:46
+ * @Last modified time: 2025/08/04 17:03:14
  */
 
 (function ($) {
@@ -97,7 +97,7 @@
       /* handle: 'td.wc-shipping-zone-method-sort', */
     });
 
-    $(document).on("click tap", ".woo-nav-tab-wrapper a.nav-tab", function (e) {
+    $(document).on("click tap", ".woo-nav-tab-wrapper a.nav-tab:not(.external)", function (e) {
       e.preventDefault();
       var me = $(this);
       $(`.woo-nav-tab-wrapper .nav-tab.nav-tab-active`).removeClass("nav-tab-active");
@@ -158,6 +158,7 @@
           $("tr.api_server, tr.api_username, tr.api_password, tr.api_sender_number, tr.api_otp_sms").removeClass("hide");
           break;
         case "woo_sms":
+        case "wp_sms":
           $("tr.gateway_option_field").addClass("hide");
           $("tr.api_otp_sms").removeClass("hide");
           break;

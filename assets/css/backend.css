@@ -2,57 +2,25 @@
  * @Author: Amirhossein Hosseinpour <https://amirhp.com>
  * @Date Created: 2024/01/14 19:43:28
  * @Last modified by: amirhp-com <its@amirhp.com>
- * @Last modified time: 2025/03/13 15:16:35
+ * @Last modified time: 2025/08/04 17:35:30
  */
 
 @font-face {
-  font-family: bodyfont;
+  font-family: 'Vazirmatn';
+  src: url('Vazirmatn[wght].woff2') format('woff2 supports variations'),
+       url('Vazirmatn[wght].woff2') format('woff2-variations');
+  font-weight: 100 900;
   font-style: normal;
-  font-weight: 300;
-  src: url("Font-300.woff") format("woff");
+  font-display: swap;
 }
 
-@font-face {
-  font-family: bodyfont;
-  font-style: normal;
-  font-weight: 400;
-  src: url("Font-400.woff") format("woff");
-}
-
-@font-face {
-  font-family: bodyfont;
-  font-style: normal;
-  font-weight: normal;
-  src: url("Font-400.woff") format("woff");
-}
-
-@font-face {
-  font-family: bodyfont;
-  font-style: normal;
-  font-weight: 600;
-  src: url("Font-800.woff") format("woff");
-}
-
-@font-face {
-  font-family: bodyfont;
-  font-style: normal;
-  font-weight: bold;
-  src: url("Font-800.woff") format("woff");
-}
-
-@font-face {
-  font-family: bodyfont;
-  font-style: normal;
-  font-weight: 900;
-  src: url("Font-900.woff") format("woff");
-}
 
 .tippy-content,
 body.rtl toast.active,
-[dir="rtl"] .wrap :is(p, span:not(.dashicons, .fa, .fas, .fab), small, table, tr, td, th, h1, h2, h3, h4, toast),
+[dir="rtl"] #wpbody-content :is(a, p, button, input, textarea, small, table, tr, td, th, h1, h2, h3, h4, toast, span:not(.dashicons, .fa, .fas, .fab)),
 [dir="rtl"] .data-table-wrap h3,
 [dir="rtl"] .data-table-wrap h4 {
-  font-family: bodyfont, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif !important;
+  font-family: Vazirmatn, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif !important;
 }
 
 toast {
@@ -85,11 +53,11 @@ toast.active {
 }
 
 [dir="rtl"] .jconfirm-box {
-  font-family: bodyfont !important;
+  font-family: Vazirmatn !important;
 }
 
 [dir="rtl"] h1.had {
-  font-family: bodyfont !important;
+  font-family: Vazirmatn !important;
 }
 
 h1.had {
@@ -343,11 +311,6 @@ table.form-table tr>td input[accept-charset][autocomplete] {
   width: 100%;
 }
 
-.fas,
-.fab,
-.fa {
-  font-family: FontAwesome;
-}
 
 input[type=checkbox] {
   -webkit-appearance: none !important;
@@ -520,4 +483,12 @@ ul.pretty pre {
   min-width: 320px;
   padding: 0.25rem 0.5rem;
   border-left: 5px solid #bbb;
+}
+
+.w-100 {
+  text-align: left;
+  direction: ltr;
+  unicode-bidi: -moz-plaintext;
+  unicode-bidi: plaintext;
+  width: calc(100% - 1rem) !important;
 }

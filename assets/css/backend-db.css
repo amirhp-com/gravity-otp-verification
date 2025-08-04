@@ -2,47 +2,25 @@
  * @Author: Amirhossein Hosseinpour <https://amirhp.com>
  * @Date Created: 2023/05/13 09:37:05
  * @Last modified by: amirhp-com <its@amirhp.com>
- * @Last modified time: 2025/03/31 20:44:03
+ * @Last modified time: 2025/08/04 16:53:25
  */
 
 @font-face {
-  font-family: bodyfont;
+  font-family: 'Vazirmatn';
+  src: url('../../assets/css/Vazirmatn[wght].woff2') format('woff2 supports variations'),
+       url('../../assets/css/Vazirmatn[wght].woff2') format('woff2-variations');
+  font-weight: 100 900;
   font-style: normal;
-  font-weight: 400;
-  src: url("Font-400.woff") format("woff");
+  font-display: swap;
 }
 
-@font-face {
-  font-family: bodyfont;
-  font-style: normal;
-  font-weight: normal;
-  src: url("Font-400.woff") format("woff");
-}
 
-@font-face {
-  font-family: bodyfont;
-  font-style: normal;
-  font-weight: 600;
-  src: url("Font-800.woff") format("woff");
-}
-
-@font-face {
-  font-family: bodyfont;
-  font-style: normal;
-  font-weight: bold;
-  src: url("Font-800.woff") format("woff");
-}
-
-.rtl h1,
-.rtl h2,
-.rtl h3,
-.rtl h4,
-.rtl h5,
-.rtl h6,
-.rtl .dataTable,
+.tippy-content,
+body.rtl toast.active,
+[dir="rtl"] #wpbody-content :is(a, p, button, input, textarea, small, table, tr, td, th, h1, h2, h3, h4, toast, span:not(.dashicons, .fa, .fas, .fab)),
 [dir="rtl"] .data-table-wrap h3,
 [dir="rtl"] .data-table-wrap h4 {
-  font-family: bodyfont !important;
+  font-family: Vazirmatn, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif !important;
 }
 
 toast {
@@ -75,11 +53,11 @@ toast.active {
 }
 
 [dir="rtl"] .jconfirm-box {
-  font-family: bodyfont !important;
+  font-family: Vazirmatn !important;
 }
 
 [dir="rtl"] h1.had {
-  font-family: bodyfont !important;
+  font-family: Vazirmatn !important;
 }
 
 .jconfirm.jconfirm-modern .jconfirm-box .jconfirm-buttons button {
@@ -486,7 +464,7 @@ table.dataTable tfoot td {
   flex: 1 0 auto;
 }
 
-.addnewshelf .row-item {
+.add_db_entry_form .row-item {
   display: flex;
   flex-direction: column;
   text-align: start;

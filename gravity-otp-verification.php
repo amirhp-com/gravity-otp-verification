@@ -1,32 +1,32 @@
 <?php
 /*
- * Plugin Name: OTP Verification for Gravity Forms
- * Description: This plugin ensures secure form submissions by verifying users' mobile numbers via OTP before saving
- * Author: BlackSwanDev
- * Author URI: https://blackswandev.com/
+ * Plugin Name: Gravity Forms - OTP Verification (SMS/EMAIL)
+ * Description: A powerful plugin for Gravity Forms that adds OTP verification via SMS/Email to your forms for FREE.
+ * Author: Pigment.Dev
+ * Author URI: https://pigment.dev/
  * Plugin URI: https://wordpress.org/plugins/gravity-otp-verification/
- * Contributors: amirhpcom, pigmentdev, blackswanlab
- * Version: 2.7.0
+ * Contributors: amirhpcom, pigmentdev
+ * Version: 3.0.0
  * Tested up to: 6.8
  * Requires PHP: 7.1
  * Text Domain: gravity-otp-verification
  * Domain Path: /languages
- * Copyright: (c) BlackSwanDev.Com, All rights reserved.
+ * Copyright: (c) Pigment.Dev, All rights reserved.
  * License: GPLv2 or later
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
  * @Last modified by: amirhp-com <its@amirhp.com>
- * @Last modified time: 2025/05/15 14:03:41
+ * @Last modified time: 2025/08/04 19:38:39
 */
-namespace BlackSwan\GravityOTPVerification;
-defined("ABSPATH") or die("<h2>Unauthorized Access!</h2><hr><small>OTP Verification for Gravity Forms :: Developed by <a href='https://blackswandev.com/'>BlackSwanDev</a></small>");
+namespace PigmentDev\GravityOTPVerification;
+defined("ABSPATH") or die("<h2>Unauthorized Access!</h2><hr><small>Gravity Forms - OTP Verification (SMS/EMAIL) :: Developed by <a href='https://pigment.dev/'>Pigment.Dev</a></small>");
 if (!class_exists("gravity_otp")) {
   class gravity_otp {
     public $td = "gravity-otp-verification";
     public $db_slug = "gravity_otp_verification";
-    public $version = "2.7.0";
+    public $version = "3.0.0";
     public $script_version;
-    public $db_version = "2.6.0";
-    public $title = "Gravity OTP";
+    public $db_version = "3.0.0";
+    public $title = "Gravity Forms - OTP Verification";
     public $sent_ok = "Send Success";
     public $sent_nok = "Send Failed";
     public $debug = false;
@@ -84,26 +84,34 @@ if (!class_exists("gravity_otp")) {
           /* translators: 1: seconds placeholder */
           esc_attr__("Wait %d Sec.", "gravity-otp-verification")
         ),
+        "err_field_id"     => esc_attr__("Field ID not found. Please check the Field ID setting.", "gravity-otp-verification"),
+        "err_form_id"      => esc_attr__("Form ID not found. Please check the Form ID setting.", "gravity-otp-verification"),
         "err_mobile_field" => esc_attr__("Mobile field not found. Please check the Mobile Field ID setting.", "gravity-otp-verification"),
         "err_mobile_empty" => esc_attr__("Please enter a mobile number.", "gravity-otp-verification"),
+        "err_email_empty" => esc_attr__("Please enter an email address.", "gravity-otp-verification"),
       ));
     }
     public function send_otp_callback() {
       check_ajax_referer('gravity_otp_verification_nonce', 'nonce');
       global $wpdb;
-      $db_id      = 0;
+      $db_id = 0;
       $otp_digits = 5;
+      $otpType = sanitize_text_field(wp_unslash(isset($_POST['type']) ? $_POST['type'] : "mobile"));
       if (!isset($_POST['phone']) || empty($_POST['phone'])) {
+        if ($otpType === "email") {
+          wp_send_json_error(["message" => esc_attr__("Please enter a valid email address.", "gravity-otp-verification")]);
+        }
         wp_send_json_error(["message" => esc_attr__("Please enter a valid mobile number.", "gravity-otp-verification")]);
       }
       $user_id = get_current_user_id();
       $phone   = $this->sanitize_number_field(sanitize_text_field(wp_unslash($_POST['phone'])));
-      if (!ctype_digit($phone)) wp_send_json_error(["message" => esc_attr__("Please enter a valid mobile number.", "gravity-otp-verification")]);
-      if (!empty($this->read("mobile_regex"))) {
+      if ($otpType === "mobile" && !ctype_digit($phone)) wp_send_json_error(["message" => esc_attr__("Please enter a valid mobile number.", "gravity-otp-verification")]);
+      if ($otpType === "email" && !is_email($phone)) wp_send_json_error(["message" => esc_attr__("Please enter a valid email address.", "gravity-otp-verification")]);
+      if ($otpType === "mobile" && !empty($this->read("mobile_regex"))) {
         $regex = preg_match($this->read("mobile_regex"), $phone);
         if (!$regex) wp_send_json_error(["message" => esc_attr__("Please enter a valid mobile number.", "gravity-otp-verification")]);
       }
-      if (!ctype_digit($phone)) wp_send_json_error(["message" => esc_attr__("Please enter a valid mobile number.", "gravity-otp-verification")]);
+      if ($otpType === "mobile" && !ctype_digit($phone)) wp_send_json_error(["message" => esc_attr__("Please enter a valid mobile number.", "gravity-otp-verification")]);
       $form_id        = sanitize_text_field(wp_unslash(isset($_POST['form_id']) ? $_POST['form_id'] : ""));
       $field_id       = sanitize_text_field(wp_unslash(isset($_POST['field_id']) ? $_POST['field_id'] : ""));
       $page_id        = sanitize_text_field(wp_unslash(isset($_POST['page_id']) ? $_POST['page_id'] : ""));
@@ -116,12 +124,10 @@ if (!class_exists("gravity_otp")) {
       $field = \GFFormsModel::get_field($form, $field_id);
       if (!$field) wp_send_json(["message" => esc_attr__("Unknown error occured.", "gravity-otp-verification")]);
       if ($field && isset($field->otpDigits)) $otp_digits = intval($field->otpDigits);
-
       // Generate a random OTP of the given length
       $min = (int) str_pad('1', $otp_digits, '0', STR_PAD_RIGHT); // e.g., 10000 for 5 digits
       $max = (int) str_pad('9', $otp_digits, '9', STR_PAD_RIGHT); // e.g., 99999 for 5 digits
       $otp = random_int($min, $max);
-
       if ($attempts >= $max_failed) {
         wp_send_json_error(['message' => sprintf(
           /* translators: 1: locked minutes */
@@ -129,10 +135,14 @@ if (!class_exists("gravity_otp")) {
           $lockdown_delay
         )]);
       }
-
       set_transient('gravity_otp_verification_' . $phone, $otp, $resend_delay);
-      $smsSent = $this->send_sms($phone, $otp);
-
+      if ($otpType === "email") {
+        $smsSent = $this->send_mail($phone, $otp);
+      }elseif ($otpType === "mobile") {
+        $smsSent = $this->send_sms($phone, $otp);
+      }else{
+        wp_send_json_error(['message' => esc_attr__("Unknown OTP type. Please check your settings.", "gravity-otp-verification")]);
+      }
       // phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_print_r,WordPress.PHP.DevelopmentFunctions.error_log_error_log,WordPress.PHP.DevelopmentFunctions.error_log_var_export
       $this->debug_trace("debugging " . current_action() . ": " . __CLASS__ . "->" . __FUNCTION__ . PHP_EOL . var_export($otp, 1));
       // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery
@@ -165,7 +175,7 @@ if (!class_exists("gravity_otp")) {
     public function get_user_agent() {
       return isset($_SERVER['HTTP_USER_AGENT']) ? sanitize_text_field(wp_unslash($_SERVER['HTTP_USER_AGENT'])) : ''; // @codingStandardsIgnoreLine
     }
-    public function send_sms($mobile = 0, $otp = 0, $echo = false) {
+    private function send_sms($mobile = 0, $otp = 0, $echo = false) {
       $sms_gateway = $this->read("sms_gateway");
       $api_otp_sms = $this->read("api_otp_sms");
       $message = str_replace(["[otp]", "{otp}", "%otp%", "[OTP]", "{OTP}", "%OTP%",], [$otp, $otp, $otp, $otp, $otp, $otp], $api_otp_sms);
@@ -204,15 +214,23 @@ if (!class_exists("gravity_otp")) {
           if (is_wp_error($res)) $this->last_ajax_err = $res->get_error_messages();
           break;
         case 'woo_sms':
-          $message  = str_replace(["[otp]", "{otp}", "%otp%", "[OTP]", "{OTP}", "%OTP%",], [$otp, $otp, $otp, $otp, $otp, $otp], trim($this->read("api_otp_sms")));
+          $res = null; $message = str_replace(["[otp]", "{otp}", "%otp%", "[OTP]", "{OTP}", "%OTP%",], [$otp, $otp, $otp, $otp, $otp, $otp], trim($this->read("api_otp_sms")));
+          if (function_exists("wp_sms_send")) {
+            // https://wp-sms-pro.com/resources/wp_sms_send/
+            $res = wp_sms_send((array) $mobile, $message);
+          }
+          if (is_wp_error($res) || !$res) $this->last_ajax_err = method_exists($res, "get_error_messages") ? $res->get_error_messages() : var_export($res, 1);
+        break;
+        case 'wp_sms':
+          $res = null; $message = str_replace(["[otp]", "{otp}", "%otp%", "[OTP]", "{OTP}", "%OTP%",], [$otp, $otp, $otp, $otp, $otp, $otp], trim($this->read("api_otp_sms")));
           if (function_exists("PWSMS")) {
             $res = PWSMS()->send_sms(array("post_id" => 0, "message" => $message, "mobile" => $mobile));
           }
           elseif (function_exists("PWooSMS")) {
             $res = PWooSMS()->SendSMS(array("post_id" => 0, "message" => $message, "mobile" => $mobile));
           }
-          if (is_wp_error($res)) $this->last_ajax_err = $res->get_error_messages();
-          break;
+          if (is_wp_error($res) || !$res) $this->last_ajax_err = method_exists($res, "get_error_messages") ? $res->get_error_messages() : var_export($res, 1);
+        break;
 
         default:
           $res = apply_filters("gravity-otp-verification/fn-send-sms/{$sms_gateway}", $mobile, $otp);
@@ -221,6 +239,31 @@ if (!class_exists("gravity_otp")) {
       // phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_print_r,WordPress.PHP.DevelopmentFunctions.error_log_error_log,WordPress.PHP.DevelopmentFunctions.error_log_var_export
       $this->debug_trace("debugging " . current_action() . ": " . __CLASS__ . "->" . __FUNCTION__ . PHP_EOL . var_export($res, 1));
       return apply_filters("gravity-otp-verification/fn-send-sms", $res, $sms_gateway, $mobile, $otp);
+    }
+    private function send_mail($mail_receiver = "", $otp = 0, $echo = false) {
+      $email_template = $this->read("email_template", $this->get_email_template());
+      $timestamp = current_time("timestamp");
+      $subject = $this->read("email_subject");
+      $mail_body = str_replace(["[otp]", "{otp}", "%otp%", "[OTP]", "{OTP}", "%OTP%",], [$otp, $otp, $otp, $otp, $otp, $otp], $email_template);
+      $mail_body = str_replace(
+        ["{site_url}", "{subject}", "{date}", "{date_time}", "{recipient}", "{otp}", ],
+        [home_url(),$subject, date_i18n("Y/m/d", $timestamp), date_i18n("Y/m/d H:i:s", $timestamp), $mail_receiver, $otp, ]
+      , $mail_body);
+      if (empty($mail_receiver) || empty($otp) || empty($mail_body)) return;
+      // phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_print_r,WordPress.PHP.DevelopmentFunctions.error_log_error_log,WordPress.PHP.DevelopmentFunctions.error_log_var_export
+      $this->debug_trace("debugging " . current_action() . ": " . __CLASS__ . "->" . __FUNCTION__ . PHP_EOL . var_export(func_get_args(), 1));
+      // phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_print_r,WordPress.PHP.DevelopmentFunctions.error_log_error_log,WordPress.PHP.DevelopmentFunctions.error_log_var_export
+      $this->debug_trace("debugging " . current_action() . ": " . __CLASS__ . "->" . __FUNCTION__ . PHP_EOL . var_export(get_defined_vars(), 1));
+      // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped,WordPress.PHP.DevelopmentFunctions.error_log_print_r,WordPress.PHP.DevelopmentFunctions.error_log_error_log,WordPress.PHP.DevelopmentFunctions.error_log_var_export
+      if ($echo) { $this->debug_trace(print_r([$email_template, $mail_body, $otp], 1)); }
+      $from      = $this->read("email_from_name");
+      $address   = $this->read("email_from_address");
+      $headers   = ["Content-Type: text/html; charset=UTF-8"];
+      if (!empty($from) && !empty($address)) { $headers[] = "From: $from <$address>"; }
+      $res = wp_mail($mail_receiver, $subject, $mail_body, $headers);
+      // phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_print_r,WordPress.PHP.DevelopmentFunctions.error_log_error_log,WordPress.PHP.DevelopmentFunctions.error_log_var_export
+      $this->debug_trace("debugging " . current_action() . ": " . __CLASS__ . "->" . __FUNCTION__ . PHP_EOL . var_export($res, 1));
+      return apply_filters("gravity-otp-verification/fn-send-email", $res, $mail_receiver, $subject, $mail_body, $otp);
     }
     public function debug_trace($mix=""){
       if ($this->debug){
@@ -633,9 +676,9 @@ if (!class_exists("gravity_otp")) {
     }
     #endregion
     public function init_plugin() {
-      $this->title = __("Gravity OTP", "gravity-otp-verification");
+      $this->title = __("Gravity Forms - OTP Verification", "gravity-otp-verification");
       /* translators: 1: given mobile number */
-      $this->sent_ok = __("OTP Code sent to mobile <strong>%s</strong> successfully.", "gravity-otp-verification");
+      $this->sent_ok = __("OTP Code sent to <strong>%s</strong> successfully.", "gravity-otp-verification");
       /* translators: 1: given mobile number */
       $this->sent_nok = __("Could not send OTP Code to <strong>%s</strong>, Try again.", "gravity-otp-verification");
       add_action("plugin_row_meta", array($this, "plugin_row_meta"), 10, 4);
@@ -667,6 +710,22 @@ if (!class_exists("gravity_otp")) {
           "otp"     => $otp,
           "mobile"  => $mobile,
           "sms_res" => json_decode($res) ? json_decode($res, 1) : $res,
+        ], 1) . "</pre>";
+        exit;
+      }
+      if (current_user_can("manage_options") && is_admin() && isset($_GET["gravity_otp_verification_send_test_email"], $_GET["nonce"]) && !empty($_GET["gravity_otp_verification_send_test_email"]) && !empty($_GET["nonce"]) ) {
+        if (!wp_verify_nonce(sanitize_text_field(wp_unslash($_GET["nonce"])), $this->td)) { return ; }
+        // phpcs:ignore WordPress.Security.NonceVerification.Recommended,  WordPress.Security.ValidatedSanitizedInput.MissingUnslash
+        $email = sanitize_text_field(wp_unslash($_GET["gravity_otp_verification_send_test_email"]));
+        $min = (int) str_pad('1', 4, '0', STR_PAD_RIGHT); // e.g., 10000 for 5 digits
+        $max = (int) str_pad('9', 4, '9', STR_PAD_RIGHT); // e.g., 99999 for 5 digits
+        $otp = random_int($min, $max);
+        $res = $this->send_mail($email, $otp, true);
+        // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped, WordPress.PHP.DevelopmentFunctions.error_log_print_r,WordPress.PHP.DevelopmentFunctions.error_log_error_log,WordPress.PHP.DevelopmentFunctions.error_log_var_export
+        echo "<pre style='text-align: left; direction: ltr; border:1px solid gray; padding: 1rem; overflow: auto;'>" . var_export([
+          "otp"     => $otp,
+          "email"  => $email,
+          "mail_res" => json_decode($res) ? json_decode($res, 1) : $res,
         ], 1) . "</pre>";
         exit;
       }
@@ -703,6 +762,44 @@ if (!class_exists("gravity_otp")) {
       }
       // Return the modified confirmation
       return $confirmation;
+    }
+    public function get_email_template() {
+      $mail_body = '<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">' .
+        PHP_EOL . '<meta name="viewport" content="width=device-width, initial-scale=1.0">' .
+        PHP_EOL . '<link rel="preconnect" href="https://fonts.gstatic.com">' .
+        PHP_EOL . '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>' .
+        PHP_EOL . '<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400..900&display=swap" rel="stylesheet">' .
+        PHP_EOL . '<style>' .
+        PHP_EOL . '  @media (min-width: 640px) {.container {width: 592px; direction: ltr;}}' .
+        PHP_EOL . '  table[role="presentation"], table[role="presentation"] * {' . PHP_EOL . '    font-family: "Playfair Display", serif;' . PHP_EOL . '    unicode-bidi: plaintext; text-align: center; direction: ltr;' . PHP_EOL . '  }' .
+        PHP_EOL . '</style>' .
+        PHP_EOL . '<table role="presentation" style="direction: ltr; text-align: left; width: 100%; min-height: 40vh; ' .
+        PHP_EOL . ' border: 0; border-spacing: 0; padding: 16px 24px 40px 24px; background-color: #f5f7fa; font-family: ' .
+        PHP_EOL . ' "Playfair Display", serif; font-weight: 400; color: #343434;">' .
+        PHP_EOL . '<tbody>' .
+        PHP_EOL . ' <tr>' .
+        PHP_EOL . '  <td style="padding: 0">' .
+        PHP_EOL . '   <table class="container" role="presentation" style="border-collapse: collapse; border: 0; border-spacing: 0; ' .
+        PHP_EOL . ' margin: 0 auto 40px auto; background-color: #fff; border-radius: 8px;">' .
+        PHP_EOL . '    <tbody>' .
+        PHP_EOL . '     <tr>' .
+        PHP_EOL . '      <td style="padding: 16px 24px; background-color:#0373f0; border-top-left-radius: 8px; border-top-right-radius: 8px;">' .
+        PHP_EOL . '       <h1 style="color: #fff; text-align: center; text-transform: uppercase; margin: 0; ' .
+        PHP_EOL . '           font-size: 24px; line-height: 32px; font-weight: 800;">{subject}<br></h1>' .
+        PHP_EOL . '      </td>' .
+        PHP_EOL . '     </tr>' .
+        PHP_EOL . '     <tr>' .
+        PHP_EOL . '      <td style="padding: 32px; font-size: 16px; line-height: 24px; direction: ltr; text-align: left;">' .
+        PHP_EOL . '       <div style="margin: 0">Your Verification Code is: <code>{otp}</code></div>' .
+        PHP_EOL . '      </td>' .
+        PHP_EOL . '     </tr>' .
+        PHP_EOL . '    </tbody>' .
+        PHP_EOL . '   </table>' .
+        PHP_EOL . '  </td>' .
+        PHP_EOL . ' </tr>' .
+        PHP_EOL . ' </tbody>' .
+        PHP_EOL . '</table>';
+      return $mail_body;
     }
     public function gravity_otp_popup($atts = array(), $content = "") {
       $atts = extract(shortcode_atts(array(
@@ -822,25 +919,36 @@ if (!class_exists("gravity_otp")) {
 
           // Validate mobile field and hide OTP if invalid
           $mobile_valid = true;
+          $otp_type = isset($field->otpType) ? $field->otpType : 'mobile';
           foreach ($form['fields'] as &$mobile_field) {
             if ($mobile_field->id == $mobile_field_id) {
-              // Check mobile number format (only digits, +, and - allowed)
-              if (!preg_match('/^[0-9+-]+$/', $phone_number)) {
-                $validation_result['is_valid'] = false;
-                $mobile_field->failed_validation = true;
-                $mobile_field->validation_message = esc_attr__("Mobile number can only contain numbers, + or -.", "gravity-otp-verification");
-                $field->cssClass = "hide-otp-field"; // Explicitly hide OTP field
-                $mobile_valid = false;
-                break 2;
-              }
-
-              // Validate mobile number pattern with regex if provided
-              if (!empty($this->read("mobile_regex"))) {
-                if (!preg_match($this->read("mobile_regex"), $phone_number)) {
+              if ($otp_type === 'mobile') {
+                // Check mobile number format (only digits, +, and - allowed)
+                if (!preg_match('/^[0-9+-]+$/', $phone_number)) {
                   $validation_result['is_valid'] = false;
                   $mobile_field->failed_validation = true;
-                  $mobile_field->validation_message = esc_attr__("Please enter a valid mobile number.", "gravity-otp-verification");
+                  $mobile_field->validation_message = esc_attr__("Mobile number can only contain numbers, + or -.", "gravity-otp-verification");
                   $field->cssClass = "hide-otp-field"; // Explicitly hide OTP field
+                  $mobile_valid = false;
+                  break 2;
+                }
+                // Validate mobile number pattern with regex if provided
+                if (!empty($this->read("mobile_regex"))) {
+                  if (!preg_match($this->read("mobile_regex"), $phone_number)) {
+                    $validation_result['is_valid'] = false;
+                    $mobile_field->failed_validation = true;
+                    $mobile_field->validation_message = esc_attr__("Please enter a valid mobile number.", "gravity-otp-verification");
+                    $field->cssClass = "hide-otp-field"; // Explicitly hide OTP field
+                    $mobile_valid = false;
+                    break 2;
+                  }
+                }
+              } elseif ($otp_type === 'email') {
+                if (!is_email($phone_number)) {
+                  $validation_result['is_valid'] = false;
+                  $mobile_field->failed_validation = true;
+                  $mobile_field->validation_message = esc_attr__("Please enter a valid email address.", "gravity-otp-verification");
+                  $field->cssClass = "hide-otp-field";
                   $mobile_valid = false;
                   break 2;
                 }
@@ -873,7 +981,7 @@ if (!class_exists("gravity_otp")) {
 
             $validation_result['is_valid'] = false;
             $field->failed_validation = true;
-            $field->validation_message = esc_attr__("OTP has been sent to your mobile. Please enter it.", "gravity-otp-verification");
+            $field->validation_message = esc_attr__("OTP has been sent to you. Please enter it.", "gravity-otp-verification");
             break;
           }
 
@@ -943,7 +1051,7 @@ if (!class_exists("gravity_otp")) {
         add_action('admin_notices', function () {
           echo '<div class="error"><p>' . sprintf(
             /* translators: 1: plugin name */
-            __('<strong>Gravity Forms</strong> is required for the <strong>Mobile OTP Verification for Gravity Forms</strong> plugin to work. Please install and activate %s.', 'gravity-otp-verification'),
+            __('<strong>Gravity Forms</strong> is required for the <strong>Gravity Forms - OTP Verification (SMS/EMAIL)</strong> plugin to work. Please install and activate %s.', 'gravity-otp-verification'),
             "<a href='https://www.gravityforms.com/' target='_blank'>" . __("Gravity Forms", "gravity-otp-verification") . "</a>"
           ) . '</p></div>';
         });
@@ -954,23 +1062,27 @@ if (!class_exists("gravity_otp")) {
         $this->create_database(true); // Create or update the database
         update_option("gravity_otp_verification_db_version", $this->db_version); // Update the stored version
       }
+
       foreach ($this->get_setting_options() as $sections) {
         foreach ($sections["data"] as $id => $def) {
-
           $slug = $this->db_slug . "__" . $id;
           $section = $this->db_slug . "__" . $sections["name"];
           add_option($slug, $def, "", "no");
+          // Fix: Allow HTML for email_template and reset to default if empty
+          if ($id === 'email_template') {
+            $sanitize_cb = function($value) use ($def) {
+              $value = (string) $value;
+              if (trim($value) === '') { return $def; }
+              return $value;
+            };
+          } else {
+            $sanitize_cb = 'sanitize_textarea_field';
+          }
           // phpcs:ignore PluginCheck.CodeAnalysis.SettingSanitization.register_settingDynamic
-          register_setting(
-            $section,
-            $slug,
-            array(
-              'type' => 'string',
-              'sanitize_callback' => 'sanitize_textarea_field'
-            )
-          );
+          register_setting($section, $slug, array('type' => 'string', 'sanitize_callback' => $sanitize_cb));
         }
       }
+
     }
     public function get_setting_options() {
       return array(array(
@@ -1000,14 +1112,19 @@ if (!class_exists("gravity_otp")) {
           "api_option_extra_2" => "",
           "api_option_extra_3" => "",
           "api_option_extra_4" => "",
+          # email setting
+          "email_subject"      => _x("OTP Verification", "email-subject", $this->td),
+          "email_from_name"    => get_bloginfo("name"),
+          "email_from_address" => "wordpress@" . parse_url(get_bloginfo('url'), PHP_URL_HOST),
+          "email_template"     => $this->get_email_template(),
         )
       ));
     }
     public function admin_menu() {
-      add_menu_page($this->title, $this->title, "manage_options", $this->db_slug, function () {
+      add_submenu_page("gf_edit_forms", $this->title, _x("OTP Verification", "menu-name", "gravity-otp-verification"), "manage_options", $this->db_slug, function () {
         include plugin_dir_path(__FILE__) . "include/backend-page-setting.php";
       });
-      add_submenu_page($this->db_slug, $this->title . __("SMS Log", "gravity-otp-verification"), __("SMS Log", "gravity-otp-verification"), "manage_options", "{$this->db_slug}_log", function () {
+      add_submenu_page("gf_edit_forms", $this->title . __("Log", "gravity-otp-verification"), _x("OTP Verification Log", "menu-name", "gravity-otp-verification"), "manage_options", "{$this->db_slug}_log", function () {
         include plugin_dir_path(__FILE__) . "include/backend-page-log.php";
       });
     }
@@ -1023,7 +1140,7 @@ if (!class_exists("gravity_otp")) {
           "order_by"               => "id",
           "current_page_url"       => add_query_arg([]),
           // phpcs:ignore  WordPress.Security.NonceVerification.Recommended
-          "current_page_name"      => (isset($_GET["page"]) ? sanitize_text_field(wp_unslash($_GET["page"])) : "gravity_otp_verification"),
+          "current_page_name"      => (isset($_GET["page"]) ? sanitize_text_field(wp_unslash($_GET["page"])) : "gravity_otp_verification_log"),
           // phpcs:ignore  WordPress.Security.NonceVerification.Recommended
           "current_section"        => (isset($_GET["section"]) ? sanitize_text_field(wp_unslash($_GET["section"])) : ""),
           // phpcs:ignore  WordPress.Security.NonceVerification.Recommended
@@ -1040,23 +1157,15 @@ if (!class_exists("gravity_otp")) {
           "paginate_next"          => __('Next', "gravity-otp-verification"),
           "paginate_class"         => "pagination",
           "database_empty"         => "<h3 style='font-weight: bold;'>" . __("Database is empty!", "gravity-otp-verification") . "</h3><h4>" . __("It seems there's nothing to show. please check your log setting and use the app to generate some logs.", "gravity-otp-verification") . "</h4>",
-          "item_val_parsing"       => function ($obj, $header_key, $item_value) {
-            return esc_html($item_value);
-          },
-          "item_td_class"          => function ($obj, $header_key, $item_value) {
-            return "";
-          },
-          "item_tr_class"          => function ($obj) {
-            return "";
-          },
-          "item_tr_fn"             => function ($obj) {
-            return "";
-          },
+          "item_val_parsing"       => function ($obj, $header_key, $item_value) { return esc_html($item_value); },
+          "item_td_class"          => function ($obj, $header_key, $item_value) { return ""; },
+          "item_tr_class"          => function ($obj) { return ""; },
+          "item_tr_fn"             => function ($obj) { return ""; },
         )
       );
+      global $wpdb, $wp;
       $arguments = wp_parse_args($args, $defaults);
       $args = extract($arguments);
-      global $wpdb, $wp;
       // phpcs:ignore WordPress.Security.NonceVerification.Recommended
       $post_per_page            = isset($_GET['per_page']) ? abs((int) $_GET['per_page']) : $default_per_page;
       // phpcs:ignore WordPress.Security.NonceVerification.Recommended
@@ -1112,21 +1221,19 @@ if (!class_exists("gravity_otp")) {
       // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, WordPress.DB.PreparedSQL.NotPrepared
       $res_obj = $wpdb->get_results($query);
 
-      wp_enqueue_script("gravity_otp_verification_jq_confirm" , "{$this->assets_db_url}js/jquery-confirm.js", array("jquery"), "3.3.4", false);
-      wp_enqueue_style("gravity_otp_verification_jq_confirm"  , "{$this->assets_db_url}css/jquery-confirm.css", array(), "3.3.4", false);
+      wp_enqueue_script("gravity_otp_verification_jq_confirm" , "{$this->assets_url}js/jquery-confirm.js", array("jquery"), "3.3.4", false);
+      wp_enqueue_style("gravity_otp_verification_jq_confirm"  , "{$this->assets_url}css/jquery-confirm.css", array(), "3.3.4", false);
       wp_enqueue_style("gravity_otp_verification_font_awesome", "{$this->assets_url}fa/css/all.min.css", array(), "6.7.2");
-      wp_enqueue_script("gravity_otp_verification_dt_backend" , "{$this->assets_db_url}/js/backend-data-tables.js", array('jquery'), "2.4.0", true);
-      wp_enqueue_style("gravity_otp_verification_datatable"   , "{$this->assets_db_url}css/datatables.min.css", array(), "2.0.1");
-      wp_enqueue_script("gravity_otp_verification_datatable"  , "{$this->assets_db_url}js/datatables.min.js", array("jquery"), "2.0.1", true);
-      wp_enqueue_script("gravity_otp_verification_SrchHighlt" , "{$this->assets_db_url}js/dataTables.searchHighlight.min.js", array("jquery"), "1.0.1", true);
-      wp_enqueue_script("gravity_otp_verification_highlight"  , "{$this->assets_db_url}js/highlight.js", array("jquery"), "3.0.0", true);
-      wp_enqueue_script("gravity_otp_verification_popper"     , "{$this->assets_db_url}js/popper.min.js", array("jquery"), "2.11.8", true);
-      wp_enqueue_script("gravity_otp_verification_tippy"      , "{$this->assets_db_url}js/tippy-bundle.umd.min.js", array("jquery"), "6.3.7", true);
-      wp_enqueue_style("gravity_otp_verification_table_style" , "{$this->assets_db_url}css/table-style.css", array(), "2.4.0", "all");
+      wp_enqueue_script("gravity_otp_verification_dt_backend" , "{$this->assets_url}/js/backend-data-tables.js", array('jquery'), "2.4.0", true);
+      wp_enqueue_style("gravity_otp_verification_datatable"   , "{$this->assets_url}css/datatables.min.css", array(), "2.0.1");
+      wp_enqueue_script("gravity_otp_verification_datatable"  , "{$this->assets_url}js/datatables.min.js", array("jquery"), "2.0.1", true);
+      wp_enqueue_script("gravity_otp_verification_SrchHighlt" , "{$this->assets_url}js/dataTables.searchHighlight.min.js", array("jquery"), "1.0.1", true);
+      wp_enqueue_script("gravity_otp_verification_highlight"  , "{$this->assets_url}js/highlight.js", array("jquery"), "3.0.0", true);
+      wp_enqueue_script("gravity_otp_verification_popper"     , "{$this->assets_url}js/popper.min.js", array("jquery"), "2.11.8", true);
+      wp_enqueue_script("gravity_otp_verification_tippy"      , "{$this->assets_url}js/tippy-bundle.umd.min.js", array("jquery"), "6.3.7", true);
+      wp_enqueue_style("gravity_otp_verification_table_style" , "{$this->assets_url}css/table-style.css", array(), "2.5.0", "all");
+      wp_enqueue_style("gravity_otp_verification_backend", "{$this->assets_url}css/backend-db.css", array(), "2.4.0");
       wp_localize_script("gravity_otp_verification_dt_backend", "_i18n", $this->localize_script_data_table(['_td' => $_td, 'table' => $table]));
-      wp_enqueue_style("gravity_otp_verification_backend", "{$this->assets_db_url}css/backend.css", array(), "2.4.0");
-      is_rtl() and wp_add_inline_style("gravity_otp_verification_backend", "#wpbody-content { font-family: bodyfont, roboto, Tahoma; }");
-
       $items_per_page_selector = "<select id='itemsperpagedisplay' name='per_page' class='select' style='width:320px !important; margin: 0 0 .5rem .5rem; float: right;' title='" . esc_attr(esc_html__("Items per page", "gravity-otp-verification")) . "' >
       <option value='50' " . selected(100, $post_per_page, false) . ">" . sprintf(
         /* translators: 1: number */
@@ -1488,7 +1595,8 @@ if (!class_exists("gravity_otp")) {
     }
     public function plugin_row_meta($links_array, $plugin_file_name, $plugin_data, $status) {
       if (strpos($plugin_file_name, basename(__FILE__))) {
-        $links_array[] = "<a href='mailto:support@blackswandev.com?subject=GravityOTP'>" . esc_attr__("Support", "gravity-otp-verification") . "</a>";
+        $links_array[] = "<a href='https://github.com/pigment-dev/gravity-otp-verification/wiki/'>" . esc_attr__("Docs", "gravity-otp-verification") . "</a>";
+        $links_array[] = "<a href='https://wordpress.org/support/plugin/gravity-otp-verification/'>" . esc_attr__("Community Support", "gravity-otp-verification") . "</a>";
       }
       return $links_array;
     }
@@ -1664,7 +1772,7 @@ if (!class_exists("gravity_otp")) {
         return sprintf(
           /* translators: 1: title, 2: version */
           esc_attr_x('%1$s — Version %2$s', "footer-copyright", "gravity-otp-verification"),
-          esc_attr__("OTP Verification for Gravity Forms", "gravity-otp-verification"),
+          esc_attr__("Gravity Forms - OTP Verification (SMS/EMAIL)", "gravity-otp-verification"),
           $this->version
         );
       }, 999999999);

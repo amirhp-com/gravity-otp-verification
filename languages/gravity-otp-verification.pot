@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: OTP Verification for Gravity Forms\n"
-"POT-Creation-Date: 2025-05-15 13:56+0330\n"
+"POT-Creation-Date: 2025-08-04 14:31+0330\n"
 "PO-Revision-Date: 2025-03-19 20:56\n"
 "Last-Translator: Amirhossein Hosseinpour <its@amirhp.com>\n"
 "Language-Team: Amirhossein Hosseinpour <its@amirhp.com>\n"
@@ -11,12 +11,11 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
-"X-Generator: Poedit 3.4.2\n"
+"X-Generator: Poedit 3.6\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-Flags-xgettext: --add-comments=translators:\n"
-"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;"
-"esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;"
-"esc_html_x:1,2c;_n_noop:1,2;_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-KeywordsList: "
+"__;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-WPHeader: gravity-otp-verification.php\n"
 "X-Poedit-SearchPath-0: .\n"
@@ -26,7 +25,7 @@ msgstr ""
 msgid "Please wait ..."
 msgstr ""
 
-#: gravity-otp-verification.php:80 include/backend-gf-otp.php:63
+#: gravity-otp-verification.php:80 include/backend-gf-otp.php:60
 msgid "Send Code"
 msgstr ""
 
@@ -70,7 +69,7 @@ msgid "SMS Provider credentials is not filled completely."
 msgstr ""
 
 #: gravity-otp-verification.php:636
-msgid "Gravity OTP"
+msgid "Gravity Forms - OTP Verification"
 msgstr ""
 
 #. translators: 1: given mobile number
@@ -123,253 +122,261 @@ msgstr ""
 #: gravity-otp-verification.php:946
 #, php-format
 msgid ""
-"<strong>Gravity Forms</strong> is required for the <strong>Mobile OTP "
-"Verification for Gravity Forms</strong> plugin to work. Please install "
-"and activate %s."
+"<strong>Gravity Forms</strong> is required for the <strong>Gravity "
+"Forms - OTP Verification (SMS/EMAIL)</strong> plugin to work. Please "
+"install and activate %s."
 msgstr ""
 
 #: gravity-otp-verification.php:947
 msgid "Gravity Forms"
 msgstr ""
 
-#: gravity-otp-verification.php:1010
-msgid "SMS Log"
+#: gravity-otp-verification.php:999
+msgid "OTP Verification"
 msgstr ""
 
-#: gravity-otp-verification.php:1031 include/backend-page-log.php:48
-#: include/backend-page-log.php:62
+#: gravity-otp-verification.php:1002
+msgid "Log"
+msgstr ""
+
+#: gravity-otp-verification.php:1002
+msgid "OTP Verification Log"
+msgstr ""
+
+#: gravity-otp-verification.php:1023 include/backend-page-log.php:47
+#: include/backend-page-log.php:61
 msgid "ID"
 msgstr ""
 
-#: gravity-otp-verification.php:1039
+#: gravity-otp-verification.php:1031
 msgid "Previous"
 msgstr ""
 
-#: gravity-otp-verification.php:1040
+#: gravity-otp-verification.php:1032
 msgid "Next"
 msgstr ""
 
-#: gravity-otp-verification.php:1042
+#: gravity-otp-verification.php:1034
 msgid "Database is empty!"
 msgstr ""
 
-#: gravity-otp-verification.php:1042
+#: gravity-otp-verification.php:1034
 msgid ""
 "It seems there's nothing to show. please check your log setting and "
 "use the app to generate some logs."
 msgstr ""
 
-#: gravity-otp-verification.php:1071
+#: gravity-otp-verification.php:1063
 msgid "Active Filters:"
 msgstr ""
 
-#: gravity-otp-verification.php:1130
+#: gravity-otp-verification.php:1122
 msgid "Items per page"
 msgstr ""
 
 #. translators: 1: number
-#: gravity-otp-verification.php:1133 gravity-otp-verification.php:1138
-#: gravity-otp-verification.php:1143 gravity-otp-verification.php:1148
-#: gravity-otp-verification.php:1153 gravity-otp-verification.php:1158
-#: gravity-otp-verification.php:1163 gravity-otp-verification.php:1168
-#: gravity-otp-verification.php:1173 gravity-otp-verification.php:1178
-#: gravity-otp-verification.php:1183
+#: gravity-otp-verification.php:1125 gravity-otp-verification.php:1130
+#: gravity-otp-verification.php:1135 gravity-otp-verification.php:1140
+#: gravity-otp-verification.php:1145 gravity-otp-verification.php:1150
+#: gravity-otp-verification.php:1155 gravity-otp-verification.php:1160
+#: gravity-otp-verification.php:1165 gravity-otp-verification.php:1170
+#: gravity-otp-verification.php:1175
 #, php-format
 msgctxt "items_per_page"
 msgid "Show %s items per page"
 msgstr ""
 
 #. translators: 1: all items
-#: gravity-otp-verification.php:1189
+#: gravity-otp-verification.php:1181
 #, php-format
 msgid "Show all %s items at once"
 msgstr ""
 
-#: gravity-otp-verification.php:1191
+#: gravity-otp-verification.php:1183
 msgid "Show the only found data"
 msgstr ""
 
 #. translators: 1: total number
-#: gravity-otp-verification.php:1198
+#: gravity-otp-verification.php:1190
 #, php-format
 msgid ", Search result: %d"
 msgid_plural ", Search results: %d"
 msgstr[0] ""
 msgstr[1] ""
 
-#: gravity-otp-verification.php:1210
+#: gravity-otp-verification.php:1202
 msgid "Advanced Search in Database"
 msgstr ""
 
-#: gravity-otp-verification.php:1230
+#: gravity-otp-verification.php:1222
 msgid "Exact Match: "
 msgstr ""
 
-#: gravity-otp-verification.php:1231
+#: gravity-otp-verification.php:1223
 msgid "Query Relation: "
 msgstr ""
 
-#: gravity-otp-verification.php:1232
+#: gravity-otp-verification.php:1224
 msgid "Search now"
 msgstr ""
 
-#: gravity-otp-verification.php:1238
+#: gravity-otp-verification.php:1230
 msgid "Close search"
 msgstr ""
 
-#: gravity-otp-verification.php:1239
+#: gravity-otp-verification.php:1231
 msgid "Clear search"
 msgstr ""
 
 #. translators: 1: given number
-#: gravity-otp-verification.php:1252
+#: gravity-otp-verification.php:1244
 #, php-format
 msgid "Only %s Record indexed"
 msgid_plural "%s Records indexed"
 msgstr[0] ""
 msgstr[1] ""
 
-#: gravity-otp-verification.php:1330
+#: gravity-otp-verification.php:1322
 msgctxt "translate-js"
 msgid "Select image file"
 msgstr ""
 
-#: gravity-otp-verification.php:1331
+#: gravity-otp-verification.php:1323
 msgctxt "translate-js"
 msgid "Use this image"
 msgstr ""
 
-#: gravity-otp-verification.php:1332
+#: gravity-otp-verification.php:1324
 msgctxt "translate-js"
 msgid "Clear"
 msgstr ""
 
-#: gravity-otp-verification.php:1333
+#: gravity-otp-verification.php:1325
 msgctxt "translate-js"
 msgid "Current preview"
 msgstr ""
 
-#: gravity-otp-verification.php:1334
+#: gravity-otp-verification.php:1326
 msgctxt "translate-js"
 msgid "Select image"
 msgstr ""
 
-#: gravity-otp-verification.php:1335
+#: gravity-otp-verification.php:1327
 msgctxt "js-string"
 msgid "Submit"
 msgstr ""
 
-#: gravity-otp-verification.php:1336
+#: gravity-otp-verification.php:1328
 msgctxt "js-string"
 msgid "Today"
 msgstr ""
 
-#: gravity-otp-verification.php:1337
+#: gravity-otp-verification.php:1329
 msgctxt "translate-js"
 msgid "Error"
 msgstr ""
 
-#: gravity-otp-verification.php:1338
+#: gravity-otp-verification.php:1330
 msgctxt "translate-js"
 msgid "Canceled"
 msgstr ""
 
-#: gravity-otp-verification.php:1339
+#: gravity-otp-verification.php:1331
 msgctxt "translate-js"
 msgid "Confirm"
 msgstr ""
 
-#: gravity-otp-verification.php:1340
+#: gravity-otp-verification.php:1332
 msgctxt "translate-js"
 msgid "Please wait ..."
 msgstr ""
 
-#: gravity-otp-verification.php:1341
+#: gravity-otp-verification.php:1333
 msgctxt "translate-js"
 msgid "Set to Pending"
 msgstr ""
 
-#: gravity-otp-verification.php:1342
+#: gravity-otp-verification.php:1334
 msgctxt "translate-js"
 msgid "Set to Approved"
 msgstr ""
 
-#: gravity-otp-verification.php:1343
+#: gravity-otp-verification.php:1335
 msgctxt "translate-js"
 msgid "Set to Rejected"
 msgstr ""
 
-#: gravity-otp-verification.php:1344
+#: gravity-otp-verification.php:1336
 msgctxt "translate-js"
 msgid "Success"
 msgstr ""
 
-#: gravity-otp-verification.php:1345
+#: gravity-otp-verification.php:1337
 msgctxt "translate-js"
 msgid "Submit"
 msgstr ""
 
-#: gravity-otp-verification.php:1346
+#: gravity-otp-verification.php:1338
 msgctxt "translate-js"
 msgid "Okay"
 msgstr ""
 
-#: gravity-otp-verification.php:1347
+#: gravity-otp-verification.php:1339
 msgctxt "translate-js"
 msgid "Yes"
 msgstr ""
 
-#: gravity-otp-verification.php:1348
+#: gravity-otp-verification.php:1340
 msgctxt "translate-js"
 msgid "No"
 msgstr ""
 
-#: gravity-otp-verification.php:1349 gravity-otp-verification.php:1352
+#: gravity-otp-verification.php:1341 gravity-otp-verification.php:1344
 msgctxt "translate-js"
 msgid "Cancel"
 msgstr ""
 
-#: gravity-otp-verification.php:1350
+#: gravity-otp-verification.php:1342
 msgctxt "translate-js"
 msgid "Successfully copied to clipboard!"
 msgstr ""
 
-#: gravity-otp-verification.php:1351
+#: gravity-otp-verification.php:1343
 msgctxt "translate-js"
 msgid "No Selection!"
 msgstr ""
 
-#: gravity-otp-verification.php:1353
+#: gravity-otp-verification.php:1345
 msgctxt "translate-js"
 msgid "Edit Entry"
 msgstr ""
 
-#: gravity-otp-verification.php:1354
+#: gravity-otp-verification.php:1346
 msgctxt "translate-js"
 msgid "Add New Entry"
 msgstr ""
 
-#: gravity-otp-verification.php:1355
+#: gravity-otp-verification.php:1347
 msgctxt "translate-js"
 msgid "Send to all"
 msgstr ""
 
-#: gravity-otp-verification.php:1356
+#: gravity-otp-verification.php:1348
 msgctxt "translate-js"
 msgid "Close"
 msgstr ""
 
-#: gravity-otp-verification.php:1357
+#: gravity-otp-verification.php:1349
 msgctxt "translate-js"
 msgid "Reload page"
 msgstr ""
 
-#: gravity-otp-verification.php:1358
+#: gravity-otp-verification.php:1350
 msgctxt "translate-js"
 msgid "Delete Confirmation"
 msgstr ""
 
-#: gravity-otp-verification.php:1359
+#: gravity-otp-verification.php:1351
 msgctxt "translate-js"
 msgid ""
 "Unfortunately we encountered a technical problem, for more information "
@@ -377,7 +384,7 @@ msgid ""
 msgstr ""
 
 #. translators: 1: item id
-#: gravity-otp-verification.php:1362
+#: gravity-otp-verification.php:1354
 #, php-format
 msgctxt "translate-js"
 msgid ""
@@ -385,47 +392,47 @@ msgid ""
 "<red>THIS CANNOT BE UNDONE."
 msgstr ""
 
-#: gravity-otp-verification.php:1363
+#: gravity-otp-verification.php:1355
 msgctxt "translate-js"
 msgid ""
 "Are you sure you want to clear all data from database? <red>THIS "
 "CANNOT BE UNDONE."
 msgstr ""
 
-#: gravity-otp-verification.php:1364
+#: gravity-otp-verification.php:1356
 msgctxt "translate-js"
 msgid ""
 "Are you sure you want to clear all saved settings and revert to "
 "default? <red>THIS CANNOT BE UNDONE."
 msgstr ""
 
-#: gravity-otp-verification.php:1365
+#: gravity-otp-verification.php:1357
 msgctxt "translate-js"
 msgid "Clear Database"
 msgstr ""
 
-#: gravity-otp-verification.php:1366
+#: gravity-otp-verification.php:1358
 msgctxt "translate-js"
 msgid "Reset Settings"
 msgstr ""
 
-#: gravity-otp-verification.php:1367
+#: gravity-otp-verification.php:1359
 msgctxt "translate-js"
 msgid "Fix & Re-Create Database"
 msgstr ""
 
-#: gravity-otp-verification.php:1368
+#: gravity-otp-verification.php:1360
 msgctxt "translate-js"
 msgid "Are you sure you want to re-create and fix database?"
 msgstr ""
 
-#: gravity-otp-verification.php:1369
+#: gravity-otp-verification.php:1361
 msgctxt "translate-js"
 msgid "Select / Upload image"
 msgstr ""
 
 #. translators: 1: plugin name
-#: gravity-otp-verification.php:1372
+#: gravity-otp-verification.php:1364
 #, php-format
 msgctxt "wc-setting-js"
 msgid "Exported via %s"
@@ -433,507 +440,511 @@ msgstr ""
 
 #. translators: 1: date / 2: time
 #. translators: 1: User name, 2: Website name
-#: gravity-otp-verification.php:1379
+#: gravity-otp-verification.php:1371
 #, php-format
 msgctxt "wc-setting-js"
 msgid "Exported at %1$s @ %2$s"
 msgstr ""
 
 #. translators: 1: title, 2: date, 3: time
-#: gravity-otp-verification.php:1386
+#: gravity-otp-verification.php:1378
 #, php-format
 msgctxt "wc-setting-js"
 msgid ""
 "Exported via %1$s — Export Date: %2$s @ %3$s — Developed by Amirhp.com"
 msgstr ""
 
-#: gravity-otp-verification.php:1392
+#: gravity-otp-verification.php:1384
 msgctxt "data-table"
 msgid "No data available in table"
 msgstr ""
 
-#: gravity-otp-verification.php:1393
+#: gravity-otp-verification.php:1385
 msgctxt "data-table"
 msgid "Showing _START_ to _END_ of _TOTAL_ entries"
 msgstr ""
 
-#: gravity-otp-verification.php:1394
+#: gravity-otp-verification.php:1386
 msgctxt "data-table"
 msgid "Showing 0 to 0 of 0 entries"
 msgstr ""
 
-#: gravity-otp-verification.php:1395
+#: gravity-otp-verification.php:1387
 msgctxt "data-table"
 msgid "(filtered from _MAX_ total entries)"
 msgstr ""
 
-#: gravity-otp-verification.php:1396
+#: gravity-otp-verification.php:1388
 msgctxt "data-table"
 msgid "Show _MENU_ entries"
 msgstr ""
 
-#: gravity-otp-verification.php:1397
+#: gravity-otp-verification.php:1389
 msgctxt "data-table"
 msgid "Loading..."
 msgstr ""
 
-#: gravity-otp-verification.php:1398
+#: gravity-otp-verification.php:1390
 msgctxt "data-table"
 msgid "Processing..."
 msgstr ""
 
-#: gravity-otp-verification.php:1399
+#: gravity-otp-verification.php:1391
 msgctxt "data-table"
 msgid "Search:"
 msgstr ""
 
-#: gravity-otp-verification.php:1400
+#: gravity-otp-verification.php:1392
 msgctxt "data-table"
 msgid "No matching records found"
 msgstr ""
 
-#: gravity-otp-verification.php:1401
+#: gravity-otp-verification.php:1393
 msgctxt "data-table"
 msgid "First"
 msgstr ""
 
-#: gravity-otp-verification.php:1402
+#: gravity-otp-verification.php:1394
 msgctxt "data-table"
 msgid "Last"
 msgstr ""
 
-#: gravity-otp-verification.php:1403
+#: gravity-otp-verification.php:1395
 msgctxt "data-table"
 msgid "Next"
 msgstr ""
 
-#: gravity-otp-verification.php:1404
+#: gravity-otp-verification.php:1396
 msgctxt "data-table"
 msgid "Previous"
 msgstr ""
 
-#: gravity-otp-verification.php:1405
+#: gravity-otp-verification.php:1397
 msgctxt "data-table"
 msgid ": activate to sort column ascending"
 msgstr ""
 
-#: gravity-otp-verification.php:1406
+#: gravity-otp-verification.php:1398
 msgctxt "data-table"
 msgid ": activate to sort column descending"
 msgstr ""
 
-#: gravity-otp-verification.php:1407
+#: gravity-otp-verification.php:1399
 msgctxt "data-table"
 msgid "Copy to clipboard"
 msgstr ""
 
-#: gravity-otp-verification.php:1408
+#: gravity-otp-verification.php:1400
 msgctxt "data-table"
 msgid "Print"
 msgstr ""
 
-#: gravity-otp-verification.php:1409
+#: gravity-otp-verification.php:1401
 msgctxt "data-table"
 msgid "Column visibility"
 msgstr ""
 
-#: gravity-otp-verification.php:1410
+#: gravity-otp-verification.php:1402
 msgctxt "data-table"
 msgid "Export CSV"
 msgstr ""
 
-#: gravity-otp-verification.php:1411
+#: gravity-otp-verification.php:1403
 msgctxt "data-table"
 msgid "Export Excel"
 msgstr ""
 
-#: gravity-otp-verification.php:1412
+#: gravity-otp-verification.php:1404
 msgctxt "data-table"
 msgid "Export PDF"
 msgstr ""
 
-#: gravity-otp-verification.php:1413
+#: gravity-otp-verification.php:1405
 msgctxt "data-table"
 msgid "No State Found"
 msgstr ""
 
-#: gravity-otp-verification.php:1414
+#: gravity-otp-verification.php:1406
 msgctxt "data-table"
 msgid "Add New Entry"
 msgstr ""
 
-#: gravity-otp-verification.php:1491
-msgid "Support"
+#: gravity-otp-verification.php:1483
+msgid "Docs"
 msgstr ""
 
-#: gravity-otp-verification.php:1511 gravity-otp-verification.php:1513
-#: gravity-otp-verification.php:1543 gravity-otp-verification.php:1546
-#: gravity-otp-verification.php:1548 gravity-otp-verification.php:1561
-#: gravity-otp-verification.php:1563 gravity-otp-verification.php:1585
-#: gravity-otp-verification.php:1587
+#: gravity-otp-verification.php:1484
+msgid "Community Support"
+msgstr ""
+
+#: gravity-otp-verification.php:1504 gravity-otp-verification.php:1506
+#: gravity-otp-verification.php:1536 gravity-otp-verification.php:1539
+#: gravity-otp-verification.php:1541 gravity-otp-verification.php:1554
+#: gravity-otp-verification.php:1556 gravity-otp-verification.php:1578
+#: gravity-otp-verification.php:1580
 msgid "An unknown error occured."
 msgstr ""
 
-#: gravity-otp-verification.php:1534
+#: gravity-otp-verification.php:1527
 msgid ""
 "Entry updated successfully. Please reload the page to view the changes."
 msgstr ""
 
-#: gravity-otp-verification.php:1535
+#: gravity-otp-verification.php:1528
 msgid "An unknown error occurred during editing item."
 msgstr ""
 
-#: gravity-otp-verification.php:1538
+#: gravity-otp-verification.php:1531
 msgid "An unknown error occurred."
 msgstr ""
 
-#: gravity-otp-verification.php:1553
+#: gravity-otp-verification.php:1546
 msgid "Item successfully deleted"
 msgstr ""
 
-#: gravity-otp-verification.php:1555
+#: gravity-otp-verification.php:1548
 msgid "Could not remove item from database."
 msgstr ""
 
-#: gravity-otp-verification.php:1571
+#: gravity-otp-verification.php:1564
 msgid "Items removed successfully."
 msgstr ""
 
-#: gravity-otp-verification.php:1573
+#: gravity-otp-verification.php:1566
 msgid "There was a problem with your request."
 msgstr ""
 
-#: gravity-otp-verification.php:1579
+#: gravity-otp-verification.php:1572
 msgid "Database successfully re-created and got fixed."
 msgstr ""
 
-#: gravity-otp-verification.php:1592
+#: gravity-otp-verification.php:1585
 msgid "Database cleared successfully."
 msgstr ""
 
-#: gravity-otp-verification.php:1594
+#: gravity-otp-verification.php:1587
 msgid "Error clearing database!"
 msgstr ""
 
-#: gravity-otp-verification.php:1598 gravity-otp-verification.php:1602
+#: gravity-otp-verification.php:1591 gravity-otp-verification.php:1595
 msgid "Incorrect Data Supplied."
 msgstr ""
 
-#: gravity-otp-verification.php:1615
+#: gravity-otp-verification.php:1608
 msgid "Error Occured"
 msgstr ""
 
-#: gravity-otp-verification.php:1619
+#: gravity-otp-verification.php:1612
 msgid "Successful"
 msgstr ""
 
-#: gravity-otp-verification.php:1622 include/backend-page-log.php:151
+#: gravity-otp-verification.php:1615 include/backend-page-log.php:150
 msgid "Unknown"
 msgstr ""
 
-#: gravity-otp-verification.php:1625 include/backend-page-log.php:148
+#: gravity-otp-verification.php:1618 include/backend-page-log.php:147
 msgid "Pending"
 msgstr ""
 
-#: gravity-otp-verification.php:1628
+#: gravity-otp-verification.php:1621
 msgid "Sending"
 msgstr ""
 
-#: gravity-otp-verification.php:1631
+#: gravity-otp-verification.php:1624
 msgid "Banned"
 msgstr ""
 
-#: gravity-otp-verification.php:1634
+#: gravity-otp-verification.php:1627
 msgid "Reached Limit"
 msgstr ""
 
 #. translators: %s: unknown status, leave this as is
-#: gravity-otp-verification.php:1640 gravity-otp-verification.php:1648
+#: gravity-otp-verification.php:1633 gravity-otp-verification.php:1641
 #, php-format
 msgid "Status: %s"
 msgstr ""
 
 #. translators: 1: title, 2: version
-#: gravity-otp-verification.php:1666
+#: gravity-otp-verification.php:1659
 #, php-format
 msgctxt "footer-copyright"
 msgid "%1$s — Version %2$s"
 msgstr ""
 
 #. Plugin Name of the plugin/theme
-#: gravity-otp-verification.php:1667
-msgid "OTP Verification for Gravity Forms"
+#: gravity-otp-verification.php:1660
+msgid "Gravity Forms - OTP Verification (SMS/EMAIL)"
 msgstr ""
 
-#: include/backend-gf-otp.php:21
+#: include/backend-gf-otp.php:18
 msgid "Mobile OTP"
 msgstr ""
 
-#: include/backend-gf-otp.php:25
+#: include/backend-gf-otp.php:22
 msgid "Allows users to verify their identity with a mobile OTP."
 msgstr ""
 
-#: include/backend-gf-otp.php:82
+#: include/backend-gf-otp.php:79
 msgid "Please enter a valid OTP."
 msgstr ""
 
-#: include/backend-gf-otp.php:156
+#: include/backend-gf-otp.php:153
 msgid "OTP Digits"
 msgstr ""
 
-#: include/backend-gf-otp.php:167
+#: include/backend-gf-otp.php:164
 msgid "Mobile Field ID"
 msgstr ""
 
-#: include/backend-gf-otp.php:171
+#: include/backend-gf-otp.php:168
 msgid "Loading..."
 msgstr ""
 
-#: include/backend-gf-otp.php:174
+#: include/backend-gf-otp.php:171
 msgid "Enter the ID of the field containing the mobile number."
 msgstr ""
 
-#: include/backend-gf-otp.php:181
+#: include/backend-gf-otp.php:178
 msgid "Select the number of digits for the OTP code."
 msgstr ""
 
-#: include/backend-gf-otp.php:182
+#: include/backend-gf-otp.php:179
 msgid "Enter the ID of the field that contains the mobile number."
 msgstr ""
 
-#: include/backend-page-log.php:18
-msgid "SMS Logs"
+#: include/backend-page-log.php:17 include/backend-page-setting.php:55
+msgid "Logs"
 msgstr ""
 
 #. translators: 1: ip
-#: include/backend-page-log.php:26
+#: include/backend-page-log.php:25
 #, php-format
 msgid "YourIP: %s"
 msgstr ""
 
-#: include/backend-page-log.php:33
+#: include/backend-page-log.php:32
 msgctxt "setting-general"
 msgid "Add New"
 msgstr ""
 
-#: include/backend-page-log.php:34
+#: include/backend-page-log.php:33
 msgctxt "setting-general"
 msgid "Select All"
 msgstr ""
 
-#: include/backend-page-log.php:35
+#: include/backend-page-log.php:34
 msgctxt "setting-general"
 msgid "Advanced Search"
 msgstr ""
 
-#: include/backend-page-log.php:36
+#: include/backend-page-log.php:35
 msgctxt "setting-general"
 msgid "Delete Selected"
 msgstr ""
 
-#: include/backend-page-log.php:37
+#: include/backend-page-log.php:36
 msgctxt "setting-general"
 msgid "Empty Database"
 msgstr ""
 
-#: include/backend-page-log.php:38
+#: include/backend-page-log.php:37
 msgctxt "setting-general"
 msgid "Fix Database Structure"
 msgstr ""
 
-#: include/backend-page-log.php:49 include/backend-page-log.php:63
-#: include/backend-page-log.php:64
+#: include/backend-page-log.php:48 include/backend-page-log.php:62
+#: include/backend-page-log.php:63
 msgid "Date created"
 msgstr ""
 
-#: include/backend-page-log.php:50 include/backend-page-log.php:65
+#: include/backend-page-log.php:49 include/backend-page-log.php:64
 msgid "User"
 msgstr ""
 
-#: include/backend-page-log.php:51 include/backend-page-log.php:66
+#: include/backend-page-log.php:50 include/backend-page-log.php:65
 msgid "Mobile"
 msgstr ""
 
-#: include/backend-page-log.php:52 include/backend-page-log.php:67
+#: include/backend-page-log.php:51 include/backend-page-log.php:66
 msgid "OTP Code"
 msgstr ""
 
-#: include/backend-page-log.php:53 include/backend-page-log.php:68
-#: include/backend-page-log.php:147
+#: include/backend-page-log.php:52 include/backend-page-log.php:67
+#: include/backend-page-log.php:146
 msgid "Status"
 msgstr ""
 
-#: include/backend-page-log.php:54 include/backend-page-log.php:69
+#: include/backend-page-log.php:53 include/backend-page-log.php:68
 msgid "Gravity Form"
 msgstr ""
 
-#: include/backend-page-log.php:55 include/backend-page-log.php:70
+#: include/backend-page-log.php:54 include/backend-page-log.php:69
 msgid "Ref. Page"
 msgstr ""
 
-#: include/backend-page-log.php:56 include/backend-page-log.php:71
+#: include/backend-page-log.php:55 include/backend-page-log.php:70
 msgid "User Agent"
 msgstr ""
 
-#: include/backend-page-log.php:57 include/backend-page-log.php:72
+#: include/backend-page-log.php:56 include/backend-page-log.php:71
 msgid "User IP"
 msgstr ""
 
-#: include/backend-page-log.php:58 include/backend-page-log.php:73
+#: include/backend-page-log.php:57 include/backend-page-log.php:72
 msgid "Technical Info"
 msgstr ""
 
-#: include/backend-page-log.php:59 include/backend-page-setting.php:208
-#: include/backend-page-setting.php:252
+#: include/backend-page-log.php:58 include/backend-page-setting.php:217
+#: include/backend-page-setting.php:284
 msgid "Action"
 msgstr ""
 
-#: include/backend-page-log.php:79
+#: include/backend-page-log.php:78
 msgid "View more"
 msgstr ""
 
-#: include/backend-page-log.php:79
+#: include/backend-page-log.php:78
 msgid "more .."
 msgstr ""
 
-#: include/backend-page-log.php:86
+#: include/backend-page-log.php:85
 msgid "Edit User"
 msgstr ""
 
-#: include/backend-page-log.php:87
+#: include/backend-page-log.php:86
 msgid "Edit entry"
 msgstr ""
 
-#: include/backend-page-log.php:88
+#: include/backend-page-log.php:87
 msgid "Delete entry"
 msgstr ""
 
-#: include/backend-page-log.php:95
+#: include/backend-page-log.php:94
 msgid "- Guest -"
 msgstr ""
 
-#: include/backend-page-log.php:120
+#: include/backend-page-log.php:119
 msgid "View"
 msgstr ""
 
-#: include/backend-page-log.php:149
+#: include/backend-page-log.php:148
 msgid "Approved"
 msgstr ""
 
-#: include/backend-page-log.php:150
+#: include/backend-page-log.php:149
 msgid "Rejected"
 msgstr ""
 
-#: include/backend-page-setting.php:19
+#: include/backend-page-setting.php:18
 msgid "Setting"
 msgstr ""
 
-#: include/backend-page-setting.php:41
+#: include/backend-page-setting.php:40
 msgctxt "setting-general"
 msgid "Settings saved successfully."
 msgstr ""
 
-#: include/backend-page-setting.php:44
+#: include/backend-page-setting.php:43
 msgid "SMS.ir"
 msgstr ""
 
-#: include/backend-page-setting.php:45
+#: include/backend-page-setting.php:44
 msgid "SMS.ir v2"
 msgstr ""
 
-#: include/backend-page-setting.php:46
+#: include/backend-page-setting.php:45
 msgid "FarazSMS (IPPanel)"
 msgstr ""
 
-#: include/backend-page-setting.php:47
+#: include/backend-page-setting.php:46
 msgid "Persian WooCommerce SMS"
 msgstr ""
 
-#: include/backend-page-setting.php:52
+#: include/backend-page-setting.php:51
 msgid "General"
 msgstr ""
 
-#: include/backend-page-setting.php:53
-#: include/backend-page-setting.php:205
+#: include/backend-page-setting.php:52
+#: include/backend-page-setting.php:214
 msgid "Translate"
 msgstr ""
 
-#: include/backend-page-setting.php:54
+#: include/backend-page-setting.php:53
 msgid "String Replace"
 msgstr ""
 
-#: include/backend-page-setting.php:55
+#: include/backend-page-setting.php:54
 msgid "Documentation"
 msgstr ""
 
-#: include/backend-page-setting.php:63
+#: include/backend-page-setting.php:66
 msgid "General Configuration"
 msgstr ""
 
-#: include/backend-page-setting.php:66
+#: include/backend-page-setting.php:72
 msgid "Active Debug Mode"
 msgstr ""
 
-#: include/backend-page-setting.php:67
+#: include/backend-page-setting.php:73
 msgid "Max Failed Attempt"
 msgstr ""
 
-#: include/backend-page-setting.php:68
+#: include/backend-page-setting.php:74
 msgid "Mobile Regex"
 msgstr ""
 
 #. translators: 1: regex
-#: include/backend-page-setting.php:70
+#: include/backend-page-setting.php:76
 #, php-format
 msgid ""
 "Set regex to validate mobile field, leave empty to disable it.%2$sFor "
 "Iranian Mobile use: %1$s"
 msgstr ""
 
-#: include/backend-page-setting.php:74
+#: include/backend-page-setting.php:80
 msgid "Cookie Expiration (Day)"
 msgstr ""
 
-#: include/backend-page-setting.php:75
+#: include/backend-page-setting.php:81
 msgid "Lockdown Delay (Min.)"
 msgstr ""
 
-#: include/backend-page-setting.php:76
+#: include/backend-page-setting.php:82
 msgid "Resend Delay (Sec.)"
 msgstr ""
 
-#: include/backend-page-setting.php:77
+#: include/backend-page-setting.php:83
 msgid "Button: Send Code"
 msgstr ""
 
-#: include/backend-page-setting.php:78
+#: include/backend-page-setting.php:84
 msgid "Button: Resend Code"
 msgstr ""
 
-#: include/backend-page-setting.php:79
+#: include/backend-page-setting.php:85
 msgid "Button: Wait to Resend"
 msgstr ""
 
 #. translators: 1: dummy
-#: include/backend-page-setting.php:81
+#: include/backend-page-setting.php:87
 #, php-format
-msgid "Use %1$d for Second indictor, e.g. Wait %1$d Seconds."
+msgid "Use \"%d\" for Second indictor, e.g. Wait %d Seconds."
 msgstr ""
 
-#: include/backend-page-setting.php:82
+#: include/backend-page-setting.php:88
 msgid "SMS Provider Setting"
 msgstr ""
 
-#: include/backend-page-setting.php:85
+#: include/backend-page-setting.php:91
 msgid "SMS Gateway"
 msgstr ""
 
-#: include/backend-page-setting.php:87
+#: include/backend-page-setting.php:93
 msgid "Select SMS Provider and fill below fields as guid provided"
 msgstr ""
 
 #. translators: 1: opening anchor tag, 2: close anchor tag
-#: include/backend-page-setting.php:96
+#: include/backend-page-setting.php:102
 #, php-format
 msgid ""
 "Fill \"Username\" and \"Password\" with <strong>API Key</strong> and "
@@ -941,8 +952,8 @@ msgid ""
 msgstr ""
 
 #. translators: 1: opening anchor tag, 2: close anchor tag
-#: include/backend-page-setting.php:102
-#: include/backend-page-setting.php:132
+#: include/backend-page-setting.php:108
+#: include/backend-page-setting.php:138
 #, php-format
 msgid ""
 "Set Sender Number to your %1$sPurchased Sender number%2$s e.g."
@@ -950,15 +961,15 @@ msgid ""
 msgstr ""
 
 #. translators: 1: url
-#: include/backend-page-setting.php:108
-#: include/backend-page-setting.php:138
+#: include/backend-page-setting.php:114
+#: include/backend-page-setting.php:144
 #, php-format
 msgid "Set API Server URL as %1$s or get Web-service URL from SMS.ir."
 msgstr ""
 
-#: include/backend-page-setting.php:113
-#: include/backend-page-setting.php:143
-#: include/backend-page-setting.php:159
+#: include/backend-page-setting.php:119
+#: include/backend-page-setting.php:149
+#: include/backend-page-setting.php:165
 msgid ""
 "Write your Message on OTP SMS field using <code>[otp]</code> or "
 "<code>{otp}</code> or <code>%otp%</code> to replace with Actual OTP "
@@ -966,8 +977,8 @@ msgid ""
 msgstr ""
 
 #. translators: 1: opening anchor tag, 2: close anchor tag
-#: include/backend-page-setting.php:116
-#: include/backend-page-setting.php:146
+#: include/backend-page-setting.php:122
+#: include/backend-page-setting.php:152
 #, php-format
 msgid ""
 "If you want to send UltraFastSend SMS, %1$sCreate a Template%2$s on "
@@ -976,176 +987,223 @@ msgid ""
 msgstr ""
 
 #. translators: 1: href link
-#: include/backend-page-setting.php:126
+#: include/backend-page-setting.php:132
 #, php-format
 msgid ""
 "Fill \"Username\" with <strong>API Key</strong> from %1$sSMS.ir "
 "Profile%2$s"
 msgstr ""
 
-#: include/backend-page-setting.php:154
+#: include/backend-page-setting.php:160
 msgid ""
 "Set API Server URL to <code>ippanel.com</code> or your given panel "
 "address, e.g. <code>sms.farazsms.com</code>"
 msgstr ""
 
-#: include/backend-page-setting.php:155
+#: include/backend-page-setting.php:161
 msgid ""
 "Set Sender Number to your purchased SMS Sending number or If you are "
 "using <strong>Pattern SMS</strong> use <code>3000505</code>"
 msgstr ""
 
-#: include/backend-page-setting.php:156
+#: include/backend-page-setting.php:162
 msgid "Username and Password are your SMS Panel Credentials."
 msgstr ""
 
-#: include/backend-page-setting.php:162
-#: include/backend-page-setting.php:171
+#: include/backend-page-setting.php:168
+#: include/backend-page-setting.php:177
 msgid ""
 "If you want to use <strong>Pattern SMS</strong> method , Create a "
 "template on your panel and put <code>%otp%</code> on it, then use "
 "following example: "
 msgstr ""
 
-#: include/backend-page-setting.php:167
+#: include/backend-page-setting.php:173
 msgid ""
-"Install Persian WooCommerce SMS and Cofing it, this plugin would use "
-"it as SMS Gateway."
-msgstr ""
-
-#: include/backend-page-setting.php:178
-msgid "API Server URL"
-msgstr ""
-
-#: include/backend-page-setting.php:179
-msgid "Username"
-msgstr ""
-
-#: include/backend-page-setting.php:180
-msgid "Password"
-msgstr ""
-
-#: include/backend-page-setting.php:181
-msgid "Sender number"
-msgstr ""
-
-#: include/backend-page-setting.php:182
-msgid "OTP SMS"
-msgstr ""
-
-#: include/backend-page-setting.php:183
-msgid "Gateway ExtraOtp1"
+"Install Persian WooCommerce SMS and Config it, this plugin would use "
+"it as SMS Gateway"
 msgstr ""
 
 #: include/backend-page-setting.php:184
-msgid "Gateway ExtraOtp2"
+msgid "API Server URL"
 msgstr ""
 
 #: include/backend-page-setting.php:185
-msgid "Gateway ExtraOtp3"
+msgid "Username"
+msgstr ""
+
+#: include/backend-page-setting.php:186
+msgid "Password"
+msgstr ""
+
+#: include/backend-page-setting.php:187
+msgid "Sender number"
+msgstr ""
+
+#: include/backend-page-setting.php:188
+msgid "OTP SMS"
 msgstr ""
 
 #: include/backend-page-setting.php:189
-msgid "Send TEST SMS"
+msgid "Gateway ExtraOtp1"
+msgstr ""
+
+#: include/backend-page-setting.php:190
+msgid "Gateway ExtraOtp2"
 msgstr ""
 
 #: include/backend-page-setting.php:191
+msgid "Gateway ExtraOtp3"
+msgstr ""
+
+#: include/backend-page-setting.php:195
+msgid "Send TEST SMS"
+msgstr ""
+
+#: include/backend-page-setting.php:197
 msgid "Send Test OTP SMS"
 msgstr ""
 
-#: include/backend-page-setting.php:199
-msgid "Current plugin textdomain: "
-msgstr ""
-
-#: include/backend-page-setting.php:204
-#: include/backend-page-setting.php:249
-msgid "Original"
-msgstr ""
-
 #: include/backend-page-setting.php:206
-msgid "TextDomain"
+msgid ""
+"Here you can change the wording of any text that appears in WordPress, "
+"plugins, or themes. Just enter the original text and what you want it "
+"changed to. You can also choose to limit the change to a specific "
+"plugin or theme by setting the text domain. For example, to change "
+"\"Submit\" to \"Send Now\", enter \"Submit\" as the original and "
+"\"Send Now\" as the translation."
 msgstr ""
 
-#: include/backend-page-setting.php:207
-#: include/backend-page-setting.php:251
-msgid "Options"
+#: include/backend-page-setting.php:208
+#, php-format
+msgid "Current plugin textdomain: %s"
 msgstr ""
 
 #: include/backend-page-setting.php:213
-#: include/backend-page-setting.php:257
-msgid "Original text ..."
-msgstr ""
-
-#: include/backend-page-setting.php:214
-#: include/backend-page-setting.php:258
-msgid "Translate to ..."
+#: include/backend-page-setting.php:281
+msgid "Original"
 msgstr ""
 
 #: include/backend-page-setting.php:215
+msgid "TextDomain"
+msgstr ""
+
+#: include/backend-page-setting.php:216
+#: include/backend-page-setting.php:283
+msgid "Options"
+msgstr ""
+
+#: include/backend-page-setting.php:222
+#: include/backend-page-setting.php:289
+msgid "Original text ..."
+msgstr ""
+
+#: include/backend-page-setting.php:223
+#: include/backend-page-setting.php:290
+msgid "Translate to ..."
+msgstr ""
+
+#: include/backend-page-setting.php:224
 msgid "Text Domain (Optional)"
 msgstr ""
 
-#: include/backend-page-setting.php:217
+#: include/backend-page-setting.php:226
 msgid "Partial Replace?"
 msgstr ""
 
-#: include/backend-page-setting.php:218
+#: include/backend-page-setting.php:227
 msgid "Translated Origin?"
 msgstr ""
 
-#: include/backend-page-setting.php:221
-#: include/backend-page-setting.php:264
+#: include/backend-page-setting.php:230
+#: include/backend-page-setting.php:296
 msgid "Delete Row"
 msgstr ""
 
-#: include/backend-page-setting.php:227
-#: include/backend-page-setting.php:270
+#: include/backend-page-setting.php:236
+#: include/backend-page-setting.php:302
 msgid "Add New Row"
 msgstr ""
 
-#: include/backend-page-setting.php:233
+#: include/backend-page-setting.php:243
 msgid "Migrate Translation"
 msgstr ""
 
-#: include/backend-page-setting.php:238
+#: include/backend-page-setting.php:249
 msgid "Translation Data"
 msgstr ""
 
-#: include/backend-page-setting.php:250
+#: include/backend-page-setting.php:258
+msgid ""
+"String Replace lets you automatically replace any text or HTML tag on "
+"your site’s frontend. You can choose to apply the replacement only "
+"inside post/page content, or across the entire site output (including "
+"menus, widgets, etc)."
+msgstr ""
+
+#: include/backend-page-setting.php:262
+msgid "Green (Buffer):"
+msgstr ""
+
+#: include/backend-page-setting.php:263
+msgid "Replace everywhere on the site (output buffer)."
+msgstr ""
+
+#: include/backend-page-setting.php:266
+msgid "Red (Content Only):"
+msgstr ""
+
+#: include/backend-page-setting.php:267
+msgid "Replace only inside post/page content."
+msgstr ""
+
+#: include/backend-page-setting.php:271
+msgid "Example:"
+msgstr ""
+
+#: include/backend-page-setting.php:274
+msgid "will convert all"
+msgstr ""
+
+#: include/backend-page-setting.php:274
+msgid "to"
+msgstr ""
+
+#: include/backend-page-setting.php:282
 msgid "Replace"
 msgstr ""
 
-#: include/backend-page-setting.php:260
+#: include/backend-page-setting.php:292
 msgid "Green: Replace in Output Buffer | Red: Replace in Content Only"
 msgstr ""
 
-#: include/backend-page-setting.php:261
+#: include/backend-page-setting.php:293
 msgid "Active"
 msgstr ""
 
-#: include/backend-page-setting.php:276
+#: include/backend-page-setting.php:309
 msgid "Migrate String Replace"
 msgstr ""
 
-#: include/backend-page-setting.php:281
+#: include/backend-page-setting.php:315
 msgid "String Replace Data"
 msgstr ""
 
-#: include/backend-page-setting.php:373
+#: include/backend-page-setting.php:321
 msgid "Save setting"
 msgstr ""
 
 #. translators: 1: field name
-#: include/backend-page-setting.php:402
-#: include/backend-page-setting.php:429
-#: include/backend-page-setting.php:477
+#: include/backend-page-setting.php:350
+#: include/backend-page-setting.php:377
+#: include/backend-page-setting.php:425
 #, php-format
 msgctxt "setting-page"
 msgid "Enter %s"
 msgstr ""
 
 #. translators: 1: field name
-#: include/backend-page-setting.php:448
+#: include/backend-page-setting.php:396
 #, php-format
 msgctxt "setting-page"
 msgid "Choose %s"
@@ -1157,14 +1215,14 @@ msgstr ""
 
 #. Description of the plugin/theme
 msgid ""
-"This plugin ensures secure form submissions by verifying users' mobile "
-"numbers via OTP before saving"
+"A powerful plugin for Gravity Forms that adds OTP verification via SMS/"
+"Email to your forms for FREE."
 msgstr ""
 
 #. Author of the plugin/theme
-msgid "BlackSwanDev"
+msgid "Pigment.Dev"
 msgstr ""
 
 #. Author URI of the plugin/theme
-msgid "https://blackswandev.com/"
+msgid "https://pigment.dev/"
 msgstr ""

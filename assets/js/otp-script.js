@@ -1,7 +1,7 @@
 /*
  * @Author: Amirhossein Hosseinpour <https://amirhp.com>
  * @Last modified by: amirhp-com <its@amirhp.com>
- * @Last modified time: 2025/03/31 21:53:46
+ * @Last modified time: 2025/08/04 18:45:15
  */
 jQuery.noConflict();
 (function ($) {
@@ -81,9 +81,13 @@ jQuery.noConflict();
       $btn.parents("form").find(".gfield--input-type-otp .validation_message").empty();
       const fieldId = $btn.data("field-id");
       const $mobileField = $btn.parents("form").find($btn.data("mobile"));
+      const otpType = $btn.data("otp_type") || "mobile";
+      if (!fieldId) { show_toast(gravity_otp_verification_vars.err_field_id, $error_color); return; }
+      if (!formId) { show_toast(gravity_otp_verification_vars.err_form_id, $error_color); return; }
       if (!$mobileField.length) { show_toast(gravity_otp_verification_vars.err_mobile_field, $error_color); return; }
       const phone = $mobileField.val();
-      if (!phone) { show_toast(gravity_otp_verification_vars.err_mobile_empty, $error_color); return; }
+      if (!phone && otpType == "mobile") { show_toast(gravity_otp_verification_vars.err_mobile_empty, $error_color); return; }
+      if (!phone && otpType == "email") { show_toast(gravity_otp_verification_vars.err_email_empty, $error_color); return; }
       $btn.prop("disabled", true);
       $("#" + $btn.data("mobile-field").replace("field_", "validation_message_")).empty();
 
@@ -93,6 +97,7 @@ jQuery.noConflict();
           nonce: gravity_otp_verification_vars.nonce,
           page_id: gravity_otp_verification_vars.page_id,
           phone: phone,
+          type: otpType,
           form_id: formId,
           field_id: fieldId,
         },

@@ -1,25 +1,25 @@
-=== OTP Verification for Gravity Forms ===
-Version: 2.7.0
-Stable tag: 2.7.0
-Author: BlackSwan
-Donate link: https://amirhp.com/contact/
-Author URI: https://blackswandev.com/
+=== Gravity Forms - OTP Verification (SMS/EMAIL) ===
+Version: 3.0.0
+Stable tag: 3.0.0
+Author: pigmentdev
+Donate link: https://pigment.dev/contact/
+Author URI: https://pigment.dev/
 Plugin URI: https://wordpress.org/plugins/gravity-otp-verification/
-Contributors: amirhpcom, pigmentdev, blackswanlab
+Contributors: amirhpcom, pigmentdev
 Tags: gravity-forms, sms authentication, phone verification
 Tested up to: 6.8
 WC requires at least: 5.0
-WC tested up to: 9.8
+WC tested up to: 10.0
 Text Domain: gravity-otp-verification
 Domain Path: /languages
-Copyright: (c) BlackSwanDev, All rights reserved.
+Copyright: (c) Pigment.Dev, All rights reserved.
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-This plugin ensures secure form submissions by verifying users’ mobile numbers via OTP before saving.
+A powerful plugin for Gravity Forms that adds OTP verification via SMS/Email to your forms for FREE.
 
 == Description ==
-**OTP Verification for Gravity Forms** allows you to add **One-Time Password (OTP) verification** to Gravity Forms, ensuring that users enter a valid mobile number before submitting a form. It helps prevent spam, fake submissions, and ensures real user authentication.
+**Gravity Forms - OTP Verification** allows you to add **One-Time Password (OTP) verification** to Gravity Forms, ensuring that users enter a valid mobile number or email address before submitting a form. It helps prevent spam, fake submissions, and ensures real user authentication.
 
 ### **Key Features:**
 - 🔒 **Secure Mobile Verification** – Ensures users verify their phone numbers before submitting.
@@ -38,11 +38,18 @@ This plugin ensures secure form submissions by verifying users’ mobile numbers
 - Works across **all WordPress and WooCommerce sites**.
 
 == Supported SMS Gateways ==
-The plugin supports direct integration with the following SMS providers:
+The plugin supports direct integration with popular SMS gateways as well as widely-used SMS plugins. You can send OTP messages using your preferred SMS provider or through supported SMS plugins for maximum flexibility.
 
-- **SMS.ir**
-- **FarazSMS**
-- **IPPanel**
+- **Plugin: WP-SMS (over 300 gateways)**
+- **Plugin: Persian WooCommerce SMS (over 100 gateways)**
+- **Iranian Gateway: SMS.ir (v1/v2)**
+- **Iranian Gateway: FarazSMS**
+- **Iranian Gateway: IPPanel**
+
+== Supported Email Gateways ==
+The plugin uses the default WordPress email sending function (`wp_mail`). This means you are free to use **any email service** you want—whether it’s your web host’s built-in mail, your WordPress site’s configured SMTP settings, or a third-party SMTP plugin. Just configure your preferred email service, and OTP emails will be sent using that method.
+
+You can also fully customize the OTP email: set a custom sender name, sender address, subject, and modify the email template as HTML directly from the plugin settings.
 
 Additionally, you can add **any other SMS gateway** via **WordPress hooks and filters**.
 
@@ -53,9 +60,6 @@ Additionally, you can add **any other SMS gateway** via **WordPress hooks and fi
 4. **Configure your SMS Gateway** in plugin settings.
 5. **Save your form**, and OTP verification will be active.
 
-== Disclaimer and Warranty ==
-This plugin is provided **"as is"** without any warranties, express or implied. While every effort has been made to ensure reliability and security, the developers are not responsible for any issues arising from its use. Always test in a **staging environment** before deploying to production.
-
 == Third-Party & External Resources Used ==
 This plugin utilizes the following third-party libraries to enhance functionality:
 
@@ -64,12 +68,22 @@ This plugin utilizes the following third-party libraries to enhance functionalit
 - **Datatables**
 - **jQuery Confirm**
 - **jQuery Repeater**
-- **Font Awesome** (Used only for icons in the settings panel)
+- **Font Awesome v.7** (Used only for icons in the settings panel)
 
 == Screenshots ==
-1. **Gravity Form > OTP Field Setting**
-2. **Settings > General**
-3. **Settings > SMS Configuration**
+1. Gravity Form > newly added **OTP Field**
+2. Gravity Form > **OTP Field** Settings
+3. Sample OTP Email preview in Gmail
+4. Sample Form with Mobile OTP Field
+5. Mobile OTP Field (Waiting for User to enter code)
+6. Settings > General
+7. Settings > Mobile > Sample Gateway Setting
+8. Settings > Mobile > WP-SMS Gateway Setting
+9. Settings > Email Setting
+10. Settings > Translation Panel
+11. Settings > String Replace Panel
+12. Sent OTPs Log
+
 
 == Installation ==
 1. Upload the plugin files to the `/wp-content/plugins/` directory, or install the plugin through the **WordPress plugins** screen directly.
@@ -81,7 +95,7 @@ This plugin utilizes the following third-party libraries to enhance functionalit
 == Frequently Asked Questions ==
 
 = How does OTP Verification work? =
-Once a user enters their mobile number, they receive an **OTP via SMS**. They must **enter the correct OTP** before submitting the form.
+Once a user enters their mobile number or email address, they receive an **OTP Code**. They must **enter the correct OTP** before submitting the form.
 
 = Can I use my own SMS provider? =
 Yes! The plugin supports **multiple SMS gateways**, and you can **add your own** via hooks.
@@ -95,38 +109,36 @@ Yes! It is tested and compatible with **all recent Gravity Forms versions**.
 = How can I contribute to this plugin? =
 You can help us improve our works by committing your changes to [pigment-dev/gravity-otp-verification](https://github.com/pigment-dev/gravity-otp-verification)
 
-== Credits ==
+== Disclaimer and Warranty ==
+This plugin is provided **"as is"** without any warranties, express or implied. While every effort has been made to ensure reliability and security, the developers are not responsible for any issues arising from its use. Always test in a **staging environment** before deploying to production.
 
-**OTP Verification for Gravity Forms** is developed and maintained by BlackSwanDev, in collaboration with Pigment Development. Together, we focus on **creating powerful WordPress tools** for security and automation.
+== Contribution and Support ==
+We welcome contributions to improve the plugin! If you have feature requests, bug reports, or suggestions, please create a GitHub issue or pull request.
 
-Developed at: **[BlackSwanDev](https://blackswandev.com/)** & **[Pigment.Dev](https://pigment.dev/)**
+Github Repository: [https://github.com/pigment-dev/gravity-otp-verification](https://github.com/pigment-dev/gravity-otp-verification)
 
-Lead Developer: **[AmirhpCom](https://amirhp.com/)**
+For support, contact us at **[support (at) pigment (dot) dev](mailto:support@pigment.dev)**.
+
 
 == Upgrade Notice ==
 Upgrade to enjoy the latest features and security improvements.
 
-= v2.7.0 | 2025-05-15 | 1404-02-25 =
-* Added Persian WooCommerce SMS as Gateway
-* Fix Log panel not loaded
+= v3.0.0 | 2025-08-04 | 1404-05-13 =
+- Added **WP-SMS** plugin as an OTP SMS gateway option.
+- Added **Email OTP verification** alongside Mobile OTP verification.
+- Added option to customize the email sender name and address for OTP emails.
+- Introduced an email template (HTML) editor with a default template for OTP messages.
+- Added **Persian translation** to WordPress plugin repository.
+- Upgraded offloaded **Font Awesome** to version 7.
 
 == Changelog ==
 
-For full changelog please view **[Github Repository](https://github.com/pigment-dev/gravity-otp-verification)**.
+For the full changelog, please view the [Github Repository](https://github.com/pigment-dev/gravity-otp-verification?tab=readme-ov-file#changelog)
 
-= v2.7.0 | 2025-05-15 | 1404-02-25 =
-* Added Persian WooCommerce SMS as Gateway
-* Fix Log panel not loaded
-
-= v2.6.0 | 2025-04-30 | 1404-02-10 =
-* Update WordPress version
-* Fix GF-Panel not Loaded
-
-= v2.5.0 | 2025-04-02 | 1404-01-13 =
-* General fixes and Enhancement
-
-= v2.4.0 | 2025-03-31 | 1404-01-11 =
-* General fixes and Enhancement
-
-= v2.3.0 | 2025-03-20 | 1403-12-30 =
-* Initial release of the plugin for w.org
+= v3.0.0 | 2025-08-04 | 1404-05-13 =
+- Added **WP-SMS** plugin as an OTP SMS gateway option.
+- Added **Email OTP verification** alongside Mobile OTP verification.
+- Added option to customize the email sender name and address for OTP emails.
+- Introduced an email template (HTML) editor with a default template for OTP messages.
+- Added **Persian translation** to WordPress plugin repository.
+- Upgraded offloaded **Font Awesome** to version 7.

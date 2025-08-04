@@ -90,11 +90,3 @@ p[dir=ltr] {
   text-align: left !important;
   padding: 12px;
 }
-
-body, p, input:not([dir=rtl]), button, h1, h2, h3, h4, h5, h6, textarea:not([dir=rtl]), p, .ui-widget {
-  direction: ltr !important;
-}
-
-[dir="rtl"] body:is(p, input:not([dir=ltr]), button, h1, h2, h3, h4, h5, h6, textarea:not([dir=ltr]), p, .ui-widget) {
-  direction: rtl !important;
-}

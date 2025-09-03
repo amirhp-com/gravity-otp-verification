@@ -1,6 +1,6 @@
 === Gravity Forms - OTP Verification (SMS/EMAIL) ===
-Version: 3.0.0
-Stable tag: 3.0.0
+Version: 3.0.1
+Stable tag: 3.0.1
 Author: pigmentdev
 Donate link: https://pigment.dev/contact/
 Author URI: https://pigment.dev/
@@ -109,6 +109,9 @@ Yes! It is tested and compatible with **all recent Gravity Forms versions**.
 = How can I contribute to this plugin? =
 You can help us improve our works by committing your changes to [pigment-dev/gravity-otp-verification](https://github.com/pigment-dev/gravity-otp-verification)
 
+= How can I report security bugs? =
+You can report security bugs through the Patchstack Vulnerability Disclosure Program. The Patchstack team helps validate, triage and handle any security vulnerabilities. [Report a security vulnerability.](https://patchstack.com/database/vdp/db127ab7-a400-46ce-8355-be4d075e7ff8)
+
 == Disclaimer and Warranty ==
 This plugin is provided **"as is"** without any warranties, express or implied. While every effort has been made to ensure reliability and security, the developers are not responsible for any issues arising from its use. Always test in a **staging environment** before deploying to production.
 
@@ -123,6 +126,9 @@ For support, contact us at **[support (at) pigment (dot) dev](mailto:support@pig
 == Upgrade Notice ==
 Upgrade to enjoy the latest features and security improvements.
 
+= v3.0.1 | 2025-09-03 | 1404-06-12 =
+- Updated Readme to added patchstack vdp link for reporting security bugs.
+
 = v3.0.0 | 2025-08-04 | 1404-05-13 =
 - Added **WP-SMS** plugin as an OTP SMS gateway option.
 - Added **Email OTP verification** alongside Mobile OTP verification.
@@ -134,6 +140,9 @@ Upgrade to enjoy the latest features and security improvements.
 == Changelog ==
 
 For the full changelog, please view the [Github Repository](https://github.com/pigment-dev/gravity-otp-verification?tab=readme-ov-file#changelog)
+
+= v3.0.1 | 2025-09-03 | 1404-06-12 =
+- Updated Readme to added patchstack vdp link for reporting security bugs.
 
 = v3.0.0 | 2025-08-04 | 1404-05-13 =
 - Added **WP-SMS** plugin as an OTP SMS gateway option.

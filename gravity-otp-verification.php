@@ -6,7 +6,7 @@
  * Author URI: https://pigment.dev/
  * Plugin URI: https://wordpress.org/plugins/gravity-otp-verification/
  * Contributors: amirhpcom, pigmentdev
- * Version: 3.0.0
+ * Version: 3.0.1
  * Tested up to: 6.8
  * Requires PHP: 7.1
  * Text Domain: gravity-otp-verification
@@ -15,7 +15,7 @@
  * License: GPLv2 or later
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
  * @Last modified by: amirhp-com <its@amirhp.com>
- * @Last modified time: 2025/08/04 19:38:39
+ * @Last modified time: 2025/09/03 19:25:35
 */
 namespace PigmentDev\GravityOTPVerification;
 defined("ABSPATH") or die("<h2>Unauthorized Access!</h2><hr><small>Gravity Forms - OTP Verification (SMS/EMAIL) :: Developed by <a href='https://pigment.dev/'>Pigment.Dev</a></small>");
@@ -23,7 +23,7 @@ if (!class_exists("gravity_otp")) {
   class gravity_otp {
     public $td = "gravity-otp-verification";
     public $db_slug = "gravity_otp_verification";
-    public $version = "3.0.0";
+    public $version = "3.0.1";
     public $script_version;
     public $db_version = "3.0.0";
     public $title = "Gravity Forms - OTP Verification";
@@ -1019,7 +1019,7 @@ if (!class_exists("gravity_otp")) {
     #region
     public function plugin_action_links($actions, $plugin_file) {
       if (plugin_basename(__FILE__) == $plugin_file) {
-        $actions[$this->db_slug] = "<a href='{$this->url}'>" . esc_attr__("Settings", "gravity-otp-verification") . "</a>";
+        $actions[$this->db_slug] = "<a href='".esc_attr($this->url)."'>" . esc_attr__("Settings", "gravity-otp-verification") . "</a>";
       }
       return $actions;
     }
@@ -1490,7 +1490,7 @@ if (!class_exists("gravity_otp")) {
         "str4" => sanitize_file_name($this->title . "-export-" . date_i18n("YmdHis", current_time("timestamp"))),
         "str5" => sprintf(
           /* translators: 1: title, 2: date, 3: time */
-          esc_attr_x('Exported via %1$s — Export Date: %2$s @ %3$s — Developed by Amirhp.com', "wc-setting-js", "gravity-otp-verification"),
+          esc_attr_x('Exported via %1$s — Export Date: %2$s @ %3$s', "wc-setting-js", "gravity-otp-verification"),
           $this->title,
           $currentDate,
           $currentTime
@@ -1595,8 +1595,9 @@ if (!class_exists("gravity_otp")) {
     }
     public function plugin_row_meta($links_array, $plugin_file_name, $plugin_data, $status) {
       if (strpos($plugin_file_name, basename(__FILE__))) {
-        $links_array[] = "<a href='https://github.com/pigment-dev/gravity-otp-verification/wiki/'>" . esc_attr__("Docs", "gravity-otp-verification") . "</a>";
-        $links_array[] = "<a href='https://wordpress.org/support/plugin/gravity-otp-verification/'>" . esc_attr__("Community Support", "gravity-otp-verification") . "</a>";
+        $links_array[] = '<a href="https://github.com/pigment-dev/gravity-otp-verification/wiki" target="_blank" title="'.esc_attr(_x("Documentation", "plugin-meta", "gravity-otp-verification")).'">📖 ' . _x("Docs", "plugin-meta", "gravity-otp-verification") . '</a>';
+        $links_array[] = '<a href="https://patchstack.com/database/wordpress/plugin/gravity-otp-verification/vdp" target="_blank" title="'.esc_attr(_x("Vulnerability Disclosure Program", "plugin-meta", "gravity-otp-verification")).'">🛡️ ' . _x("VDP", "plugin-meta", "gravity-otp-verification") . '</a>';
+        $links_array[] = '<a href="https://wordpress.org/support/plugin/gravity-otp-verification/" target="_blank" title="'.esc_attr(_x("Community Support", "plugin-meta", "gravity-otp-verification")).'">🛟 ' . _x("Community Support", "plugin-meta", "gravity-otp-verification") . '</a>';
       }
       return $links_array;
     }

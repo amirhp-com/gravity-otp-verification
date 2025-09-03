@@ -2,8 +2,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: OTP Verification for Gravity Forms\n"
-"POT-Creation-Date: 2025-08-04 19:15+0330\n"
-"PO-Revision-Date: 2025-08-04 19:16+0330\n"
+"POT-Creation-Date: 2025-08-04 20:00+0330\n"
+"PO-Revision-Date: 2025-08-04 20:01+0330\n"
 "Last-Translator: Amirhossein Hosseinpour <its@amirhp.com>\n"
 "Language-Team: Amirhossein Hosseinpour <its@amirhp.com>\n"
 "Language: fa_IR\n"
@@ -19,6 +19,9 @@ msgstr ""
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-WPHeader: gravity-otp-verification.php\n"
 "X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPath-1: include/backend-gf-otp.php\n"
+"X-Poedit-SearchPath-2: include/backend-page-log.php\n"
+"X-Poedit-SearchPath-3: include/backend-page-setting.php\n"
 "X-Poedit-SearchPathExcluded-0: *.js\n"
 
 #: gravity-otp-verification.php:79
@@ -480,14 +483,14 @@ msgstr "استخراج شده توسط %s"
 #, php-format
 msgctxt "wc-setting-js"
 msgid "Exported at %1$s @ %2$s"
-msgstr "استخراج در %s %s"
+msgstr "استخراج در %1$s @ %2$s"
 
 #. translators: 1: title, 2: date, 3: time
 #: gravity-otp-verification.php:1493
 #, php-format
 msgctxt "wc-setting-js"
-msgid "Exported via %1$s — Export Date: %2$s @ %3$s — Developed by Amirhp.com"
-msgstr "استخراج توسط %s — تاریخ: %s @ %s — توسعه یافته توسط amirhp.com"
+msgid "Exported via %1$s — Export Date: %2$s @ %3$s"
+msgstr "استخراج توسط %1$s — تاریخ: %2$s @ %3$s"
 
 #: gravity-otp-verification.php:1499
 msgctxt "data-table"
@@ -703,7 +706,7 @@ msgstr "وضعیت: %s"
 #, php-format
 msgctxt "footer-copyright"
 msgid "%1$s — Version %2$s"
-msgstr "%s — نسخه %s"
+msgstr "‫%1$s — نسخه %2$s"
 
 #. Plugin Name of the plugin/theme
 #: gravity-otp-verification.php:1775
@@ -1011,7 +1014,7 @@ msgstr "دکمه: ارسال مجدد کد"
 
 #: include/backend-page-setting.php:108
 msgid "Button: Wait to Resend"
-msgstr "دکمه: تا ارسال مجدد %d ثانیه"
+msgstr "دکمه: انتظار تا ارسال مجدد"
 
 #. translators: 1: dummy
 #: include/backend-page-setting.php:110

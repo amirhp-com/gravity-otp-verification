@@ -36,6 +36,9 @@ For support, contact us at **[support (@) pigment (.) dev](mailto:support@pigmen
 This plugin is licensed under **GPLv2 or later**. See [LICENSE](https://www.gnu.org/licenses/gpl-2.0.html) for details.
 ## Changelog
 
+#### v3.0.1 | 2025-09-03 | 1404-06-12
+- Updated Readme to added patchstack vdp link for reporting security bugs.
+
 #### v3.0.0 | 2025-08-04 | 1404-05-13
 - Added **WP-SMS** plugin as an OTP SMS gateway option.
 - Added **Email OTP verification** alongside Mobile OTP verification.

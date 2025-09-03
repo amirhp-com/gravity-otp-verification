@@ -4,7 +4,7 @@
  * Description: A powerful plugin for Gravity Forms that adds OTP verification via SMS/Email to your forms for FREE.
  * Author: Pigment.Dev
  * Author URI: https://pigment.dev/
- * Plugin URI: https://wordpress.org/plugins/gravity-otp-verification/
+ * Plugin URI: https://pigment.dev/gravity-otp-verification/
  * Contributors: amirhpcom, pigmentdev
  * Version: 3.0.1
  * Tested up to: 6.8
@@ -15,7 +15,7 @@
  * License: GPLv2 or later
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
  * @Last modified by: amirhp-com <its@amirhp.com>
- * @Last modified time: 2025/09/03 19:25:35
+ * @Last modified time: 2025/09/03 19:50:59
 */
 namespace PigmentDev\GravityOTPVerification;
 defined("ABSPATH") or die("<h2>Unauthorized Access!</h2><hr><small>Gravity Forms - OTP Verification (SMS/EMAIL) :: Developed by <a href='https://pigment.dev/'>Pigment.Dev</a></small>");
